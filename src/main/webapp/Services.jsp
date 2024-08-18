@@ -299,7 +299,7 @@
                 </li>
             </ul>
         </div>
-
+ 
         <div class="service-category">
             <h3>Featured Foods</h3>
             <p>Some of our popular dishes include:</p>
