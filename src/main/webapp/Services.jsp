@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -235,7 +236,7 @@
     </div>
     
     <div class="header">
-        <img src="images/logo.png" alt="ABC Restaurant Logo" class="logo">
+        <img src='<c:url value="/images/logo.jpg"></c:url>'/>
         <h1>Services You Get</h1>
     </div>
 
@@ -311,7 +312,7 @@
                     <p class="service-detail">Tender pork pieces stir-fried with vegetables and a tangy sweet and sour sauce.</p>
                 </li>
                 <li>Korean Bibimbap
-                    <p class="service-detail">A traditional mixed rice dish topped with sautÃ©ed vegetables, meat, and a fried egg.</p>
+                    <p class="service-detail">A traditional mixed rice dish topped with sautéed vegetables, meat, and a fried egg.</p>
                 </li>
             </ul>
         </div>

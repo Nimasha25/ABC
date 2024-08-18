@@ -15,9 +15,9 @@ public class CustomerDAO {
     public void addCustomer(Customer customer) {
         String sql = "INSERT INTO Customers (first_name, last_name, email, phone_number) VALUES (?, ?, ?, ?)";
 
-        try (Connection connection = DBConnFac.getConnection();
-             PreparedStatement statement = connection.prepareStatement(sql)) {
-            
+        try {
+        	Connection connection = DBConnFac.getConnection();
+        	PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, customer.getFirstName());
             statement.setString(2, customer.getLastName());
             statement.setString(3, customer.getEmail());
