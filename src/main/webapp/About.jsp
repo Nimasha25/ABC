@@ -226,7 +226,7 @@
 
     <div class="section">
         <h2>Overview</h2>
-        <p>ABC Restaurant is a renowned dining establishment, offering a unique blend of culinary delights in various cities across Sri Lanka. Our mission is to provide an exceptional dining experience through a combination of quality ingredients, expert chefs, and outstanding customer service.</p>
+        <p>ABC Restaurant is a giving dining establishment, offering a unique blend of culinary delights in various cities across Sri Lanka. Our mission is to provide an exceptional dining experience through a combination of quality ingredients, expert chefs, and outstanding customer service.</p>
         <p>With a commitment to innovation, ABC Restaurant has integrated advanced technology to enhance the customer experience, making reservations and orders seamless and convenient.</p>
     </div>
 
