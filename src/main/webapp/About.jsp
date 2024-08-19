@@ -217,6 +217,7 @@
         <a href="Gallery.jsp">Gallery</a>
         <a href="Services.jsp">Contact</a>
         <a href="Contact.jsp">Contact</a>
+        <a href="order.jsp" style="float: right;">Order Online</a>
     </div>
 
     <div class="header">

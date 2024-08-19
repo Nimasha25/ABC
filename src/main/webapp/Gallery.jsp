@@ -239,7 +239,7 @@
         <a href="Contact.jsp">Contact</a>
         <a href="Menu.jsp">Menu</a>
         <a href="reservation.jsp">Reservation</a>
-        <a href="Order-online.jsp" style="float: right;">Order Online</a>
+        <a href="order.jsp" style="float: right;">Order Online</a>
     </div>
     
     

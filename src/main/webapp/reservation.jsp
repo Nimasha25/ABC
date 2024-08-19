@@ -169,7 +169,7 @@
         <a href="Menu.jsp">Menu</a>
         <a href="reservation.jsp">Reservation</a>
         <a href="Services.jsp">Services</a>
-        <a href="Order-online.jsp" style="float: right;">Order Online</a>
+     <a href="order.jsp" style="float: right;">Order Online</a>
     </div>
 
     <div class="header">
@@ -193,7 +193,7 @@
             <select name="serviceType" id="serviceType" required>
                 <option value="delivery">Delivery</option>
                 <option value="dine-in">Dine-In</option>
-                <option value="takeaway">Takeaway</option>
+                <option value="takeaway">Take-Away</option>
             </select><br>
 
             <label for="date">Date:</label>
