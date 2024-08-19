@@ -230,7 +230,7 @@
         <a href="About.jsp">About</a>
         <a href="Gallery.jsp">Gallery</a>
         <a href="Contact.jsp">Contact</a>
-        <a href="Menu.jsp">Menu</a>
+        <a href="menu.jsp">Menu</a>
         <a href="reservation.jsp">Reservation</a>
         <a href="order.jsp" style="float: right;">Order Online</a>
     </div>

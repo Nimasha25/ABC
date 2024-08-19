@@ -4,4 +4,54 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>AvailabilityController</servlet-name>
+  	<display-name>AvailabilityController</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.AvailabilityController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ReceiptServlet</servlet-name>
+  	<display-name>ReceiptServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.ReceiptServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>RecieptServlet</servlet-name>
+  	<display-name>RecieptServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.RecieptServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ProcessPaymentServlet</servlet-name>
+  	<display-name>ProcessPaymentServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.ProcessPaymentServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UserController</servlet-name>
+  	<display-name>UserController</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.UserController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AvailabilityController</servlet-name>
+  	<url-pattern>/AvailabilityController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ReceiptServlet</servlet-name>
+  	<url-pattern>/ReceiptServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RecieptServlet</servlet-name>
+  	<url-pattern>/RecieptServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ProcessPaymentServlet</servlet-name>
+  	<url-pattern>/ProcessPaymentServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UserController</servlet-name>
+  	<url-pattern>/UserController</url-pattern>
+  </servlet-mapping>
 </web-app>

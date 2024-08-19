@@ -1,4 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +15,14 @@
             padding: 0;
             color: #333;
             background-color: #f8f9fa;
+             background-image: url('<c:url value="/images/logo.jpg"/>');
+             background-image: url('https://pngtree.com/images/logo.jpg');
+             
+    background-size: cover; /* Adjust size as needed */
+    background-position: center; /* Adjust position as needed */
         }
+      
+        
    .search-container {
     position: relative;
     display: inline-block;
@@ -469,12 +478,13 @@
     </style>
 </head>
 <body>
+
     <div class="navbar">
         <a href="index.jsp">Home</a>
         <a href="About.jsp">About</a>
         <a href="Gallery.jsp">Gallery</a>
         <a href="Contact.jsp">Contact</a>
-        <a href="Menu.jsp">Menu</a>
+       <a href="menu.jsp">Menu</a>
         <a href="reservation.jsp">Reservation</a>
          <a href="Services.jsp">Services</a>
          
@@ -483,7 +493,8 @@
     </div>
 
     <div class="header">
-        <img src="images/logo.png" alt="ABC Restaurant Logo" class="logo">
+        <img src='<c:url value="/images/logo.jpg"/>' alt="ABC Restaurant Logo" class="logo">
+
         <h1>Welcome to ABC Restaurant</h1>
     </div>
     
@@ -600,7 +611,7 @@
    <div class="footer">
     <div class="footer-container">
         <div class="footer-logo">
-            <img src="images/logo.png" alt="ABC Restaurant Logo">
+            <img src='<c:url value="/images/logo.jpg"/>' alt="ABC Restaurant Logo" class="logo">
         </div>
         <div class="quick-links">
             <h3>Quick Links</h3>
@@ -608,9 +619,9 @@
             <a href="About.jsp">About</a>
             <a href="Gallery.jsp">Gallery</a>
             <a href="Contact.jsp">Contact</a>
-            <a href="Menu.jsp">Menu</a>
+            <a href="menu.jsp">Menu</a>
              <a href="Services.jsp">Contact</a>
-            <a href="Reservation.jsp">Reservation</a>
+            <a href="reservation.jsp">Reservation</a>
         </div>
         <div class="opening-hours">
             <h3>Opening Hours</h3>
@@ -620,7 +631,7 @@
         <div class="sign-up">
             <h3>Sign Up for Special Offers</h3>
             <input type="email" placeholder="Enter your email">
-            <button onclick="window.location.href='SignUp.jsp';">Sign Up</button>
+            <button onclick="window.location.href='register.jsp';">Sign Up</button>
         </div>
     </div>
     <div class="background-images">

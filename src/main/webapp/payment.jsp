@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -272,6 +273,31 @@
         .hidden {
             display: none;
         }
+        .receipt {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+        .receipt h1 {
+            color: #007bff;
+        }
+        .receipt p {
+            font-size: 18px;
+        }
+        .receipt button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .receipt button:hover {
+            background-color: #0056b3;
     </style>
 </head>
 <body>
@@ -280,7 +306,7 @@
         <a href="About.jsp">About</a>
         <a href="Gallery.jsp">Gallery</a>
         <a href="Contact.jsp">Contact</a>
-        <a href="Menu.jsp">Menu</a>
+        <a href="menu.jsp">Menu</a>
         <a href="reservation.jsp">Reservation</a>
         <a href="Services.jsp">Services</a>
         <a href="order.jsp" style="float: right;">Order Online</a>
@@ -319,7 +345,9 @@
 
                             <div class="total">Total Amount: $<span id="total-amount">0.00</span></div>
                         </div>
+                       
                         <button type="submit" name="process-online" onclick="window.location.href='register.jsp'; return false;">Process</button>
+                     <input type="submit" name="Complete Payment" onclick= "window.location.href='process-payment.jsp;return false;'"></button>
                     </div>
                 </div>
                 
@@ -370,6 +398,36 @@
             }
         }
     </script>
+     <!-- Receipt Download Button -->
+        <a href="generate-receipt" class="receipt-btn">Download Receipt</a>
+    </div>
+
+    <script>
+        document.getElementById('online-payment').addEventListener('change', function() {
+            document.getElementById('online-payment-fields').style.display = 'block';
+        });
+
+        document.getElementById('cash-on-delivery').addEventListener('change', function() {
+            document.getElementById('online-payment-fields').style.display = 'none';
+        });
+    </script>
+    <%
+        String paymentMethod = request.getParameter("paymentMethod");
+        if (paymentMethod != null) {
+            if ("Cash on Delivery".equals(paymentMethod)) {
+                out.println("<p>Thank you! Please proceed to the <a href='process.jsp'>receipt</a>.</p>");
+            } else if ("Online Payment".equals(paymentMethod)) {
+                out.println("<p>Proceed with online payment details below:</p>");
+                out.println("<form action='process.jsp' method='post'>");
+                out.println("Card Number: <input type='text' name='cardNumber'><br>");
+                out.println("Phone Number: <input type='text' name='phoneNumber'><br>");
+                out.println("Name: <input type='text' name='name'><br>");
+                out.println("<input type='submit' value='Process Payment'>");
+                out.println("</form>");
+            }
+        }
+    %>
+    
      <div class="footer">
     <div class="footer-container">
         <div class="footer-logo">
@@ -393,7 +451,7 @@
         <div class="sign-up">
             <h3>Sign Up for Special Offers</h3>
             <input type="email" placeholder="Enter your email">
-            <button onclick="window.location.href='SignUp.jsp';">Sign Up</button>
+            <button onclick="window.location.href='register.jsp';">Sign Up</button>
         </div>
     </div>
     <div class="background-images">

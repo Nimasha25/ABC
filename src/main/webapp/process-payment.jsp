@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABC Restaurant - Blog</title>
+    <title>Payment Processed</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
@@ -15,92 +15,48 @@
             color: #333;
             background-color: #f8f9fa;
         }
-        .navbar {
-            background-color: #007bff;
-            overflow: hidden;
-            padding: 10px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .navbar a {
-            float: left;
-            display: block;
-            color: #fff;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-        .navbar a:hover {
-            background-color: #0056b3;
-            color: #fff;
-        }
         .container {
             padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
         }
-        .section {
-            margin: 20px 0;
-            padding: 20px;
+        .receipt {
             background-color: #fff;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        .section h2 {
-            font-size: 28px;
-            font-weight: bold;
-            color: #007bff;
-            border-bottom: 2px solid #007bff;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-        .blog-images {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .blog-image {
-            position: relative;
-            flex: 1;
-            min-width: 300px;
-            border-radius: 8px;
-            overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .blog-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        .blog-image .description {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            padding: 10px;
+            padding: 20px;
             text-align: center;
-            font-size: 16px;
         }
-        .back-button {
-            text-align: center;
-            margin: 20px 0;
+        .receipt h1 {
+            color: #007bff;
         }
-        .back-button button {
-            background-color: #007bff;
-            border: none;
-            color: white;
-            padding: 10px 20px;
+        .receipt p {
             font-size: 18px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
         }
-        .back-button button:hover {
-            background-color: #0056b3;
-        }
-             .footer {
+       .receipt button {
+    background-color: #28a745; /* Green background color */
+    color: white; /* White text color */
+    padding: 12px 24px; /* Larger padding for a more prominent button */
+    border: none; /* No border */
+    border-radius: 8px; /* More rounded corners */
+    font-size: 18px; /* Slightly larger font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: all 0.3s ease; /* Smooth transition for all properties */
+    margin-top: 20px; /* Space above the button */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.receipt button:hover {
+    background-color: #218838; /* Darker green background color on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.receipt button:active {
+    background-color: #1e7e34; /* Even darker green for active state */
+    transform: translateY(0); /* Reset lift effect on click */
+}
+
+    .footer {
     background-color: #333;
     color: white;
     text-align: center;
@@ -229,38 +185,29 @@
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <a href="index.jsp">Home</a>
-        <a href="About.jsp">About</a>
-        <a href="Gallery.jsp">Gallery</a>
-        <a href="Contact.jsp">Contact</a>
-        <a href="menu.jsp">Menu</a>
-   <a href="reservation.jsp">Reservation</a>
-        <a href="order.jsp" style="float: right;">Order Online</a>
-    </div>
-
     <div class="container">
-        <div class="section">
-            <h2>Our Blog </h2>
-            <div class="blog-images">
-                <div class="blog-image">
-                    <img src="images/facility1.jpg" alt="Facility 1">
-                    <div class="description">Description for Facility 1.</div>
-                </div>
-                <div class="blog-image">
-                    <img src="images/facility2.jpg" alt="Facility 2">
-                    <div class="description">Description for Facility 2.</div>
-                </div>
-                <div class="blog-image">
-                    <img src="images/facility3.jpg" alt="Facility 3">
-                    <div class="description">Description for Facility 3.</div>
-                </div>
-            </div>
-        </div>
+        <%
+        // Retrieve payment details
+        String amount = request.getParameter("amount");
+        String paymentMethod = request.getParameter("payment-method");
 
-        <div class="back-button">
-            <button onclick="window.location.href='index.jsp';">Back to Home</button>
-        </div>
+        // Simulate payment processing (replace with actual payment logic)
+        boolean paymentSuccessful = true; // Assume payment is successful
+
+        if (paymentSuccessful) {
+            // Display receipt
+            out.println("<div class='receipt'><h1>Payment Successful</h1>");
+            out.println("<p>Thank you for your payment!</p>");
+            out.println("<p>Total Amount: $" + amount + "</p>");
+            out.println("<p>Payment Method: " + paymentMethod + "</p></div>");
+            out.println("<button onclick=\"window.location.href='index.jsp';\">Back to Home</button></div>");
+        } else {
+            // Payment failed message
+            out.println("<div class='receipt'><h1>Payment Failed</h1>");
+            out.println("<p>Sorry, your payment could not be processed. Please try again.</p></div>");
+            out.println("<button onclick=\"window.location.href='index.jsp';\">Back to Home</button></div>");
+        }
+        %>
     </div>
     <div class="footer">
     <div class="footer-container">
@@ -273,9 +220,9 @@
             <a href="About.jsp">About</a>
             <a href="Gallery.jsp">Gallery</a>
             <a href="Contact.jsp">Contact</a>
-            <a href="Menu.jsp">Menu</a>
+            <a href="menu.jsp">Menu</a>
              <a href="Services.jsp">Contact</a>
-            <a href="Reservation.jsp">Reservation</a>
+            <a href="reservation.jsp">Reservation</a>
         </div>
         <div class="opening-hours">
             <h3>Opening Hours</h3>
@@ -295,6 +242,5 @@
     </div>
     <p>&copy; 2024 ABC Restaurant. All rights reserved.</p>
 </div>
-    
 </body>
 </html>

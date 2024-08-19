@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,9 +92,9 @@
         <a href="About.jsp">About</a>
         <a href="Gallery.jsp">Gallery</a>
         <a href="Contact.jsp">Contact</a>
-        <a href="Menu.jsp">Menu</a>
-        <a href="Reservation.jsp">Reservation</a>
-        <a href="Order-online.jsp" style="float: right;">Order Online</a>
+        <a href="menu.jsp">Menu</a>
+        <a href="reservation.jsp">Reservation</a>
+        <a href="order.jsp" style="float: right;">Order Online</a>
     </div>
 
     <div class="header">

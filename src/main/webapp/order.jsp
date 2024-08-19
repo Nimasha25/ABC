@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -352,9 +353,10 @@
         <a href="About.jsp">About</a>
         <a href="Gallery.jsp">Gallery</a>
         <a href="Contact.jsp">Contact</a>
-        <a href="Menu.jsp">Menu</a>
+        <a href="menu.jsp">Menu</a>
         <a href="reservation.jsp">Reservation</a>
-        <a href="Order-online.jsp" style="float: right;">Order Online</a>
+        <a href="order.jsp" style="float: right;">Order Online</a>
+        
     </div>
 
     <div class="header">
@@ -530,37 +532,39 @@
 
     </div>
 
-    <div class="footer">
-        <div class="footer-container">
-            <div class="footer-logo">
-                <img src="images/logo.png" alt="ABC Restaurant Logo">
-            </div>
-            <div class="quick-links">
-                <h3>Quick Links</h3>
-                <a href="index.jsp">Home</a>
-                <a href="About.jsp">About</a>
-                <a href="Gallery.jsp">Gallery</a>
-                <a href="Contact.jsp">Contact</a>
-                <a href="Menu.jsp">Menu</a>
-                <a href="reservation.jsp">Reservation</a>
-            </div>
-            <div class="opening-hours">
-                <h3>Opening Hours</h3>
-                <p>Mon-Fri: 10:00 AM - 10:00 PM</p>
-                <p>Sat-Sun: 11:00 AM - 11:00 PM</p>
-            </div>
-            <div class="sign-up">
-                <h3>Sign Up for Updates</h3>
-                <input type="email" placeholder="Enter your email">
-                <button>Sign Up</button>
-            </div>
+   <div class="footer">
+    <div class="footer-container">
+        <div class="footer-logo">
+            <img src="images/logo.png" alt="ABC Restaurant Logo">
         </div>
-        <div class="background-images">
-            <img src="images/footer-bg-1.jpg" alt="Background Image 1">
-            <img src="images/footer-bg-2.jpg" alt="Background Image 2">
+        <div class="quick-links">
+            <h3>Quick Links</h3>
+            <a href="index.jsp">Home</a>
+            <a href="About.jsp">About</a>
+            <a href="Gallery.jsp">Gallery</a>
+            <a href="Contact.jsp">Contact</a>
+            <a href="Menu.jsp">Menu</a>
+             <a href="Services.jsp">Contact</a>
+            <a href="Reservation.jsp">Reservation</a>
         </div>
-        <p>&copy; 2024 ABC Restaurant. All rights reserved.</p>
+        <div class="opening-hours">
+            <h3>Opening Hours</h3>
+            <p>Monday - Friday: 10:00 AM - 10:00 PM</p>
+            <p>Saturday - Sunday: 9:00 AM - 11:00 PM</p>
+        </div>
+        <div class="sign-up">
+            <h3>Sign Up for Special Offers</h3>
+            <input type="email" placeholder="Enter your email">
+            <button onclick="window.location.href='register.jsp';">Sign Up</button>
+        </div>
     </div>
+    <div class="background-images">
+        <img src="images/footer-bg1.jpg" alt="Background Image 1">
+        <img src="images/footer-bg2.jpg" alt="Background Image 2">
+        <img src="images/footer-bg3.jpg" alt="Background Image 3">
+    </div>
+    <p>&copy; 2024 ABC Restaurant. All rights reserved.</p>
+</div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {

@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -237,7 +238,7 @@
         <a href="Services.jsp">Services</a>
         <a href="Gallery.jsp">Gallery</a>
         <a href="Contact.jsp">Contact</a>
-        <a href="Menu.jsp">Menu</a>
+        <a href="menu.jsp">Menu</a>
         <a href="reservation.jsp">Reservation</a>
         <a href="order.jsp" style="float: right;">Order Online</a>
     </div>
@@ -303,7 +304,7 @@
 </div>
 
 
-   <div class="footer">
+  <div class="footer">
     <div class="footer-container">
         <div class="footer-logo">
             <img src="images/logo.png" alt="ABC Restaurant Logo">
@@ -315,27 +316,27 @@
             <a href="Gallery.jsp">Gallery</a>
             <a href="Contact.jsp">Contact</a>
             <a href="Menu.jsp">Menu</a>
+             <a href="Services.jsp">Contact</a>
             <a href="Reservation.jsp">Reservation</a>
-            <a href="Services.jsp">Services</a>
-            <a href="Order-online.jsp">Order Online</a>
         </div>
         <div class="opening-hours">
             <h3>Opening Hours</h3>
-            <p>Monday - Friday: 9:00 AM - 10:00 PM</p>
-            <p>Saturday - Sunday: 10:00 AM - 11:00 PM</p>
+            <p>Monday - Friday: 10:00 AM - 10:00 PM</p>
+            <p>Saturday - Sunday: 9:00 AM - 11:00 PM</p>
         </div>
         <div class="sign-up">
-            <h3>Sign Up for Our Newsletter</h3>
+            <h3>Sign Up for Special Offers</h3>
             <input type="email" placeholder="Enter your email">
-            <button>Sign Up</button>
+            <button onclick="window.location.href='register.jsp';">Sign Up</button>
         </div>
     </div>
     <div class="background-images">
-        <img src="images/footer-image1.jpg" alt="Background 1">
-        <img src="images/footer-image2.jpg" alt="Background 2">
-        <img src="images/footer-image3.jpg" alt="Background 3">
+        <img src="images/footer-bg1.jpg" alt="Background Image 1">
+        <img src="images/footer-bg2.jpg" alt="Background Image 2">
+        <img src="images/footer-bg3.jpg" alt="Background Image 3">
     </div>
-    <p>&copy; 2024 ABC Restaurant. All Rights Reserved.</p>
+    <p>&copy; 2024 ABC Restaurant. All rights reserved.</p>
 </div>
+
 </body>
 </html>

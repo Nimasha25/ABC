@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -216,6 +217,7 @@
         <a href="Services.jsp">Services</a>
         <a href="Gallery.jsp">Gallery</a>
         <a href="Services.jsp">Contact</a>
+        <a href="menu.jsp">Menu</a>
         <a href="Contact.jsp">Contact</a>
         <a href="order.jsp" style="float: right;">Order Online</a>
     </div>
@@ -280,7 +282,7 @@
         <div class="sign-up">
             <h3>Sign Up for Special Offers</h3>
             <input type="email" placeholder="Enter your email">
-            <button onclick="window.location.href='SignUp.jsp';">Sign Up</button>
+            <button onclick="window.location.href='register.jsp';">Sign Up</button>
         </div>
     </div>
     <div class="background-images">

@@ -1,30 +1,22 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
+<%@ page import="java.sql.*, java.io.IOException, javax.servlet.*,java.net.URLEncoder" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - ABC Restaurant</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            color: #333;
+            background-color: #f8f9fa;
         }
-        header {
-            background-color: #0056b3;
-            color: #fff;
-            padding: 15px 0;
-            text-align: center;
-        }
-        header .logo {
-            width: 150px;
-            height: auto;
-        }
-           .navbar {
+        .navbar {
             background-color: #007bff;
             overflow: hidden;
             padding: 10px 0;
@@ -45,47 +37,48 @@
             color: #fff;
         }
         .container {
-            width: 80%;
-            margin: auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .login-form {
+            max-width: 600px;
+            margin: 0 auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        .container h1 {
-            text-align: center;
-            color: #333;
-        }
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            max-width: 600px;
-            margin: auto;
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        .contact-form button {
-            background-color: #0056b3;
-            color: #fff;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
+        .login-form label {
+            display: block;
+            margin: 10px 0 5px;
             font-size: 16px;
         }
-        .contact-form button:hover {
-            background-color: #004494;
+        .login-form input[type="text"], .login-form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
         }
-        .map {
-            text-align: center;
-            margin: 20px 0;
+        .login-form input[type="submit"] {
+            background-color: #007bff;
+            border: none;
+            color: white;
+            padding: 15px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
-            .footer {
+        .login-form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+         .footer {
     background-color: #333;
     color: white;
     text-align: center;
@@ -211,64 +204,86 @@
     color: #ccc;
 }
 
-        .background-images {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 20px 0;
-        }
-        .background-images img {
-            width: 200px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
     </style>
 </head>
 <body>
-<div class="navbar">
+    <div class="navbar">
         <a href="index.jsp">Home</a>
         <a href="About.jsp">About</a>
         <a href="Gallery.jsp">Gallery</a>
         <a href="Contact.jsp">Contact</a>
         <a href="menu.jsp">Menu</a>
         <a href="reservation.jsp">Reservation</a>
-         
-       <a href="order.jsp" style="float: right;">Order Online</a>
-        
+        <a href="Services.jsp">Services</a>
+        <a href="order.jsp" style="float: right;">Order Online</a>
     </div>
-    <header>
-        <img src="images/logo.png" alt="ABC Restaurant Logo" class="logo">
-        <h1>Contact Us</h1>
-    </header>
+
     <div class="container">
-        <h2>Get in Touch</h2>
-        <div class="contact-info">
-            <p><strong>ABC Restaurant</strong></p>
-            <p>1234 Restaurant Avenue, Colombo, Sri Lanka</p>
-            <p>Phone: +94 123 456 789</p>
-            <p>Email: info@abcrestaurant.lk</p>
+        <h1>Login</h1>
+        <div class="login-form">
+            <form action="login.jsp" method="post">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <input type="submit" value="Login">
+            </form>
+
+            <%
+                String username = request.getParameter("username");
+                String password = request.getParameter("password");
+
+                if (username != null && password != null) {
+                    // Replace with your database connection details
+                    String url = "jdbc:mysql://localhost:3306/abc_res_db";
+                    String user = "root";
+                    String pass = "MySQL@25";
+                    Connection conn = null;
+                    PreparedStatement pst = null;
+                    ResultSet rs = null;
+
+                    try {
+                        // Load database driver
+                        Class.forName("com.mysql.cj.jdbc.Driver");
+                        conn = DriverManager.getConnection(url, user, pass);
+
+                        // Validate user credentials
+                        String sql = "SELECT role FROM users WHERE username = ? AND password = ?";
+                        pst = conn.prepareStatement(sql);
+                        pst.setString(1, username);
+                        pst.setString(2, password); // Ideally, passwords should be hashed
+                        rs = pst.executeQuery();
+
+                        if (rs.next()) {
+                            String role = rs.getString("role");
+                            // Redirect based on role
+                            if ("customer".equalsIgnoreCase(role)) {
+                                response.sendRedirect("payment.jsp");
+                            } else {
+                                response.sendRedirect("home.jsp"); // Redirect to a role-specific page or dashboard
+                            }
+                        } else {
+                            // Invalid credentials
+                            String errorMessage = URLEncoder.encode("Invalid username or password.", "UTF-8");
+                            response.sendRedirect("error.jsp?errorMessage=" + errorMessage);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        String errorMessage = URLEncoder.encode("An error occurred. Please try again later.", "UTF-8");
+                        response.sendRedirect("error.jsp?errorMessage=" + errorMessage);
+                    } finally {
+                        if (rs != null) try { rs.close(); } catch (SQLException e) { e.printStackTrace(); }
+                        if (pst != null) try { pst.close(); } catch (SQLException e) { e.printStackTrace(); }
+                        if (conn != null) try { conn.close(); } catch (SQLException e) { e.printStackTrace(); }
+                    }
+                }
+            %>
         </div>
-        <div class="map">
-            <!-- Embed Google Map -->
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.510832339426!2d79.98170691475457!3d6.927079995004338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25995d9d4cbd7%3A0x6e0a70e9f510fc7d!2sABC%20Restaurant!5e0!3m2!1sen!2slk!4v1692195049820!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-        <form action="contactSubmit.jsp" method="post" class="contact-form">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <input type="text" name="subject" placeholder="Subject" required>
-            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-        <form action="querySubmit.jsp" method="post" class="contact-form">
-            <h3>Submit a Query</h3>
-            <input type="text" name="queryName" placeholder="Your Name" required>
-            <input type="email" name="queryEmail" placeholder="Your Email" required>
-            <textarea name="queryMessage" rows="5" placeholder="Your Query" required></textarea>
-            <button type="submit">Submit Query</button>
-        </form>
     </div>
-    <footer>
+
+    <div class="footer">
         <div class="footer-container">
             <div class="footer-logo">
                 <img src="images/logo.png" alt="ABC Restaurant Logo">
@@ -300,6 +315,6 @@
             <img src="images/footer-bg3.jpg" alt="Background Image 3">
         </div>
         <p>&copy; 2024 ABC Restaurant. All rights reserved.</p>
-    </footer>
+    </div>
 </body>
 </html>
