@@ -161,7 +161,8 @@
             background-color: #218838;
         }
     </style>
-    <script>
+  <script>
+        // Handle form submission using AJAX
         function handleReservation(event) {
             event.preventDefault(); // Prevent the form from submitting immediately
 
@@ -169,16 +170,21 @@
             var form = document.querySelector('.form-container form');
             var formData = new FormData(form);
 
-            // Simulate form submission and success/failure response
-            // You should replace this simulation with an actual server call
-            var reservationSuccess = true; // Simulate success/failure here
-
-            if (reservationSuccess) {
-                alert("Reservation successful!");
-                form.reset(); // Reset form fields after success
-            } else {
-                alert("No reservation available. Please try again.");
-            }
+            fetch('reservation', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(result => {
+                alert(result);
+                if (result === "Reservation successful!") {
+                    form.reset(); // Reset form fields after success
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert("There was an error processing your reservation.");
+            });
         }
     </script>
 </head>
@@ -201,14 +207,14 @@
 
     <div class="form-container">
         <h2>Reservation Form</h2>
-        <form onsubmit="handleReservation(event)">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required><br>
+        <form action="reservation" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
 
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required><br>
             
-            <label for="phone">Phone Number:</label>
+            <label for="phone">Phone Number:</labelz>
             <input type="tel" id="phone" name="phone" required><br>
 
             <label for="serviceType">Select Service:</label>

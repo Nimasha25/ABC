@@ -22,7 +22,7 @@ public class UserDAO {
             pst.setString(2, user.getFullName());
             pst.setString(3, user.getEmail());
             pst.setString(4, user.getPhone());
-            pst.setString(5, user.getPassword()); // Hash the password before storing
+            pst.setString(5, user.getPassword()); 
             pst.setString(6, user.getRole());
 
             pst.executeUpdate();

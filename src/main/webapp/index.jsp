@@ -18,11 +18,12 @@
              background-image: url('<c:url value="/images/logo.jpg"/>');
              background-image: url('https://pngtree.com/images/logo.jpg');
              
+             
     background-size: cover; /* Adjust size as needed */
     background-position: center; /* Adjust position as needed */
         }
       
-        
+     
    .search-container {
     position: relative;
     display: inline-block;

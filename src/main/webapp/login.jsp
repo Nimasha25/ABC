@@ -228,7 +228,7 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
 
-                <input type="submit" value="Login">
+                <input type="submit" name="Login" onclick="window.location.href='Back-dashboard.jsp;return false;'"></button>
             </form>
 
             <%
@@ -262,7 +262,7 @@
                             if ("customer".equalsIgnoreCase(role)) {
                                 response.sendRedirect("payment.jsp");
                             } else {
-                                response.sendRedirect("home.jsp"); // Redirect to a role-specific page or dashboard
+                                response.sendRedirect("Back-dashboard.jsp"); // Redirect to a role-specific page or dashboard
                             }
                         } else {
                             // Invalid credentials

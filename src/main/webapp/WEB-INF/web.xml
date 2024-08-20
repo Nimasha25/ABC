@@ -34,6 +34,36 @@
   	<description></description>
   	<servlet-class>com.abcres.controller.UserController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>RegisterServlet</servlet-name>
+  	<display-name>RegisterServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.RegisterServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>eservationController</servlet-name>
+  	<display-name>eservationController</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.eservationController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ReservationController</servlet-name>
+  	<display-name>ReservationController</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.ReservationController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AdminReservationController</servlet-name>
+  	<display-name>AdminReservationController</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.AdminReservationController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AdminDashboardController</servlet-name>
+  	<display-name>AdminDashboardController</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.AdminDashboardController</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>AvailabilityController</servlet-name>
   	<url-pattern>/AvailabilityController</url-pattern>
@@ -53,5 +83,25 @@
   <servlet-mapping>
   	<servlet-name>UserController</servlet-name>
   	<url-pattern>/UserController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RegisterServlet</servlet-name>
+  	<url-pattern>/RegisterServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>eservationController</servlet-name>
+  	<url-pattern>/eservationController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ReservationController</servlet-name>
+  	<url-pattern>/ReservationController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AdminReservationController</servlet-name>
+  	<url-pattern>/AdminReservationController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AdminDashboardController</servlet-name>
+  	<url-pattern>/AdminDashboardController</url-pattern>
   </servlet-mapping>
 </web-app>

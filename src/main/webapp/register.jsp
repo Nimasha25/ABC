@@ -230,7 +230,7 @@
     <div class="container">
         <h1>Registration</h1>
         <div class="registration-form">
-            <form action="payment.jsp" method="post">
+            <form action="register.jsp" method="post">
                 <label for="full-name">Full Name:</label>
                 <input type="text" id="full-name" name="full-name" required>
 
