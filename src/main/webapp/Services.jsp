@@ -13,6 +13,11 @@
             margin: 0;
             padding: 0;
             color: #333;
+            background-image: url('images/back1.png');
+            background-size: cover; /* Makes sure the image covers the entire body */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center; /* Centers the image on the page */
+    background-attachment: fixed;
         }
         .logo {
             width: 150px;
@@ -63,14 +68,15 @@
         .section {
             padding: 20px;
         }
-        .footer {
-            background-color: #333;
+         .header {
+            background-image: url('images/back3.png');
+            background-size: cover;
             color: white;
             text-align: center;
-            padding: 40px 20px;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-            position: relative;
+            padding: 100px 20px;
+            box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
         }
+       
         /* Additional footer styles here */
         h2 {
             color: #007bff;
@@ -96,86 +102,74 @@
             color: #007bff;
             margin-bottom: 10px;
         }
-              .footer {
+             .footer {
     background-color: #333;
     color: white;
     text-align: center;
     padding: 40px 20px;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-    position: relative;
+    position: relative; /* Relative positioning for absolute positioning of child elements */
+    overflow: hidden; /* Ensure content doesn't overflow */
 }
 
-.footer-container {
+.footer-images {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    position: relative; /* Relative positioning for containing absolutely positioned content */
+    z-index: 1; /* Ensures images are behind content */
+    margin-bottom: 40px; /* Space between images and content */
+}
+
+.footer-image {
+    position: relative;
+    width: 100%;
+    flex: 1;
+}
+
+.footer-image img {
+    width: 100%;
+    height: 400px; /* Adjust height as needed */
+    object-fit: cover;
+    display: block;
+}
+
+.footer-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%; /* Adjust width as needed */
+    display: flex;
     justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
+    gap: 20px;
+    z-index: 2; /* Ensure content is above images */
 }
 
-.footer .footer-logo {
+.footer-logo,
+.opening-hours,
+.sign-up {
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
+    padding: 20px;
+    border-radius: 8px;
+    color: #fff;
+    flex: 1;
     text-align: center;
-    margin-bottom: 20px;
 }
 
-.footer .footer-logo img {
+.footer-logo img {
     width: 150px;
     height: auto;
 }
 
-.footer .quick-links {
-    flex: 1;
-    text-align: left;
-}
-
-.footer .quick-links h3 {
-    margin-top: 0;
-    font-size: 20px;
-    color: #fff;
-    margin-bottom: 15px;
-}
-
-.footer .quick-links a {
-    display: block;
-    color: #f2f2f2;
-    text-decoration: none;
-    margin-bottom: 10px;
-    font-size: 16px;
-    transition: color 0.3s ease;
-}
-
-.footer .quick-links a:hover {
-    color: #007bff;
-}
-
-.footer .opening-hours {
-    flex: 1;
-    text-align: left;
-}
-
-.footer .opening-hours h3 {
-    margin-top: 0;
-    font-size: 20px;
-    color: #fff;
-    margin-bottom: 15px;
-}
-
-.footer .opening-hours p {
-    font-size: 16px;
-    color: #ccc;
-}
-
-.footer .sign-up {
-    flex: 1;
-    text-align: center;
-}
-
+.footer .opening-hours h3,
 .footer .sign-up h3 {
     margin-top: 0;
     font-size: 20px;
-    color: #fff;
     margin-bottom: 15px;
+}
+
+.footer .opening-hours p,
+.footer .sign-up input[type="email"],
+.footer .sign-up button {
+    font-size: 16px;
 }
 
 .footer .sign-up input[type="email"] {
@@ -183,7 +177,6 @@
     border: none;
     border-radius: 5px;
     margin-right: 10px;
-    font-size: 16px;
     width: 250px;
 }
 
@@ -200,20 +193,6 @@
 
 .footer .sign-up button:hover {
     background-color: #218838;
-}
-
-.footer .background-images {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin: 20px 0;
-}
-
-.footer .background-images img {
-    width: 200px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 8px;
 }
 
 .footer p {
@@ -236,7 +215,7 @@
     </div>
     
     <div class="header">
-        <img src='<c:url value="/images/logo.jpg"></c:url>'/>
+        <img src='<c:url value="/images/Yellow%20Emblem%20Restaurant%20Logo.jpg"/>' alt="ABC Restaurant Logo" class="logo">
         <h1>Services You Get</h1>
     </div>
 
@@ -305,13 +284,13 @@
             <h3>Featured Foods</h3>
             <p>Some of our popular dishes include:</p>
             <ul>
-                <li>Spicy Sri Lankan Chicken Curry
-                    <p class="service-detail">A flavorful and aromatic dish, slow-cooked to perfection with a blend of spices.</p>
+                <li>Spicy Sri-Lankan Chicken Curry
+                    <p class="service-detail">A flavorfuly and aromatic dish, slow-cooked to perfection with a blend of spices.</p>
                 </li>
                 <li>Chinese Sweet and Sour Pork
                     <p class="service-detail">Tender pork pieces stir-fried with vegetables and a tangy sweet and sour sauce.</p>
                 </li>
-                <li>Korean Bibimbap
+                <li>Korean-Bibimbap
                     <p class="service-detail">A traditional mixed rice dish topped with sautéed vegetables, meat, and a fried egg.</p>
                 </li>
             </ul>
@@ -319,19 +298,20 @@
     </div>
 
    <div class="footer">
-    <div class="footer-container">
-        <div class="footer-logo">
-            <img src="images/logo.png" alt="ABC Restaurant Logo">
+    <div class="footer-images">
+        <div class="footer-image" id="image1">
+            <img src='<c:url value="/images/back1.png"/>' alt="Background Image 1">
         </div>
-        <div class="quick-links">
-            <h3>Quick Links</h3>
-            <a href="index.jsp">Home</a>
-            <a href="About.jsp">About</a>
-            <a href="Gallery.jsp">Gallery</a>
-            <a href="Contact.jsp">Contact</a>
-            <a href="Menu.jsp">Menu</a>
-             <a href="Services.jsp">Contact</a>
-            <a href="Reservation.jsp">Reservation</a>
+        <div class="footer-image" id="image2">
+            <img src="images/backmid2.png" alt="Background Image 2">
+        </div>
+        <div class="footer-image" id="image3">
+            <img src="images/back3.png" alt="Background Image 3">
+        </div>
+    </div>
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src='<c:url value="/images/Yellow%20Emblem%20Restaurant%20Logo.jpg"/>' alt="ABC Restaurant Logo">
         </div>
         <div class="opening-hours">
             <h3>Opening Hours</h3>
@@ -341,13 +321,8 @@
         <div class="sign-up">
             <h3>Sign Up for Special Offers</h3>
             <input type="email" placeholder="Enter your email">
-            <button onclick="window.location.href='SignUp.jsp';">Sign Up</button>
+            <button onclick="window.location.href='register.jsp';">Sign Up</button>
         </div>
-    </div>
-    <div class="background-images">
-        <img src="images/footer-bg1.jpg" alt="Background Image 1">
-        <img src="images/footer-bg2.jpg" alt="Background Image 2">
-        <img src="images/footer-bg3.jpg" alt="Background Image 3">
     </div>
     <p>&copy; 2024 ABC Restaurant. All rights reserved.</p>
 </div>

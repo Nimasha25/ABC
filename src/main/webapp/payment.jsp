@@ -299,6 +299,37 @@
         .receipt button:hover {
             background-color: #0056b3;
     </style>
+    
+    <script>
+        function handleCompleteButton() {
+            const paymentMethod = document.querySelector('input[name="payment-method"]:checked');
+            if (paymentMethod) {
+                const methodValue = paymentMethod.value;
+                if (methodValue === 'cash') {
+                    // Redirect to thank you page for cash on delivery
+                    window.location.href = 'thank-you.jsp';
+                } else if (methodValue === 'online') {
+                    // Redirect to thank you page for online payment after submitting the form
+                    document.getElementById('payment-form').submit();
+                }
+            } else {
+                alert('Please select a payment method.');
+            }
+        }
+        
+        function toggleOnlineFields() {
+            const onlinePaymentFields = document.getElementById('online-payment-fields');
+            onlinePaymentFields.style.display = onlinePaymentFields.style.display === 'none' ? 'block' : 'none';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('input[name="payment-method"]').forEach(radio => {
+                radio.addEventListener('change', () => {
+                    toggleOnlineFields();
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="navbar">
@@ -315,55 +346,101 @@
     <div class="container">
         <h1>Payment</h1>
         
-        <div class="payment-form">
+        
          
-            <form action="process-payment.jsp" method="post">
-                <div class="payment-options">
-                    <div class="payment-option">
-                        <input type="radio" id="cash-on-delivery" name="payment-method" value="cash" required>
-                        <label for="cash-on-delivery">Cash on Delivery</label>
-                        <button type="submit" name="process-cash" onclick="window.location.href='register.jsp'; return false;">Process</button>
-                    </div>
-                    <div class="payment-option">
-                        <input type="radio" id="online-payment" name="payment-method" value="online" required>
-                        <label for="online-payment">Online Payment</label>
-                        <div id="online-payment-fields" style="display: none;">
-                            <label for="card-number">Card Number:</label>
-                            <input type="text" id="card-number" name="card-number">
+<div class="payment-form">
+    <form id="payment-form" action="process-payment" method="post">
+        <div class="payment-options">
+            <div class="payment-option">
+                <!-- Cash on Delivery -->
+                <input type="radio" id="cash-on-delivery" name="payment-method" value="cash" required>
+                <label for="cash-on-delivery">Cash on Delivery</label>
+                <button type="button" name="process-cash" onclick="handleCompleteButton()">Complete</button>
+            </div>
+            <div class="payment-option">
+                <!-- Online Payment -->
+                <input type="radio" id="online-payment" name="payment-method" value="online" required>
+                <label for="online-payment">Online Payment</label>
+                <div id="online-payment-fields" style="display: none;">
+                    <label for="card-number">Card Number:</label>
+                    <input type="text" id="card-number" name="card-number">
 
-                            <label for="card-expiry">Expiry Date:</label>
-                            <input type="text" id="card-expiry" name="card-expiry" placeholder="MM/YY">
+                    <label for="card-expiry">Expiry Date:</label>
+                    <input type="text" id="card-expiry" name="card-expiry" placeholder="MM/YY">
 
-                            <label for="phoneNumber">Phone Number:</label>
-            <input type="text" id="phoneNumber" name="phoneNumber" required><br>
-            
-                            <label for="amount">Amount:</label>
-                            <input type="number" id="amount" name="amount" step="0.01">
+                    <label for="phoneNumber">Phone Number:</label>
+                    <input type="text" id="phoneNumber" name="phoneNumber" required><br>
 
-                            <label for="email">Email:</label>
-                            <input type="email" id="email" name="email">
+                    <label for="amount">Amount:</label>
+                    <input type="number" id="amount" name="amount" step="0.01" required>
 
-                            <div class="total">Total Amount: $<span id="total-amount">0.00</span></div>
-                        </div>
-                       
-                        <button type="submit" name="process-online" onclick="window.location.href='register.jsp'; return false;">Process</button>
-                     <input type="submit" name="Complete Payment" onclick= "window.location.href='process-payment.jsp;return false;'"></button>
-                    </div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <div class="total">Total Amount: $<span id="total-amount">0.00</span></div>
                 </div>
                 
-            </form>
+               <!-- Process Button -->
+                        <button type="button" name="process-online" onclick="handleCompleteButton()">Complete</button>
+                <!-- Submit Payment Button -->
+                <button type="submit" name="complete-payment">Submit Payment</button>
+            </div>
         </div>
-    </div>
+    </form>
+</div>
 
-    <script>
-        document.getElementById('online-payment').addEventListener('change', function() {
-            document.getElementById('online-payment-fields').style.display = 'block';
-        });
+<script>
+function toggleOnlineFields() {
+    var onlinePaymentFields = document.getElementById('online-payment-fields');
+    var isChecked = document.getElementById('online-payment').checked;
+    onlinePaymentFields.style.display = isChecked ? 'block' : 'none';
+}
+</script>
 
-        document.getElementById('cash-on-delivery').addEventListener('change', function() {
-            document.getElementById('online-payment-fields').style.display = 'none';
-        });
-    </script>
+</div>
+
+<script>
+    document.getElementById('online-payment').addEventListener('change', function() {
+        document.getElementById('online-payment-fields').style.display = 'block';
+    });
+
+    document.getElementById('cash-on-delivery').addEventListener('change', function() {
+        document.getElementById('online-payment-fields').style.display = 'none';
+    });
+
+    function submitPaymentForm() {
+        // Prevent default form submission and redirect manually
+        event.preventDefault();
+
+        // Gather form data
+        var form = document.getElementById('payment-form');
+        var formData = new FormData(form);
+
+        // Create a hidden iframe to submit the form
+        var iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+
+        var formAction = form.action;
+        var iframeForm = document.createElement('form');
+        iframeForm.method = 'post';
+        iframeForm.action = formAction;
+        iframeForm.target = iframe.name;
+
+        // Append form data to the new form
+        for (var [key, value] of formData.entries()) {
+            var input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = key;
+            input.value = value;
+            iframeForm.appendChild(input);
+        }
+
+        document.body.appendChild(iframeForm);
+        iframeForm.submit();
+    }
+</script>
+
     <script>
         function showPaymentDetails() {
             var paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;

@@ -13,6 +13,6 @@ public class AdminDashboardController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Forward to the dashboard JSP
-        request.getRequestDispatcher("/WEB-INF/views/dashboard.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/view/dashboard.jsp").forward(request, response);
     }
 }

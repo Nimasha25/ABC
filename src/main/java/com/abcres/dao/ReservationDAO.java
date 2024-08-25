@@ -105,6 +105,18 @@ public class ReservationDAO {
             throw e;
         }
     }
+    public void updateReservationStatus(int id, String status) throws SQLException {
+        String sql = "UPDATE reservations SET status = ? WHERE id = ?";
+        try (Connection conn = DBConn.getInstance().getConnection();
+             PreparedStatement pst = conn.prepareStatement(sql)) {
+            pst.setString(1, status);
+            pst.setInt(2, id);
+            pst.executeUpdate();
+        } catch (SQLException e) {
+            System.err.println("Error updating reservation status: " + e.getMessage());
+            throw e;
+        }
+    }
 
     // Method to retrieve a reservation by ID
     public Reservation getReservationById(int id) throws SQLException {

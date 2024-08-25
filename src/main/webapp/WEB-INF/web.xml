@@ -40,12 +40,7 @@
   	<description></description>
   	<servlet-class>com.abcres.controller.RegisterServlet</servlet-class>
   </servlet>
-  <servlet>
-  	<servlet-name>eservationController</servlet-name>
-  	<display-name>eservationController</display-name>
-  	<description></description>
-  	<servlet-class>com.abcres.controller.eservationController</servlet-class>
-  </servlet>
+  
   <servlet>
   	<servlet-name>ReservationController</servlet-name>
   	<display-name>ReservationController</display-name>
@@ -64,6 +59,92 @@
   	<description></description>
   	<servlet-class>com.abcres.controller.AdminDashboardController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>AdminUserController</servlet-name>
+  	<display-name>AdminUserController</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.AdminUserController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ContactController</servlet-name>
+  	<display-name>ContactController</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.ContactController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AdminContactController</servlet-name>
+  	<display-name>AdminContactController</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.AdminContactController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ContactMessageController</servlet-name>
+  	<display-name>ContactMessageController</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.ContactMessageController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ContactMsgController</servlet-name>
+  	<display-name>ContactMsgController</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.ContactController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>MessageContactController</servlet-name>
+  	<display-name>MessageContactController</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.MessageContactController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ContactAdminController</servlet-name>
+  	<display-name>ContactAdminController</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.ContactAdminController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>OrderController</servlet-name>
+  	<display-name>OrderController</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.OrderController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>CartController</servlet-name>
+  	<display-name>CartController</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.CartController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>OrderManagementController</servlet-name>
+  	<display-name>OrderManagementController</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.OrderManagementController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>PaymentController</servlet-name>
+  	<display-name>PaymentController</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.PaymentController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>PaymentAdminController</servlet-name>
+  	<display-name>PaymentAdminController</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.PaymentAdminController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>PaymentProcessingController</servlet-name>
+  	<display-name>PaymentProcessingController</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.PaymentProcessingController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AdminCartController</servlet-name>
+  	<display-name>AdminCartController</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.AdminCartController</servlet-class>
+  </servlet>
+  
+  
   <servlet-mapping>
   	<servlet-name>AvailabilityController</servlet-name>
   	<url-pattern>/AvailabilityController</url-pattern>
@@ -88,10 +169,7 @@
   	<servlet-name>RegisterServlet</servlet-name>
   	<url-pattern>/RegisterServlet</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>eservationController</servlet-name>
-  	<url-pattern>/eservationController</url-pattern>
-  </servlet-mapping>
+ 
   <servlet-mapping>
   	<servlet-name>ReservationController</servlet-name>
   	<url-pattern>/ReservationController</url-pattern>
@@ -104,4 +182,59 @@
   	<servlet-name>AdminDashboardController</servlet-name>
   	<url-pattern>/AdminDashboardController</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AdminUserController</servlet-name>
+  	<url-pattern>/AdminUserController</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>AdminContactController</servlet-name>
+  	<url-pattern>/AdminContactController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ContactMessageController</servlet-name>
+  	<url-pattern>/ContactMessageController</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>MessageContactController</servlet-name>
+  	<url-pattern>/MessageContactController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ContactAdminController</servlet-name>
+  	<url-pattern>/ContactAdminController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>OrderController</servlet-name>
+  	<url-pattern>/OrderController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CartController</servlet-name>
+  	<url-pattern>/CartController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>OrderManagementController</servlet-name>
+  	<url-pattern>/OrderManagementController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>PaymentController</servlet-name>
+  	<url-pattern>/PaymentController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>PaymentAdminController</servlet-name>
+  	<url-pattern>/PaymentAdminController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>PaymentProcessingController</servlet-name>
+  	<url-pattern>/PaymentProcessingController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AdminCartController</servlet-name>
+  	<url-pattern>/AdminCartController</url-pattern>
+  </servlet-mapping>
+  
+  <session-config>
+    <session-timeout>30</session-timeout> <!-- Timeout in minutes -->
+</session-config>
+
 </web-app>

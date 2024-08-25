@@ -23,14 +23,15 @@ public class UserController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action");
-        if (action == null || action.equals("list")) {
-            listUsers(request, response);
-        } else if (action.equals("add")) {
-            showAddForm(request, response);
-        } else if (action.equals("login")) {
-            showLoginForm(request, response);
+        try {
+            List<User> users = userService.getAllUsers(); // Fetch users from service
+            request.setAttribute("users", users); // Set the attribute
+            request.getRequestDispatcher("/WEB-INF/view/manageUsers.jsp").forward(request, response); // Forward to JSP
+        } catch (SQLException e) {
+            e.printStackTrace(); // Log the exception
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Unable to retrieve users.");
         }
+    
     }
 
     @Override
@@ -87,7 +88,7 @@ public class UserController extends HttpServlet {
         try {
             User user = userService.loginUser(username, password);
             if (user != null) {
-                response.sendRedirect("dashboard.jsp");
+                response.sendRedirect("Back-dashboard.jsp");
             } else {
                 request.setAttribute("errorMessage", "Invalid username or password.");
                 request.getRequestDispatcher("WEB-INF/view/login.jsp").forward(request, response);

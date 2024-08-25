@@ -1,4 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +16,11 @@
             padding: 0;
             color: #333;
             background-color: #f8f9fa;
+             background-image: url('images/back1.png');
+             background-size: cover; /* Makes sure the image covers the entire body */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center; /* Centers the image on the page */
+    background-attachment: fixed;
         }
         .navbar {
             background-color: #007bff;
@@ -39,7 +46,7 @@
             margin: 20px auto;
         }
         .header {
-            background-image: url('images/about-header.jpg');
+            background-image: url('images/back3.png');
             background-size: cover;
             color: white;
             text-align: center;
@@ -50,117 +57,193 @@
             margin: 0;
             font-size: 50px;
             font-weight: bold;
+            text-transform: uppercase;
         }
-        .section {
-            padding: 40px 20px;
-            background-color: #fff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            margin: 20px 0;
-        }
-        .section h2 {
-            font-size: 32px;
-            font-weight: bold;
-            color: #007bff;
-            border-bottom: 2px solid #007bff;
-            padding-bottom: 10px;
-            margin-bottom: 30px;
-        }
-        .section p {
-            font-size: 18px;
-            line-height: 1.6;
-            color: #555;
-            margin-bottom: 20px;
-        }
-        .location, .contact-details {
-            margin: 30px 0;
-        }
-        .contact-details a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        .contact-details a:hover {
-            text-decoration: underline;
-        }
-      .footer {
+       /* General Section Styling */
+.section {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+/* Heading Styles */
+.section h2 {
+    font-size: 28px;
+    color: #333;
+    border-bottom: 2px solid #dd3333;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-family: 'Georgia', serif;
+}
+
+.section h3 {
+    font-size: 24px;
+    color: #555;
+    margin-top: 30px;
+    font-family: 'Georgia', serif;
+}
+
+/* Paragraph Styles */
+.section p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 15px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Text Emphasis */
+.section p strong {
+    color: #dd3333;
+}
+
+/* Link Styles (if any links are added) */
+.section a {
+    color: #dd3333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.section a:hover {
+    text-decoration: underline;
+}
+
+/* Media Query for Responsiveness */
+@media (max-width: 600px) {
+    .section {
+        padding: 15px;
+        margin: 10px;
+    }
+    
+    .section h2 {
+        font-size: 24px;
+    }
+    
+    .section h3 {
+        font-size: 20px;
+    }
+    
+    .section p {
+        font-size: 14px;
+    }
+}
+
+      .location {
+    text-align: center;
+}
+
+.location h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+.location p {
+    font-size: 18px;
+    color: #555;
+}
+
+/* Contact Details Section Styles */
+.contact-details {
+    text-align: center;
+}
+
+.contact-details h2 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+.contact-details p {
+    font-size: 18px;
+    color: #555;
+}
+
+.contact-details a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.contact-details a:hover {
+    text-decoration: underline;
+}
+     .footer {
     background-color: #333;
     color: white;
     text-align: center;
     padding: 40px 20px;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-    position: relative;
+    position: relative; /* Relative positioning for absolute positioning of child elements */
+    overflow: hidden; /* Ensure content doesn't overflow */
 }
 
-.footer-container {
+.footer-images {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    position: relative; /* Relative positioning for containing absolutely positioned content */
+    z-index: 1; /* Ensures images are behind content */
+    margin-bottom: 40px; /* Space between images and content */
+}
+
+.footer-image {
+    position: relative;
+    width: 100%;
+    flex: 1;
+}
+
+.footer-image img {
+    width: 100%;
+    height: 400px; /* Adjust height as needed */
+    object-fit: cover;
+    display: block;
+}
+
+.footer-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%; /* Adjust width as needed */
+    display: flex;
     justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
+    gap: 20px;
+    z-index: 2; /* Ensure content is above images */
 }
 
-.footer .footer-logo {
+.footer-logo,
+.opening-hours,
+.sign-up {
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
+    padding: 20px;
+    border-radius: 8px;
+    color: #fff;
+    flex: 1;
     text-align: center;
-    margin-bottom: 20px;
 }
 
-.footer .footer-logo img {
+.footer-logo img {
     width: 150px;
     height: auto;
 }
 
-.footer .quick-links {
-    flex: 1;
-    text-align: left;
-}
-
-.footer .quick-links h3 {
-    margin-top: 0;
-    font-size: 20px;
-    color: #fff;
-    margin-bottom: 15px;
-}
-
-.footer .quick-links a {
-    display: block;
-    color: #f2f2f2;
-    text-decoration: none;
-    margin-bottom: 10px;
-    font-size: 16px;
-    transition: color 0.3s ease;
-}
-
-.footer .quick-links a:hover {
-    color: #007bff;
-}
-
-.footer .opening-hours {
-    flex: 1;
-    text-align: left;
-}
-
-.footer .opening-hours h3 {
-    margin-top: 0;
-    font-size: 20px;
-    color: #fff;
-    margin-bottom: 15px;
-}
-
-.footer .opening-hours p {
-    font-size: 16px;
-    color: #ccc;
-}
-
-.footer .sign-up {
-    flex: 1;
-    text-align: center;
-}
-
+.footer .opening-hours h3,
 .footer .sign-up h3 {
     margin-top: 0;
     font-size: 20px;
-    color: #fff;
     margin-bottom: 15px;
+}
+
+.footer .opening-hours p,
+.footer .sign-up input[type="email"],
+.footer .sign-up button {
+    font-size: 16px;
 }
 
 .footer .sign-up input[type="email"] {
@@ -168,7 +251,6 @@
     border: none;
     border-radius: 5px;
     margin-right: 10px;
-    font-size: 16px;
     width: 250px;
 }
 
@@ -185,20 +267,6 @@
 
 .footer .sign-up button:hover {
     background-color: #218838;
-}
-
-.footer .background-images {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin: 20px 0;
-}
-
-.footer .background-images img {
-    width: 200px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 8px;
 }
 
 .footer p {
@@ -223,15 +291,25 @@
     </div>
 
     <div class="header">
-        <img src="images/logo.png" alt="ABC Restaurant Logo" class="logo">
+        <img src='<c:url value="/images/Yellow%20Emblem%20Restaurant%20Logo.jpg"/>' alt="ABC Restaurant Logo" class="logo">
         <h1>About ABC Restaurant</h1>
     </div>
-
+  
+  
+  
     <div class="section">
-        <h2>Overview</h2>
-        <p>ABC Restaurant is a giving dining establishment, offering a unique blend of culinary delights in various cities across Sri Lanka. Our mission is to provide an exceptional dining experience through a combination of quality ingredients, expert chefs, and outstanding customer service.</p>
-        <p>With a commitment to innovation, ABC Restaurant has integrated advanced technology to enhance the customer experience, making reservations and orders seamless and convenient.</p>
-    </div>
+    <h2>Overview</h2>
+    <p>ABC Restaurant is a premier dining establishment, offering an exceptional blend of culinary delights in various cities across Sri Lanka. Our mission is to provide a truly memorable dining experience through the use of top-quality ingredients, expertly crafted dishes, and a commitment to outstanding customer service.</p>
+    <p>Founded with a passion for gastronomy, ABC Restaurant has become a beacon of culinary excellence, drawing food enthusiasts from around the world. Our menu is a celebration of both traditional Sri Lankan flavors and contemporary global cuisines, curated by our team of renowned chefs.</p>
+    <p>In addition to our exquisite dishes, ABC Restaurant is dedicated to innovation. We have integrated advanced technology into every aspect of our operations, ensuring that making reservations, placing orders, and interacting with our staff is as seamless and convenient as possible.</p>
+    <p>Whether you are dining in one of our elegantly designed locations or enjoying a meal at home through our delivery service, ABC Restaurant guarantees an unparalleled dining experience that delights the senses and nourishes the soul.</p>
+
+    <h3>Our Chef and Founder</h3>
+    <p>ABC Restaurant was founded by Chef Arun Perera, a visionary in the culinary world with over 20 years of experience. Chef Arun's journey began in the kitchens of Colombo, where he mastered the art of Sri Lankan cuisine. His passion for innovation and commitment to excellence led him to establish ABC Restaurant, where he brings his creative vision to life.</p>
+    <p>Chef Arun believes in using only the freshest and highest-quality ingredients, sourced locally whenever possible. His culinary philosophy is rooted in the belief that food should not only satisfy hunger but also tell a story. Each dish at ABC Restaurant is a testament to his dedication to flavor, artistry, and the joy of dining.</p>
+    <p>Under Chef Arun's leadership, ABC Restaurant has earned numerous accolades and has become a favorite destination for both locals and tourists alike. His passion for culinary excellence continues to drive the success of ABC Restaurant, making it a leading name in Sri Lanka's dining scene.</p>
+</div>
+
 
     <div class="section">
         <h2>Why Choose ABC Restaurant</h2>
@@ -248,8 +326,12 @@
     <div class="section location">
         <h2>Exact Location</h2>
         <p>Our flagship restaurant is located at:</p>
-        <p>123 Main Street, Colombo, Sri Lanka</p>
+        <p>123 Main Street, Colombo,Sri-Lanka</p>
         <p>We are also expanding our presence with new locations opening soon in Kandy and other major cities.</p>
+         <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125153.43124128782!2d79.95541554227648!3d6.927079379357355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2598db1006d3b%3A0x18d5b927b3f10a80!2sColombo%2C%20Sri%20Lanka!5e0!3m2!1sen!2sus!4v1683005967063!5m2!1sen!2sus" 
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
     </div>
 
     <div class="section contact-details">
@@ -260,19 +342,20 @@
     </div>
 
      <div class="footer">
-    <div class="footer-container">
-        <div class="footer-logo">
-            <img src="images/logo.png" alt="ABC Restaurant Logo">
+    <div class="footer-images">
+        <div class="footer-image" id="image1">
+            <img src='<c:url value="/images/back1.png"/>' alt="Background Image 1">
         </div>
-        <div class="quick-links">
-            <h3>Quick Links</h3>
-            <a href="index.jsp">Home</a>
-            <a href="About.jsp">About</a>
-            <a href="Gallery.jsp">Gallery</a>
-            <a href="Contact.jsp">Contact</a>
-            <a href="Menu.jsp">Menu</a>
-            <a href="reservation.jsp">Reservation</a>
-             <a href="Services.jsp">Contact</a>
+        <div class="footer-image" id="image2">
+            <img src="images/backmid2.png" alt="Background Image 2">
+        </div>
+        <div class="footer-image" id="image3">
+            <img src="images/back3.png" alt="Background Image 3">
+        </div>
+    </div>
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src='<c:url value="/images/Yellow%20Emblem%20Restaurant%20Logo.jpg"/>' alt="ABC Restaurant Logo">
         </div>
         <div class="opening-hours">
             <h3>Opening Hours</h3>
@@ -284,11 +367,6 @@
             <input type="email" placeholder="Enter your email">
             <button onclick="window.location.href='register.jsp';">Sign Up</button>
         </div>
-    </div>
-    <div class="background-images">
-        <img src="images/footer-bg1.jpg" alt="Background Image 1">
-        <img src="images/footer-bg2.jpg" alt="Background Image 2">
-        <img src="images/footer-bg3.jpg" alt="Background Image 3">
     </div>
     <p>&copy; 2024 ABC Restaurant. All rights reserved.</p>
 </div>

@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
@@ -6,6 +7,17 @@
     <title>ABC Restaurant Reservation</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+    body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            background-image: url('images/back1.png');
+            background-size: cover; /* Makes sure the image covers the entire body */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center; /* Centers the image on the page */
+    background-attachment: fixed;
+        }
         /* Existing CSS styles */
         .navbar {
             background-color: #007bff;
@@ -34,7 +46,7 @@
             margin: 20px auto;
         }
         .header {
-            background-image: url('images/header-image.jpg');
+            background-image: url('images/back3.png');
             background-size: cover;
             color: white;
             text-align: center;
@@ -47,119 +59,160 @@
             font-weight: bold;
             text-transform: uppercase;
         }
-        .footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-        .footer-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: space-between;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .footer .footer-logo {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .footer .footer-logo img {
-            width: 150px;
-            height: auto;
-        }
-        .footer .quick-links, .footer .opening-hours, .footer .sign-up {
-            flex: 1;
-        }
-        .footer .quick-links h3, .footer .opening-hours h3, .footer .sign-up h3 {
-            margin-top: 0;
-            font-size: 20px;
-            color: #fff;
-            margin-bottom: 15px;
-        }
-        .footer .quick-links a, .footer .opening-hours p, .footer .sign-up input[type="email"], .footer .sign-up button {
-            color: #f2f2f2;
-        }
-        .footer .quick-links a {
-            display: block;
-            color: #f2f2f2;
-            text-decoration: none;
-            margin-bottom: 10px;
-            font-size: 16px;
-            transition: color 0.3s ease;
-        }
-        .footer .quick-links a:hover {
-            color: #007bff;
-        }
-        .footer .sign-up input[type="email"] {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            margin-right: 10px;
-            font-size: 16px;
-            width: 250px;
-        }
-        .footer .sign-up button {
-            background-color: #28a745;
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-        .footer .sign-up button:hover {
-            background-color: #218838;
-        }
-        .footer .background-images {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 20px 0;
-        }
-        .footer .background-images img {
-            width: 200px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-        .form-container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .form-container label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-        .form-container input[type="text"], .form-container input[type="date"], .form-container input[type="time"], .form-container input[type="email"], .form-container input[type="number"], .form-container select {
-            width: calc(100% - 22px);
-            padding: 10px;
-            margin-bottom: 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        .form-container input[type="submit"] {
-            background-color: #28a745;
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: background-color 0.3s ease;
-        }
-        .form-container input[type="submit"]:hover {
-            background-color: #218838;
-        }
+       .footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    position: relative; /* Relative positioning for absolute positioning of child elements */
+    overflow: hidden; /* Ensure content doesn't overflow */
+}
+
+.footer-images {
+    display: flex;
+    position: relative; /* Relative positioning for containing absolutely positioned content */
+    z-index: 1; /* Ensures images are behind content */
+    margin-bottom: 40px; /* Space between images and content */
+}
+
+.footer-image {
+    position: relative;
+    width: 100%;
+    flex: 1;
+}
+
+.footer-image img {
+    width: 100%;
+    height: 400px; /* Adjust height as needed */
+    object-fit: cover;
+    display: block;
+}
+
+.footer-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%; /* Adjust width as needed */
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    z-index: 2; /* Ensure content is above images */
+}
+
+.footer-logo,
+.opening-hours,
+.sign-up {
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
+    padding: 20px;
+    border-radius: 8px;
+    color: #fff;
+    flex: 1;
+    text-align: center;
+}
+
+.footer-logo img {
+    width: 150px;
+    height: auto;
+}
+
+.footer .opening-hours h3,
+.footer .sign-up h3 {
+    margin-top: 0;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.footer .opening-hours p,
+.footer .sign-up input[type="email"],
+.footer .sign-up button {
+    font-size: 16px;
+}
+
+.footer .sign-up input[type="email"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    width: 250px;
+}
+
+.footer .sign-up button {
+    background-color: #28a745;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.footer .sign-up button:hover {
+    background-color: #218838;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 14px;
+    color: #ccc;
+}
+        /* Styling for the form container */
+.form-container {
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h2 {
+    color: #0033cc; /* Blue color for the header */
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-container label {
+    display: block;
+    font-size: 16px;
+    margin: 10px 0 5px;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="tel"],
+.form-container input[type="date"],
+.form-container input[type="time"],
+.form-container input[type="number"],
+.form-container select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensures padding does not affect width */
+    margin-bottom: 15px;
+}
+
+.form-container input[type="submit"] {
+    background-color: #0033cc; /* Blue color for the submit button */
+    color: #fff;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-container input[type="submit"]:hover {
+    background-color: #002a80; /* Darker blue on hover */
+}
+
     </style>
   <script>
         // Handle form submission using AJAX
@@ -201,10 +254,11 @@
     </div>
 
     <div class="header">
-        <img src="images/logo.png" alt="ABC Restaurant Logo" class="logo">
+<img src="images/Yellow Emblem Restaurant Logo.jpg" alt="ABC Restaurant Logo" class="logo">
+                     
+         
         <h1>Make a Reservation</h1>
     </div>
-
     <div class="form-container">
         <h2>Reservation Form</h2>
         <form action="reservation" method="post">
@@ -238,19 +292,20 @@
     </div>
 
      <div class="footer">
-    <div class="footer-container">
-        <div class="footer-logo">
-            <img src="images/logo.png" alt="ABC Restaurant Logo">
+    <div class="footer-images">
+        <div class="footer-image" id="image1">
+            <img src='<c:url value="/images/back1.png"/>' alt="Background Image 1">
         </div>
-        <div class="quick-links">
-            <h3>Quick Links</h3>
-            <a href="index.jsp">Home</a>
-            <a href="About.jsp">About</a>
-            <a href="Gallery.jsp">Gallery</a>
-            <a href="Contact.jsp">Contact</a>
-            <a href="menu.jsp">Menu</a>
-             <a href="Services.jsp">Contact</a>
-            <a href="reservation.jsp">Reservation</a>
+        <div class="footer-image" id="image2">
+            <img src="images/backmid2.png" alt="Background Image 2">
+        </div>
+        <div class="footer-image" id="image3">
+            <img src="images/back3.png" alt="Background Image 3">
+        </div>
+    </div>
+    <div class="footer-content">
+        <div class="footer-logo">
+<img src="images/Yellow Emblem Restaurant Logo.jpg" alt="ABC Restaurant Logo" class="logo">
         </div>
         <div class="opening-hours">
             <h3>Opening Hours</h3>
@@ -262,11 +317,6 @@
             <input type="email" placeholder="Enter your email">
             <button onclick="window.location.href='register.jsp';">Sign Up</button>
         </div>
-    </div>
-    <div class="background-images">
-        <img src="images/footer-bg1.jpg" alt="Background Image 1">
-        <img src="images/footer-bg2.jpg" alt="Background Image 2">
-        <img src="images/footer-bg3.jpg" alt="Background Image 3">
     </div>
     <p>&copy; 2024 ABC Restaurant. All rights reserved.</p>
 </div>

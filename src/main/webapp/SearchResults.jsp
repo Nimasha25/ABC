@@ -36,7 +36,7 @@
             color: #fff;
         }
         .header {
-            background-image: url('images/header-image.jpg');
+            background-image: url('images/back3.png');
             background-size: cover;
             color: white;
             text-align: center;

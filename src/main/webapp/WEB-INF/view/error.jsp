@@ -21,6 +21,25 @@
     </style>
 </head>
 <body>
+<p>Sorry, there was a problem processing your request. Please try again later.</p>
+    <a href="<%= request.getContextPath() %>/admin/cart?action=view">Go Back to Orders</a>
+<h1>Error</h1>
+    <p>${errorMessage}</p>
+    <a href="contact?action=list">Back to List</a>
+<div class="container">
+        <div class="alert alert-danger text-center">
+            <h1>Error</h1>
+            <p>An error has occurred. Please try again later or contact support if the problem persists.</p>
+            <a href="<%= request.getContextPath() %>" class="btn btn-primary">Go to Homepage</a>
+        </div>
+    </div>
+<h1>Something went wrong</h1>
+<p>We encountered an error. Please try again later.</p>
+<a href="admin/reservations">Back to Reservations</a>
+<p class="text-danger">
+            An error has occurred. Please try again later or contact support if the problem persists.
+        </p>
+        <a href="<%= request.getContextPath() %>" class="btn btn-primary">Go to Homepage</a>
 <h1>Error</h1>
     <p style="color: red;">${errorMessage}</p>
     <a href="user?action=list">Back to User List</a>

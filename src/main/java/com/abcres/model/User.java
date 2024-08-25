@@ -7,6 +7,7 @@ public class User {
     private String phone;
     private String password;
     private String role;
+    private String status;
 
     // Constructor with all parameters
     public User(String username, String fullName, String email, String phone, String password, String role) {
@@ -16,8 +17,15 @@ public class User {
         this.phone = phone;
         this.password = password;
         this.role = role;
+        this.status = status;    }
+
+    public String getStatus() {
+        return status;
     }
 
+    public void setStatus(String status) {
+        this.status = status;
+    }
     // Default constructor
     public User() {
     }

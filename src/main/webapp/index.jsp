@@ -15,63 +15,71 @@
             padding: 0;
             color: #333;
             background-color: #f8f9fa;
-             background-image: url('<c:url value="/images/logo.jpg"/>');
-             background-image: url('https://pngtree.com/images/logo.jpg');
+            
              
-             
-    background-size: cover; /* Adjust size as needed */
-    background-position: center; /* Adjust position as needed */
-        }
+   background-image: url('images/backmid2.png');
+
+    background-size: cover; /* Makes sure the image covers the entire body */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center; /* Centers the image on the page */
+    background-attachment: fixed; /* Keeps the image fixed in place when scrolling */
+    /* You can add other styles for the body here */
+}
       
      
-   .search-container {
-    position: relative;
-    display: inline-block;
-}
-
-#search-bar {
-    width: 250px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 16px;
-    outline: none;
-    box-sizing: border-box;
-}
-
-#search-button {
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    padding: 0 15px;
-    border: none;
-    border-radius: 0 5px 5px 0;
-    background-color: #007bff;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#search-button:hover {
-    background-color: #0056b3;
-}
-
-.search-results {
-    display: none; /* Initially hidden */
-    margin-top: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
-    background-color: #f9f9f9;
-}
-
-.search-results.visible {
-    display: block; /* Show results when visible class is added */
-}
-
-        
+  .search-container {
+            margin: 20px;
+            text-align: center;
+        }
+        #search-bar {
+            width: 250px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none;
+            box-sizing: border-box;
+        }
+        #search-button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-left: 10px;
+        }
+        #search-button:hover {
+            background-color: #0056b3;
+        }
+        .search-results {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: none; /* Initially hidden */
+            text-align: left;
+        }
+        .search-results p {
+            font-weight: bold;
+        }
+        .search-results ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .search-results li {
+            padding: 5px 0;
+        }
+        .search-results a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .search-results a:hover {
+            text-decoration: underline;
+        }
         .navbar {
             background-color: #007bff;
             overflow: hidden;
@@ -99,7 +107,7 @@
             margin: 20px auto;
         }
         .header {
-            background-image: url('images/header-image.jpg');
+            background-image: url('images/back3.png');
             background-size: cover;
             color: white;
             text-align: center;
@@ -200,6 +208,24 @@
         .check-menu-button button:hover {
             background-color: #218838;
         }
+        @keyframes upDown {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+.menu-highlight {
+    text-align: center;
+    display: inline-block;
+    animation: upDown 1s ease-in-out infinite;
+}
         .blog-gallery {
     display: flex;
     justify-content: space-between;
@@ -247,6 +273,7 @@
     background-color: #fff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     margin: 20px 0;
+     background-image: url('images/back1.png');
 }
 
 .services-section h2 {
@@ -302,6 +329,7 @@
         
         .feedback {
             margin: 40px 0;
+             background-image: url('images/back1.png');
         }
         .feedback p {
             font-style: italic;
@@ -311,23 +339,7 @@
             font-size: 18px;
             color: #555;
         }
-        .contact-details {
-            margin: 40px 0;
-        }
-        .contact-details p {
-            margin: 5px 0;
-            font-size: 16px;
-            color: #333;
-        }
-        .contact-details a {
-            color: #007bff;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .contact-details a:hover {
-            color: #0056b3;
-            text-decoration: underline;
-        }
+      
         
         .more-button {
     text-align: center;
@@ -348,87 +360,74 @@
 .more-button button:hover {
     background-color: #0056b3;
 }
-        
-       .footer {
+.footer {
     background-color: #333;
     color: white;
     text-align: center;
     padding: 40px 20px;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-    position: relative;
+    position: relative; /* Relative positioning for absolute positioning of child elements */
+    overflow: hidden; /* Ensure content doesn't overflow */
 }
 
-.footer-container {
+.footer-images {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    position: relative; /* Relative positioning for containing absolutely positioned content */
+    z-index: 1; /* Ensures images are behind content */
+    margin-bottom: 40px; /* Space between images and content */
+}
+
+.footer-image {
+    position: relative;
+    width: 100%;
+    flex: 1;
+}
+
+.footer-image img {
+    width: 100%;
+    height: 400px; /* Adjust height as needed */
+    object-fit: cover;
+    display: block;
+}
+
+.footer-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%; /* Adjust width as needed */
+    display: flex;
     justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
+    gap: 20px;
+    z-index: 2; /* Ensure content is above images */
 }
 
-.footer .footer-logo {
+.footer-logo,
+.opening-hours,
+.sign-up {
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
+    padding: 20px;
+    border-radius: 8px;
+    color: #fff;
+    flex: 1;
     text-align: center;
-    margin-bottom: 20px;
 }
 
-.footer .footer-logo img {
+.footer-logo img {
     width: 150px;
     height: auto;
 }
 
-.footer .quick-links {
-    flex: 1;
-    text-align: left;
-}
-
-.footer .quick-links h3 {
-    margin-top: 0;
-    font-size: 20px;
-    color: #fff;
-    margin-bottom: 15px;
-}
-
-.footer .quick-links a {
-    display: block;
-    color: #f2f2f2;
-    text-decoration: none;
-    margin-bottom: 10px;
-    font-size: 16px;
-    transition: color 0.3s ease;
-}
-
-.footer .quick-links a:hover {
-    color: #007bff;
-}
-
-.footer .opening-hours {
-    flex: 1;
-    text-align: left;
-}
-
-.footer .opening-hours h3 {
-    margin-top: 0;
-    font-size: 20px;
-    color: #fff;
-    margin-bottom: 15px;
-}
-
-.footer .opening-hours p {
-    font-size: 16px;
-    color: #ccc;
-}
-
-.footer .sign-up {
-    flex: 1;
-    text-align: center;
-}
-
+.footer .opening-hours h3,
 .footer .sign-up h3 {
     margin-top: 0;
     font-size: 20px;
-    color: #fff;
     margin-bottom: 15px;
+}
+
+.footer .opening-hours p,
+.footer .sign-up input[type="email"],
+.footer .sign-up button {
+    font-size: 16px;
 }
 
 .footer .sign-up input[type="email"] {
@@ -436,7 +435,6 @@
     border: none;
     border-radius: 5px;
     margin-right: 10px;
-    font-size: 16px;
     width: 250px;
 }
 
@@ -455,24 +453,175 @@
     background-color: #218838;
 }
 
-.footer .background-images {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin: 20px 0;
-}
-
-.footer .background-images img {
-    width: 200px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
 .footer p {
     margin: 0;
     font-size: 14px;
     color: #ccc;
+}
+
+ .section.offers {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    background-image: url('images/backmid2.png'); /* Replace with your background image path */
+    background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent tiling */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.section.offers h2 {
+    margin: 0 0 20px;
+    font-size: 28px;
+    color: #333;
+    text-align: center;
+}
+
+.offer-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: rgba(249, 249, 249, 0.9); /* Slightly transparent background */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.offer-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.offer-item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    margin-right: 20px;
+    object-fit: cover;
+}
+
+.offer-item h3 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    color: #007bff;
+}
+
+.offer-item p {
+    margin: 0;
+    font-size: 16px;
+    color: #555;
+}
+.section.feedback {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f4f4f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Hide overflowing content */
+    position: relative;
+}
+
+.section.feedback h2 {
+    margin: 0 0 20px;
+    font-size: 28px;
+    color: #white;
+    text-align: center;
+}
+
+.feedback-content {
+    display: flex;
+    animation: scroll 10s linear infinite;
+}
+
+.feedback-content p {
+    flex: 0 0 auto;
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.feedback-content p:hover {
+    transform: scale(1.02);
+    background-color: #e7f0ff;
+    color: #0056b3;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.section.contact-details {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     background-image: url('images/back3.png');
+}
+
+.section.contact-details h2 {
+    margin: 0 0 20px;
+    font-size: 28px;
+    color: #white;
+    text-align: center;
+}
+
+.contact-info {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contact-info p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #666;
+}
+
+.contact-info a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 8px;
 }
 
 
@@ -494,8 +643,8 @@
     </div>
 
     <div class="header">
-        <img src='<c:url value="/images/logo.jpg"/>' alt="ABC Restaurant Logo" class="logo">
-
+        <img src='<c:url value="/images/Yellow%20Emblem%20Restaurant%20Logo.jpg"/>' alt="ABC Restaurant Logo" class="logo">
+         
         <h1>Welcome to ABC Restaurant</h1>
     </div>
     
@@ -503,9 +652,63 @@
  <div class="search-container">
     <input type="text" id="search-bar" placeholder="Search...">
     <button id="search-button">Search</button>
+    <div class="search-results" id="search-results"></div>
 </div>
-<div id="search-results" class="search-results"></div>
 
+<script>
+    document.getElementById('search-button').addEventListener('click', function() {
+        var query = document.getElementById('search-bar').value;
+        if (query) {
+            window.location.href = 'search.jsp?query=' + encodeURIComponent(query);
+        } else {
+            alert('Please enter a search term.');
+        }
+    });
+</script>
+    <script>
+        document.getElementById('search-button').addEventListener('click', function() {
+            const query = document.getElementById('search-bar').value.trim().toLowerCase();
+            const resultsContainer = document.getElementById('search-results');
+
+            // Define page links and services
+            const pages = {
+                "reservation": "reservation.jsp",
+                "menu": "menu.jsp",
+                "order": "order.jsp",
+                "payment": "payment.jsp",
+                "contact": "Contact.jsp",
+                "about": "About.jsp",
+                "offers": "order.jsp",
+                "facilities": "Services.jsp",
+                "gallery": "Gallery.jsp",
+                "services": "Services.jsp",
+                "rates": "order.jsp",
+                "availability": "availability.jsp",
+                "registration": "register.jsp",
+            };
+
+            let resultsHtml = `<p>Results for "${query}":</p><ul>`;
+
+            if (query) {
+                let resultsFound = false;
+                for (const [key, value] of Object.entries(pages)) {
+                    if (key.includes(query)) {
+                        resultsHtml += `<li><a href="${value}">${key.charAt(0).toUpperCase() + key.slice(1)}</a></li>`;
+                        resultsFound = true;
+                    }
+                }
+                if (!resultsFound) {
+                    resultsHtml += `<li>No results found</li>`;
+                }
+            } else {
+                resultsHtml += `<li>Please enter a search term.</li>`;
+            }
+
+            resultsHtml += `</ul>`;
+            resultsContainer.innerHTML = resultsHtml;
+            resultsContainer.style.display = 'block';
+        });
+    </script>
     
     <div class="section">
         <h2>Why Choose ABC Restaurant</h2>
@@ -515,30 +718,31 @@
         </div>
     </div>
 
-    <div class="section menu-items">
-        <h2>Menu Highlights</h2>
-        <div class="menu-item">
-            <img src="images/dish1.jpg" alt="Dish 1">
-            <h3>Dish 1</h3>
-            <p>Description of Dish 1.</p>
-            <p><strong>$10.00</strong></p>
-        </div>
-        <div class="menu-item">
-            <img src="images/dish2.jpg" alt="Dish 2">
-            <h3>Dish 2</h3>
-            <p>Description of Dish 2.</p>
-            <p><strong>$12.00</strong></p>
-        </div>
-        <div class="menu-item">
-            <img src="images/dish3.jpg" alt="Dish 3">
-            <h3>Dish 3</h3>
-            <p>Description of Dish 3.</p>
-            <p><strong>$15.00</strong></p>
-        </div>
-        <div class="check-menu-button">
-            <button onclick="window.location.href='menu/FullMenu.pdf';">Check Full Menu</button>
-        </div>
+   <div class="section menu-items">
+    <h2 class="menu-highlight">Menu Highlights</h2>
+    <div class="menu-item">
+        <img src="images/beef-stangoff.png" alt="Dish 1">
+        <h3>Beef-Stangoff</h3>
+        <p>Classic and hearty dish that features tender strips of beef simmered in a rich, creamy sauce. </p>
+        <p><strong>RS.700</strong></p>
     </div>
+    <div class="menu-item">
+        <img src="images/quiche-lorraine.png" alt="Dish 2">
+        <h3>Quiche-Lorraine</h3>
+        <p>Savory, classic French tart known for its rich, creamy filling and buttery, flaky crust. This delicious dish features a custard-like mixture</p>
+        <p><strong>RS.1300</strong></p>
+    </div>
+    <div class="menu-item">
+        <img src="images/hoppers.png" alt="Dish 3">
+        <h3>Hoppers</h3>
+        <p>Sri-Lankan and South Indian specialty known for their unique bowl-like shape and delicate, crispy edges. </p>
+        <p><strong>RS.300</strong></p>
+    </div>
+    <div class="check-menu-button">
+        <button onclick="window.location.href='menu/FullMenu2.pdf';">Check Full Menu</button>
+    </div>
+</div>
+
     <div class="section offers">
     <h2>Special Offers</h2>
     <div class="offer-item">
@@ -560,10 +764,13 @@
 </div>
 <div class="section blog-gallery">
     <div>
-        <img src="images/blog1.jpg" alt="Blog Image 1">
+        <img src="images/blog21.png" alt="Blog Image 1">
     </div>
     <div>
-        <img src="images/blog2.jpg" alt="Blog Image 2">
+        <img src="images/Blog22.png" alt="Blog Image 2">
+    </div>
+    <div>
+        <img src="images/Blog3.jpg" alt="Blog Image 3">
     </div>
 </div>
 
@@ -580,7 +787,7 @@
             <p>Get your favorite meals delivered right to your doorstep.</p>
         </div>
         <div class="service-item">
-            <img src="images/dine-in-icon.png" alt="Dine-In Service">
+            <img src="images/dining2.png" alt="Dine-In Service">
             <h3>Dine-In</h3>
             <p>Enjoy a fine dining experience in a comfortable setting.</p>
         </div>
@@ -596,33 +803,46 @@
 </div>
     
 
-    <div class="section feedback">
-        <h2>Customer Feedback</h2>
+  <div class="section feedback">
+    <h2>Customer Feedback</h2>
+    <div class="feedback-content">
         <p>"ABC Restaurant offers the best dining experience in the city! The food is amazing, and the service is top-notch."</p>
         <p>"I love coming to ABC Restaurant with my family. The ambiance is great, and there is something for everyone on the menu."</p>
+        <p>"The service was excellent and the food was delicious. I will definitely return!"</p>
+        <p>"A wonderful dining experience with a great variety of options on the menu. Highly recommended!"</p>
     </div>
+</div>
 
-    <div class="section contact-details">
-        <h2>Contact Us</h2>
+
+   <div class="section contact-details">
+    <h2>Contact Us</h2>
+    <div class="contact-info">
         <p>123 Main Street, Colombo, Sri Lanka</p>
         <p>Phone: +94 11 123 4567</p>
         <p>Email: <a href="mailto:info@abcrestaurant.com">info@abcrestaurant.com</a></p>
     </div>
+    <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125153.43124128782!2d79.95541554227648!3d6.927079379357355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2598db1006d3b%3A0x18d5b927b3f10a80!2sColombo%2C%20Sri%20Lanka!5e0!3m2!1sen!2sus!4v1683005967063!5m2!1sen!2sus" 
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</div>
 
-   <div class="footer">
-    <div class="footer-container">
-        <div class="footer-logo">
-            <img src='<c:url value="/images/logo.jpg"/>' alt="ABC Restaurant Logo" class="logo">
+
+  <div class="footer">
+    <div class="footer-images">
+        <div class="footer-image" id="image1">
+            <img src='<c:url value="/images/back1.png"/>' alt="Background Image 1">
         </div>
-        <div class="quick-links">
-            <h3>Quick Links</h3>
-            <a href="index.jsp">Home</a>
-            <a href="About.jsp">About</a>
-            <a href="Gallery.jsp">Gallery</a>
-            <a href="Contact.jsp">Contact</a>
-            <a href="menu.jsp">Menu</a>
-             <a href="Services.jsp">Contact</a>
-            <a href="reservation.jsp">Reservation</a>
+        <div class="footer-image" id="image2">
+            <img src="images/backmid2.png" alt="Background Image 2">
+        </div>
+        <div class="footer-image" id="image3">
+            <img src="images/back3.png" alt="Background Image 3">
+        </div>
+    </div>
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img src='<c:url value="/images/Yellow%20Emblem%20Restaurant%20Logo.jpg"/>' alt="ABC Restaurant Logo">
         </div>
         <div class="opening-hours">
             <h3>Opening Hours</h3>
@@ -635,14 +855,8 @@
             <button onclick="window.location.href='register.jsp';">Sign Up</button>
         </div>
     </div>
-    <div class="background-images">
-        <img src="images/footer-bg1.jpg" alt="Background Image 1">
-        <img src="images/footer-bg2.jpg" alt="Background Image 2">
-        <img src="images/footer-bg3.jpg" alt="Background Image 3">
-    </div>
     <p>&copy; 2024 ABC Restaurant. All rights reserved.</p>
 </div>
-
 
 
 </body>
