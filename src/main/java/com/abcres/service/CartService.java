@@ -10,6 +10,7 @@ public class CartService {
     public boolean saveCart(List<CartItem> cartItems) {
         return cartDAO.saveCart(cartItems);
     }
+   
     
     public List<CartItem> getAllOrders() {
         return cartDAO.getAllOrders();

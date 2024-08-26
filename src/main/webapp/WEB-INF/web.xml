@@ -143,6 +143,30 @@
   	<description></description>
   	<servlet-class>com.abcres.controller.AdminCartController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ReplyContactController</servlet-name>
+  	<display-name>ReplyContactController</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.ReplyContactController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>StaffContactController</servlet-name>
+  	<display-name>StaffContactController</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.StaffContactController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>StaffReplyController</servlet-name>
+  	<display-name>StaffReplyController</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.StaffReplyController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ReplyServlet</servlet-name>
+  	<display-name>ReplyServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.ReplyServlet</servlet-class>
+  </servlet>
   
   
   <servlet-mapping>
@@ -231,6 +255,22 @@
   <servlet-mapping>
   	<servlet-name>AdminCartController</servlet-name>
   	<url-pattern>/AdminCartController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ReplyContactController</servlet-name>
+  	<url-pattern>/ReplyContactController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>StaffContactController</servlet-name>
+  	<url-pattern>/StaffContactController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>StaffReplyController</servlet-name>
+  	<url-pattern>/StaffReplyController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ReplyServlet</servlet-name>
+  	<url-pattern>/ReplyServlet</url-pattern>
   </servlet-mapping>
   
   <session-config>

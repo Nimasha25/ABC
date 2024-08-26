@@ -86,6 +86,9 @@
                         <input type="hidden" name="id" value="<%= reservation.getId() %>">
                         <input type="submit" name="action" value="confirm" class="confirm-btn">
                     </form>
+                    
+                    
+                    
                 </td>
             </tr>
             <%

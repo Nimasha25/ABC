@@ -24,6 +24,10 @@
 
         <label for="message">Message:</label>
         <textarea id="message" name="message" required>${empty contact ? '' : contact.message}</textarea><br/>
+        <div class="form-group">
+        <label for="reply">Reply</label>
+        <textarea id="reply" name="reply" class="form-control" rows="5">${contact.reply}</textarea>
+    </div>
 
         <input type="submit" value="${empty contact ? 'Add Contact' : 'Update Contact'}"/>
     </form>

@@ -57,7 +57,7 @@ public class MessageContactController extends HttpServlet {
                 String email = request.getParameter("email");
                 String subject = request.getParameter("subject");
                 String message = request.getParameter("message");
-
+                
                 // Create a new Contact object
                 Contact contact = new Contact(name, email, subject, message);
 
@@ -115,7 +115,8 @@ public class MessageContactController extends HttpServlet {
                 String email = request.getParameter("email");
                 String subject = request.getParameter("subject");
                 String message = request.getParameter("message");
-                Contact contact = new Contact(id, name, email, subject, message);
+                String reply = request.getParameter("reply");
+                Contact contact = new Contact(id, name, email, subject, message, reply);
                 contactService.updateContact(contact);
                 response.sendRedirect(request.getContextPath() + "/admin/contacts?action=list");
             } else if ("add".equals(action)) {

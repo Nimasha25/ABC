@@ -72,7 +72,7 @@ public class ReservationController extends HttpServlet {
         try {
             List<Reservation> reservations = reservationService.getAllReservations();
             request.setAttribute("reservations", reservations);
-            request.getRequestDispatcher("/WEB-INF/views/reservations.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/view/reservations.jsp").forward(request, response);
         } catch (SQLException e) {
             e.printStackTrace();
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Unable to retrieve reservations.");

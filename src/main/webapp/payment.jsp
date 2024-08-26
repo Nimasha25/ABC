@@ -330,6 +330,45 @@
             });
         });
     </script>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Toggle online payment fields based on selected payment method
+        document.getElementById('online-payment').addEventListener('change', function() {
+            document.getElementById('online-payment-fields').style.display = 'block';
+        });
+
+        document.getElementById('cash-on-delivery').addEventListener('change', function() {
+            document.getElementById('online-payment-fields').style.display = 'none';
+        });
+    });
+
+    function handleCashOnDelivery() {
+        // Logic for Cash on Delivery completion
+        alert("Thank you! Your order has been placed. We will get back to you shortly.");
+        window.location.href = "thank-you.jsp"; // Redirect to thank you page
+    }
+
+    function handleOnlinePayment() {
+        // Logic for Online Payment completion
+        alert("Thank you! Your online payment has been completed.");
+        window.location.href = "thank-you.jsp"; // Redirect to thank you page
+    }
+
+    // Handling form submission for registration
+    document.getElementById('payment-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Get selected payment method
+        var paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+
+        if (paymentMethod === 'online') {
+            handleOnlinePayment(); // Process online payment
+        } else if (paymentMethod === 'cod') {
+            handleCashOnDelivery(); // Process cash on delivery
+        }
+    });
+    </script>
 </head>
 <body>
     <div class="navbar">

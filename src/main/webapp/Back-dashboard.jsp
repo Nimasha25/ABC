@@ -13,26 +13,58 @@
             background-color: #f4f4f4;
             background-image: url('images/back3.png');
         }
-        .sidebar {
-            height: 100%;
-            width: 250px;
-            background-color: #343a40;
-            position: fixed;
-            top: 0;
-            left: 0;
-            padding-top: 20px;
-        }
-        .sidebar a {
-            padding: 15px 20px;
-            text-decoration: none;
-            font-size: 18px;
-            color: #f8f9fa;
-            display: block;
-        }
-        .sidebar a:hover {
-            background-color: #495057;
-            color: #ffffff;
-        }
+       /* Default sidebar styling */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 60px; /* Start with a small width */
+    height: 100%;
+    background-color: #343a40;
+    overflow-x: hidden;
+    transition: width 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect for expanding the sidebar */
+.sidebar:hover {
+    width: 200px; /* Expand to full width on hover */
+}
+
+/* Style the links and icons */
+.sidebar a {
+    display: block;
+    color: white;
+    padding: 16px;
+    text-decoration: none;
+    white-space: nowrap; /* Prevent text from wrapping */
+    opacity: 0; /* Initially hide the text */
+    transition: opacity 0.3s ease; /* Smooth transition for text appearance */
+}
+
+/* Show the text on hover */
+.sidebar:hover a {
+    opacity: 1; /* Show the text on hover */
+}
+
+/* Icon styling */
+.sidebar a i {
+    margin-right: 10px;
+}
+
+/* Adjust heading for better visibility */
+.sidebar h2 {
+    font-size: 1.2rem;
+    padding: 20px 16px;
+    margin: 0;
+    text-align: center;
+    transition: opacity 0.3s ease;
+    opacity: 0; /* Initially hide the heading text */
+}
+
+.sidebar:hover h2 {
+    opacity: 1; /* Show the heading text on hover */
+}
+
         .main-content {
             margin-left: 250px;
             padding: 20px;

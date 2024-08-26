@@ -11,6 +11,7 @@
     
     <style>
     
+    
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
@@ -912,6 +913,34 @@ h3 {
     // Initialize the first promotion as visible
     showPromotion(currentPromotionIndex);
 </script>
+
+<script>
+    let currentPromotion = 0;
+    const promotions = document.querySelectorAll('.promotion-item');
+    
+    function showPromotion(index) {
+        promotions.forEach((promo, i) => {
+            promo.classList.toggle('active', i === index);
+        });
+    }
+
+    function changePromotion(direction) {
+        currentPromotion += direction;
+        if (currentPromotion < 0) {
+            currentPromotion = promotions.length - 1;
+        } else if (currentPromotion >= promotions.length) {
+            currentPromotion = 0;
+        }
+        showPromotion(currentPromotion);
+    }
+
+    document.querySelector('.prev').addEventListener('click', () => changePromotion(-1));
+    document.querySelector('.next').addEventListener('click', () => changePromotion(1));
+
+    // Initialize the first promotion
+    showPromotion(currentPromotion);
+</script>
+
     
 </body>
 </html>

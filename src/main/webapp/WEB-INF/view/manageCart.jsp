@@ -60,10 +60,27 @@
             background-color: #007bff;
             color: white;
         }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            text-align: center;
+            text-decoration: none;
+            margin-bottom: 20px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
     <h1>Manage Cart Items</h1>
+     <a href="add-order.jsp" class="btn">Add Order</a>
     
     <table>
         <thead>

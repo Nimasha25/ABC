@@ -27,4 +27,15 @@ public class ContactService {
         contactDAO.deleteContact(id);
     }
     
+ 
+
+    public List<Contact> getAllContactsWithReplies() throws SQLException {
+        return contactDAO.getAllContactsWithReplies();
+    }
+    public void addReply(int id, String reply) throws SQLException {
+        Contact contact = contactDAO.getContactById(id);
+        contact.setReply(reply); // Update the reply in the model
+        contactDAO.updateContact(contact); // Save the updated contact
+    }
+    
 }

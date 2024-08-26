@@ -7,16 +7,18 @@ public class Contact {
     private String subject;
     private String message;
     private String createdAt;
+    private String reply;
 
     // Default constructor
     public Contact() {}
 
     // Constructor
-    public Contact(int id, String name, String email, String subject, String message) {
+    public Contact(int id, String name, String email, String subject, String message,String reply) {
         this.name = name;
         this.email = email;
         this.subject = subject;
         this.message = message;
+        this.reply = reply;
     }
  // Constructor without id
     public Contact(String name, String email, String subject, String message) {
@@ -47,5 +49,13 @@ public class Contact {
 
     public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
+    }
+    
+    public String getReply() {
+        return reply;
+    }
+
+    public void setReply(String reply) {
+        this.reply = reply;
     }
 }
