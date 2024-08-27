@@ -7,6 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Cart</title>
+    
+    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -79,8 +81,10 @@
     </style>
 </head>
 <body>
-    <h1>Manage Cart Items</h1>
-     <a href="add-order.jsp" class="btn">Add Order</a>
+   
+    <a href="cart?action=add" class="btn">Add Order</a>
+
+
     
     <table>
         <thead>
@@ -109,7 +113,7 @@
                     <td><%= item.getCreatedAt() %></td>
                     <td><%= item.getDeliveredAt() %></td>
                     <td>
-                        <a href="cart?action=update&id=<%= item.getId() %>&status=Completed">Mark as Completed</a>
+                       <a href="cart?action=update&id=<%= item.getId() %>&status=Completed">Mark as Completed</a>
                         <a href="cart?action=deliver&id=<%= item.getId() %>">Mark as Delivered</a>
                     </td>
                 </tr>

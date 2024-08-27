@@ -21,6 +21,12 @@
     </style>
 </head>
 <body>
+ <div class="error-container">
+        <h1>Error Occurred</h1>
+        <p>Sorry, an error occurred while processing your request. Please try again later.</p>
+        <p><a href="<%= request.getContextPath() %>/admin/dashboard.jsp">Return to Dashboard</a></p>
+    </div>
+
 <p>Sorry, there was a problem processing your request. Please try again later.</p>
     <a href="<%= request.getContextPath() %>/admin/cart?action=view">Go Back to Orders</a>
 <h1>Error</h1>

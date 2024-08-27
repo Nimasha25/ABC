@@ -27,13 +27,50 @@ public class AdminCartController extends HttpServlet {
 
         if ("view".equals(action)) {
             viewCartItems(request, response);
+        } else if ("add".equals(action)) {
+            showAddOrderForm(request, response);
         } else if ("update".equals(action)) {
             updateOrderStatus(request, response);
         } else if ("deliver".equals(action)) {
             markAsDelivered(request, response);
         } else {
-            response.sendRedirect("error.jsp");
+            response.sendRedirect("/WEB-INF/view/error.jsp");
         }
+    }
+    
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+
+        if ("save".equals(action)) {
+            saveOrder(request, response);
+        }
+    }
+
+    private void saveOrder(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String itemName = request.getParameter("itemName");
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
+        double price = Double.parseDouble(request.getParameter("price"));
+        double total = quantity * price;
+
+        CartItem cartItem = new CartItem();
+        cartItem.setItemName(itemName);
+        cartItem.setQuantity(quantity);
+        cartItem.setPrice(price);
+        cartItem.setTotal(total);
+        cartItem.setStatus("Pending");
+
+        boolean isSaved = cartService.saveCart(List.of(cartItem));
+
+        if (isSaved) {
+            response.sendRedirect("cart?action=view");
+        } else {
+            response.sendRedirect("/WEB-INF/view/error.jsp");
+        }
+    }
+
+    private void showAddOrderForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("/WEB-INF/view/add-order.jsp").forward(request, response);
     }
 
     private void viewCartItems(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -50,7 +87,7 @@ public class AdminCartController extends HttpServlet {
         if (success) {
             response.sendRedirect("cart?action=view");
         } else {
-            response.sendRedirect("error.jsp");
+            response.sendRedirect("/WEB-INF/view/error.jsp");
         }
     }
 
@@ -61,7 +98,7 @@ public class AdminCartController extends HttpServlet {
         if (success) {
             response.sendRedirect("cart?action=view");
         } else {
-            response.sendRedirect("error.jsp");
+            response.sendRedirect("/WEB-INF/view/error.jsp");
         }
     }
 }
