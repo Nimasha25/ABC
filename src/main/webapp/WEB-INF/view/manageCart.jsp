@@ -113,8 +113,10 @@
                     <td><%= item.getCreatedAt() %></td>
                     <td><%= item.getDeliveredAt() %></td>
                     <td>
-                       <a href="cart?action=update&id=<%= item.getId() %>&status=Completed">Mark as Completed</a>
+                      <a href="cart?action=update&id=<%= item.getId() %>&status=Completed">Mark as Completed</a>
+
                         <a href="cart?action=deliver&id=<%= item.getId() %>">Mark as Delivered</a>
+
                     </td>
                 </tr>
             <% } %>

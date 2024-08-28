@@ -10,6 +10,59 @@
     <link rel="stylesheet" href="styles.css">
     
     <style>
+    /* Sidebar styles */
+.sidebar {
+    position: fixed;
+    right: 0; /* Place on the right side */
+    top: 0;
+    width: 60px; /* Start with a small width */
+    height: 100%;
+    background-color: #ffffff; /* White background */
+    overflow-x: hidden;
+    transition: width 0.3s ease; /* Smooth transition */
+    border-left: 1px solid #ddd; /* Optional border for separation */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Optional shadow for better visibility */
+}
+
+/* Hover effect for expanding the sidebar */
+.sidebar:hover {
+    width: 250px; /* Expand to full width on hover */
+}
+
+/* Style the links and icons */
+.sidebar a {
+    display: block;
+    color: #333; /* Dark text color for contrast */
+    padding: 16px;
+    text-decoration: none;
+    white-space: nowrap; /* Prevent text from wrapping */
+    opacity: 0; /* Initially hide the text */
+    transition: opacity 0.3s ease; /* Smooth transition for text appearance */
+}
+
+/* Show the text on hover */
+.sidebar:hover a {
+    opacity: 1; /* Show the text on hover */
+}
+
+/* Icon styling */
+.sidebar a i {
+    margin-right: 10px;
+}
+
+/* Adjust heading for better visibility */
+.sidebar h2 {
+    font-size: 1.2rem;
+    padding: 20px 16px;
+    margin: 0;
+    text-align: center;
+    transition: opacity 0.3s ease;
+    opacity: 0; /* Initially hide the heading text */
+}
+
+.sidebar:hover h2 {
+    opacity: 1; /* Show the heading text on hover */
+}
     
     
         body {
@@ -373,6 +426,16 @@ h3 {
         <h1>Order Your Favorite Food</h1>
     </div>
     
+    <!-- Sidebar -->
+<div class="sidebar">
+    <h2 class="text-center">Customer Panel</h2>
+    <a href="<c:url value='/customer/orders' />"><i class="fas fa-shopping-cart"></i> Orders</a>
+<a href="<c:url value='/customer/messages' />"><i class="fas fa-inbox"></i> Messages</a>
+<a href="<c:url value='/customer/profile' />"><i class="fas fa-user"></i> My Profile</a>
+<a href="<c:url value='/customer/settings' />"><i class="fas fa-cogs"></i> Settings</a>
+<a href="<c:url value='/logout' />"><i class="fas fa-sign-out-alt"></i> Logout</a>
+
+</div>
     
     
     
@@ -761,10 +824,7 @@ h3 {
             </div>
             <button class="add-to-cart">Add to Cart</button>
         </div>
-    </div>
-</div>
-        
-        <div class="food-item" data-name="Mutton Rogan Josh" data-price="1350">
+         <div class="food-item" data-name="Mutton Rogan Josh" data-price="1350">
             <img src="images/mutton-rogan.png" alt="Mutton Rogan Josh">
             <div class="food-details">
                 <h3>Mutton Rogan Josh</h3>
@@ -782,6 +842,55 @@ h3 {
             </div>
             <button class="add-to-cart">Add to Cart</button>
         </div>
+   <div class="food-item" data-name="Fish Ambul Thiyal" data-price="1100">
+    <img src="images/fish-ambul-thiyal.png" alt="Fish Ambul Thiyal">
+    <div class="food-details">
+        <h3>Fish Ambul Thiyal</h3>
+        <p>Price: LKR 1100.00</p>
+        <input type="number" class="quantity-bar" value="1" min="1">
+    </div>
+    <button class="add-to-cart">Add to Cart</button>
+</div>
+<div class="food-item" data-name="String Hoppers" data-price="350">
+    <img src="images/string-hoppers.png" alt="String Hoppers">
+    <div class="food-details">
+        <h3>String Hoppers</h3>
+        <p>Price: LKR 350.00</p>
+        <input type="number" class="quantity-bar" value="1" min="1">
+    </div>
+    <button class="add-to-cart">Add to Cart</button>
+</div>
+<div class="food-item" data-name="milk rice" data-price="250">
+    <img src="images/milk rice.jpg" alt="milk rice">
+    <div class="food-details">
+        <h3>Milk Rice</h3>
+        <p>Price: LKR 250.00</p>
+        <input type="number" class="quantity-bar" value="1" min="1">
+    </div>
+    <button class="add-to-cart">Add to Cart</button>
+</div>
+<div class="food-item" data-name="dosai" data-price="250">
+    <img src="images/dosai.png" alt="dosai">
+    <div class="food-details">
+        <h3>Dosai </h3>
+        <p>Price: LKR 250.00</p>
+        <input type="number" class="quantity-bar" value="1" min="1">
+    </div>
+    <button class="add-to-cart">Add to Cart</button>
+</div>
+<div class="food-item" data-name="pizza" data-price="1000">
+    <img src="images/pizza.png" alt="pizza">
+    <div class="food-details">
+        <h3>Pizza </h3>
+        <p>Price: LKR 1000.00</p>
+        <input type="number" class="quantity-bar" value="1" min="1">
+    </div>
+    <button class="add-to-cart">Add to Cart</button>
+</div>
+    </div>
+</div>
+        
+        
    
     
 

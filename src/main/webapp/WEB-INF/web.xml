@@ -167,6 +167,12 @@
   	<description></description>
   	<servlet-class>com.abcres.controller.ReplyServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>UpdateCartController</servlet-name>
+  	<display-name>UpdateCartController</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.UpdateCartController</servlet-class>
+  </servlet>
   
   
   <servlet-mapping>
@@ -271,6 +277,10 @@
   <servlet-mapping>
   	<servlet-name>ReplyServlet</servlet-name>
   	<url-pattern>/ReplyServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UpdateCartController</servlet-name>
+  	<url-pattern>/UpdateCartController</url-pattern>
   </servlet-mapping>
   
   <session-config>

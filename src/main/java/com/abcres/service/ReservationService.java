@@ -14,6 +14,21 @@ public class ReservationService {
     private ReservationService() {
         reservationDAO = new ReservationDAO();
     }
+    // New constructor for dependency injection
+    public ReservationService(ReservationDAO reservationDAO) {
+        this.reservationDAO = reservationDAO;
+    }
+    public void updateReservation(Reservation reservation) throws SQLException {
+        reservationDAO.updateReservation(reservation);
+    }
+   
+    public void deleteReservation(int id) throws SQLException {
+        reservationDAO.deleteReservation(id);
+    }
+    public Reservation getReservationById(int id) throws SQLException {
+        return reservationDAO.getReservationById(id);
+    }
+
 
     public static synchronized ReservationService getInstance() {
         if (instance == null) {
@@ -29,4 +44,5 @@ public class ReservationService {
     public List<Reservation> getAllReservations() throws SQLException {
         return reservationDAO.getAllReservations();
     }
+    
 }

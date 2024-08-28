@@ -6,7 +6,16 @@
     <title>Add Product</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        /* Your CSS styles here */
+        .container {
+            margin-top: 50px;
+            max-width: 600px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .btn-primary {
+            width: 100%;
+        }
     </style>
 </head>
 <body>

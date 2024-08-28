@@ -16,7 +16,6 @@ public class CartService {
         return true;
     }
 
-    
     public List<CartItem> getAllOrders() {
         return cartDAO.getAllOrders();
     }
@@ -29,5 +28,3 @@ public class CartService {
         return cartDAO.updateOrderStatus(id, status);
     }
 }
-
-

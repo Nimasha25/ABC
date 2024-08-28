@@ -12,6 +12,21 @@ public class CartItem {
     private Timestamp deliveredAt;
     private Timestamp createdAt;
     
+    
+ // Default Constructor
+    public CartItem() {}
+
+    // Parameterized Constructor
+    public CartItem(int id, String itemName, int quantity, double price, double total, String status, Timestamp createdAt, Timestamp deliveredAt) {
+        this.id = id;
+        this.itemName = itemName;
+        this.quantity = quantity;
+        this.price = price;
+        this.total = total;
+        this.status = status;
+        this.createdAt = createdAt;
+        this.deliveredAt = deliveredAt;
+    }
    
     // Getters and setters for all fields
 

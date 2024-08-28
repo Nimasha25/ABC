@@ -21,6 +21,12 @@
     </style>
 </head>
 <body>
+<div class="container">
+        <h1 class="text-center">Oops! Something went wrong.</h1>
+        <p class="text-center">The page you are looking for could not be found.</p>
+        <p class="text-center"><a href="${pageContext.request.contextPath}/index.jsp" class="btn btn-primary">Go to Home</a></p>
+    </div>
+
  <div class="error-container">
         <h1>Error Occurred</h1>
         <p>Sorry, an error occurred while processing your request. Please try again later.</p>
