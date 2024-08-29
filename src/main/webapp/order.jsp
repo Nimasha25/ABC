@@ -887,6 +887,24 @@ h3 {
     </div>
     <button class="add-to-cart">Add to Cart</button>
 </div>
+<div class="food-item" data-name="pittu" data-price="400">
+    <img src="images/pittu.png" alt="pittu">
+    <div class="food-details">
+        <h3>Pittu </h3>
+        <p>Price: LKR 400.00</p>
+        <input type="number" class="quantity-bar" value="1" min="1">
+    </div>
+    <button class="add-to-cart">Add to Cart</button>
+</div>
+<div class="food-item" data-name="boba" data-price="1400">
+    <img src="images/boba.png" alt="boba">
+    <div class="food-details">
+        <h3>Bubble Tea </h3>
+        <p>Price: LKR 1400.00</p>
+        <input type="number" class="quantity-bar" value="1" min="1">
+    </div>
+    <button class="add-to-cart">Add to Cart</button>
+</div>
     </div>
 </div>
         

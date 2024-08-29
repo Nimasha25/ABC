@@ -229,51 +229,63 @@
     <h2>Gallery</h2>
     <div class="gallery">
         <div class="gallery-item">
-            <img src="images/interior1.jpg" alt="Restaurant Interior">
+            <img src="images/interior.png" alt="Restaurant Interior">
             <div class="gallery-description">
                 <p>Elegant and modern interior of ABC Restaurant.</p>
             </div>
         </div>
         <div class="gallery-item">
-            <img src="images/exterior1.jpg" alt="Restaurant Exterior">
+            <img src="images/exterior1.png" alt="Restaurant Exterior">
             <div class="gallery-description">
                 <p>Beautiful exterior view of ABC Restaurant at night.</p>
             </div>
         </div>
         <div class="gallery-item">
-            <img src="images/dining_area1.jpg" alt="Dining Area">
+            <img src="images/dining.png" alt="Dining Area">
             <div class="gallery-description">
                 <p>Cozy dining area perfect for family gatherings.</p>
             </div>
         </div>
         <div class="gallery-item">
-            <img src="images/dining_area2.jpg" alt="Private Dining Room">
+            <img src="images/private-dine.png" alt="Private Dining Room">
             <div class="gallery-description">
                 <p>Private dining room available for special occasions.</p>
             </div>
         </div>
         <div class="gallery-item">
-            <img src="images/outdoor_seating1.jpg" alt="Outdoor Seating">
+            <img src="images/outdoor.png" alt="Outdoor Seating">
             <div class="gallery-description">
                 <p>Relaxing outdoor seating with a view.</p>
             </div>
         </div>
         <div class="gallery-item">
-            <img src="images/dish1.jpg" alt="Signature Dish">
+            <img src="images/chicken-curry.png" alt="Signature Dish">
             <div class="gallery-description">
                 <p>Our signature dish: Spicy Sri Lankan Chicken Curry.</p>
             </div>
         </div>
         <div class="gallery-item">
-            <img src="images/dish2.jpg" alt="Gourmet Dessert">
+            <img src="images/goumet.png" alt="Gourmet Dessert">
             <div class="gallery-description">
                 <p>Gourmet dessert made with the finest ingredients.</p>
             </div>
         </div>
         <div class="gallery-item">
-            <img src="images/happy_customers1.jpg" alt="Happy Customers">
+            <img src="images/happy-customer.png" alt="Happy Customers">
             <div class="gallery-description">
                 <p>Happy customers enjoying their meals at ABC Restaurant.</p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="images/italian-dish.png" alt="italitan dish">
+            <div class="gallery-description">
+                <p>Happy customers, Dive into the deliciousness of this Andouille Sausage + Peppers recipe! .</p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="images/boba.png" alt="boba-trend">
+            <div class="gallery-description">
+                <p>The popular pearl drink>
             </div>
         </div>
     </div>
