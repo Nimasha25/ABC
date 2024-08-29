@@ -15,12 +15,15 @@ import java.util.List;
 @WebServlet("/saveCart")
 public class CartController extends HttpServlet {
     private CartService cartService = new CartService();
+
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<CartItem> orders = cartService.getAllOrders();
         request.setAttribute("orders", orders);
         request.getRequestDispatcher("manageOrders.jsp").forward(request, response);
     }
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<CartItem> cartItems = new ArrayList<>();
 
@@ -49,6 +52,4 @@ public class CartController extends HttpServlet {
 
         request.getRequestDispatcher("cart.jsp").forward(request, response);
     }
-    
-    
 }

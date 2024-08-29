@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.abcres.model.User;
 import com.abcres.service.UserService;
 import java.util.List;
+import com.abcres.dao.UserDAO;
 
 @WebServlet("/user")
 public class UserController extends HttpServlet {
@@ -18,7 +19,8 @@ public class UserController extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        userService = UserService.getInstance();
+        UserDAO userDAO = new UserDAO(); // Initialize UserDAO
+        userService = UserService.getInstance(userDAO); // Pass UserDAO to UserService
     }
 
     @Override

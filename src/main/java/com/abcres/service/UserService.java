@@ -9,13 +9,13 @@ public class UserService {
     private static UserService instance;
     private UserDAO userDAO;
 
-    private UserService() {
-        userDAO = new UserDAO();
+    private UserService(UserDAO userDAO) {
+        this.userDAO = userDAO;
     }
 
-    public static synchronized UserService getInstance() {
+    public static synchronized UserService getInstance(UserDAO userDAO) {
         if (instance == null) {
-            instance = new UserService();
+            instance = new UserService(userDAO);
         }
         return instance;
     }
@@ -35,8 +35,8 @@ public class UserService {
     public List<User> getAllUsers() throws SQLException {
         return userDAO.getAllUsers();
     }
+
     public boolean deleteUser(String username) throws SQLException {
         return userDAO.deleteUser(username);
     }
-
 }

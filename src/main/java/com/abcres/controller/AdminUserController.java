@@ -2,7 +2,7 @@ package com.abcres.controller;
 
 import com.abcres.model.User;
 import com.abcres.service.UserService;
-
+import com.abcres.dao.UserDAO;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +19,8 @@ public class AdminUserController extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        userService = UserService.getInstance();
+        UserDAO userDAO = new UserDAO(); // Initialize UserDAO
+        userService = UserService.getInstance(userDAO); // Pass UserDAO to UserService
     }
 
     @Override

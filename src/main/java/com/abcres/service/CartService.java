@@ -1,8 +1,11 @@
 package com.abcres.service;
 
 import com.abcres.dao.CartDAO;
+
 import com.abcres.model.CartItem;
 import java.util.List;
+
+
 
 public class CartService {
     private CartDAO cartDAO = new CartDAO();
@@ -14,6 +17,15 @@ public class CartService {
             }
         }
         return true;
+    }
+ // Default constructor that initializes CartDAO
+    public CartService() {
+        this.cartDAO = new CartDAO();
+    }
+
+    // Constructor for injecting CartDAO (for testing purposes)
+    public CartService(CartDAO cartDAO) {
+        this.cartDAO = cartDAO;
     }
 
     public List<CartItem> getAllOrders() {

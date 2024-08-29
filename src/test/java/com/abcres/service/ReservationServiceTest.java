@@ -1,4 +1,4 @@
-package com.abcres.service.tests;
+package com.abcres.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
