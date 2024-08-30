@@ -334,7 +334,15 @@
             <a href="<%= request.getContextPath() %>/admin/contact-admin?action=list" class="btn btn-primary">View Contacts</a>
         </div>
     </div>
-                
+            <div class="col-md-4">
+    <div class="card">
+        <img src="images/payments.png" alt="Payments" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">Manage Payments</h5>
+            <p class="card-text">View and manage all payment transactions.</p>
+            <a href="<%= request.getContextPath() %>/admin/payments" class="btn btn-primary">View Payments</a>
+        </div>
+    </div>     
                
             </div>
         </div>
