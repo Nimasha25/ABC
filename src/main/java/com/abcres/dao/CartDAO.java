@@ -78,5 +78,42 @@ public class CartDAO {
         }
         
         return cartItems;
+        
     }
+    public boolean deleteCartItem(int id) {
+        String query = "DELETE FROM cart WHERE id = ?";
+        try (Connection conn = DBConn.getInstance().getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setInt(1, id);
+            return stmt.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    public CartItem getCartItemById(int id) {
+        String query = "SELECT * FROM cart WHERE id = ?";
+        try (Connection conn = DBConn.getInstance().getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setInt(1, id);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    CartItem item = new CartItem();
+                    item.setId(rs.getInt("id"));
+                    item.setItemName(rs.getString("item_name"));
+                    item.setQuantity(rs.getInt("quantity"));
+                    item.setPrice(rs.getDouble("price"));
+                    item.setTotal(rs.getDouble("total"));
+                    item.setStatus(rs.getString("status"));
+                    item.setCreatedAt(rs.getTimestamp("created_at"));
+                    item.setDeliveredAt(rs.getTimestamp("delivered_at"));
+                    return item;
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null; // Return null if no item is found with the given ID
+    }
+    
 }

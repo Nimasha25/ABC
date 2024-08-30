@@ -14,6 +14,7 @@ public class Contact {
 
     // Constructor
     public Contact(int id, String name, String email, String subject, String message,String reply) {
+    	this.id = id; 
         this.name = name;
         this.email = email;
         this.subject = subject;
@@ -27,7 +28,8 @@ public class Contact {
         this.subject = subject;
         this.message = message;
     }
-
+  
+    
     // Getters and setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }

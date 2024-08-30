@@ -173,6 +173,18 @@
   	<description></description>
   	<servlet-class>com.abcres.controller.UpdateCartController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>RatingController</servlet-name>
+  	<display-name>RatingController</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.RatingController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>SystemConfigController</servlet-name>
+  	<display-name>SystemConfigController</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.SystemConfigController</servlet-class>
+  </servlet>
   
   
   <servlet-mapping>
@@ -281,6 +293,14 @@
   <servlet-mapping>
   	<servlet-name>UpdateCartController</servlet-name>
   	<url-pattern>/UpdateCartController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RatingController</servlet-name>
+  	<url-pattern>/RatingController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SystemConfigController</servlet-name>
+  	<url-pattern>/SystemConfigController</url-pattern>
   </servlet-mapping>
   
   <session-config>

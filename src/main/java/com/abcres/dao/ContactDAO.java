@@ -14,6 +14,11 @@ public class ContactDAO {
         this.connection = DBConn.getInstance().getConnection();
     }
     
+    // Constructor to initialize the connection
+    public ContactDAO(Connection connection) {
+        this.connection = connection;
+    }
+    
     public void addReply(int id, String reply) throws SQLException {
         String sql = "UPDATE contacts SET reply = ? WHERE id = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {

@@ -8,6 +8,22 @@
     <title>Thank You</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+      /* Rating bar styles */
+        .rating-bar {
+            margin-top: 30px;
+        }
+        .rating-bar label {
+            font-size: 24px;
+            color: #ffd700;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .rating-bar input[type="radio"] {
+            display: none;
+        }
+        .rating-bar input[type="radio"]:checked ~ label {
+            color: #ff9800;
+        }
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
@@ -157,6 +173,26 @@
             <h1>Thank You!</h1>
             <p>Your payment has been processed successfully.</p>
             <p>We appreciate your business. A confirmation email has been sent to you with the details of your order.</p>
+        </div>
+        <!-- Rating Bar Form -->
+        <div class="rating-bar">
+           <form action="submitRating" method="post">
+    <h3>Please rate your experience:</h3>
+    <input type="radio" name="rating" id="star5" value="5"><label for="star5">★</label>
+    <input type="radio" name="rating" id="star4" value="4"><label for="star4">★</label>
+    <input type="radio" name="rating" id="star3" value="3"><label for="star3">★</label>
+    <input type="radio" name="rating" id="star2" value="2"><label for="star2">★</label>
+    <input type="radio" name="rating" id="star1" value="1"><label for="star1">★</label>
+
+    <!-- Hidden fields for customer details -->
+    <input type="hidden" name="customerName" value="${customerName}">
+    <input type="hidden" name="itemId" value="${itemId}"> <!-- Add itemId field -->
+
+    <div class="button-container">
+        <button type="submit" class="home-button">Submit Rating</button>
+    </div>
+</form>
+
         </div>
         <div class="button-container">
             <a href="index.jsp" class="home-button">Return to Home</a>

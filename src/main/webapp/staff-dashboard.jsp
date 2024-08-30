@@ -298,7 +298,18 @@
                         </div>
                     </div>
                 </div>
+                  <div class="col-md-4">
+                    <div class="card">
+                        <img src="images/reservation.png" alt="Reservations">
+                        <div class="card-body">
+                            <h5 class="card-title">Manage Reservations</h5>
+                            <p class="card-text">View and manage all reservations made on the website.</p>
+                            <a href="admin/reservations" class="btn btn-primary">View Reservations</a>
 
+
+                        </div>
+                    </div>
+                </div>
                 <!-- Inventory Card -->
                 <div class="col-md-4 mb-4">
                     <div class="card">
@@ -312,51 +323,19 @@
                 </div>
 
                 <!-- Customer Inquiries Card -->
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="images/inquiries.png" alt="Inquiries" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Customer Inquiries</h5>
-                            <p class="card-text">Review and respond to customer inquiries and feedback.</p>
-                            <a href="<%= request.getContextPath() %>/admin/inquiries" class="btn btn-primary">View Inquiries</a>
-                        </div>
-                    </div>
-                </div>
+                
 
-                <!-- Payment Management Card -->
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="images/payments.png" alt="Payments" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Manage Payments</h5>
-                            <p class="card-text">Review payment records and manage payment statuses.</p>
-                            <a href="<%= request.getContextPath() %>/admin/payments" class="btn btn-primary">Manage Payments</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <img src="images/reservation.png" alt="Reservations">
-                        <div class="card-body">
-                            <h5 class="card-title">Manage Reservations</h5>
-                            <p class="card-text">View and manage all reservations made on the website.</p>
-                            <a href="admin/reservations" class="btn btn-primary">View Reservations</a>
-
-
-                        </div>
-                    </div>
-                </div>
-                <!-- Settings Card -->
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="images/setting.png" alt="Settings" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Settings</h5>
-                            <p class="card-text">Configure system settings and manage staff accounts.</p>
-                            <a href="<%= request.getContextPath() %>/admin/settings" class="btn btn-primary">Go to Settings</a>
-                        </div>
-                    </div>
-                </div>
+                 <div class="col-md-4">
+    <div class="card">
+        <img src="images/contact.png" alt="Contacts" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">Manage Contact Messages</h5>
+            <p class="card-text">Manage and view contact messages received through the website.</p>
+            <a href="<%= request.getContextPath() %>/admin/contact-admin?action=list" class="btn btn-primary">View Contacts</a>
+        </div>
+    </div>
+                
+               
             </div>
         </div>
     </div>

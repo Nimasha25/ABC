@@ -8,6 +8,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReservationDAO {
+	 private Connection connection;
+
+	    // Existing constructor for normal use
+	    public ReservationDAO() {
+	        // Default constructor
+	    }
+
+	    // Constructor for testing with a Connection instance
+	    public ReservationDAO(Connection connection) {
+	        this.connection = connection;
+	    }
+
+	    protected Connection getConnection() throws SQLException {
+	        if (connection != null) {
+	            return connection;
+	        }
+	        return DBConn.getInstance().getConnection();
+	    }
+
+	
 
     // Method to save a reservation to the database
     public void saveReservation(Reservation reservation) throws SQLException {

@@ -270,7 +270,7 @@
                         <div class="card-body">
                             <h5 class="card-title">Settings</h5>
                             <p class="card-text">Configure system settings and preferences.</p>
-                            <a href="/admin/settings" class="btn btn-primary">Go to Settings</a>
+<a href="/abcres/admin/settings" class="btn btn-primary">Go to Settings</a>
                         </div>
                     </div>
                 </div>

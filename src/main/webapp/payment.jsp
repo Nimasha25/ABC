@@ -7,6 +7,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment Page</title>
     <link rel="stylesheet" href="styles.css">
+     <script>
+        function handleCompleteButton() {
+            const paymentMethod = document.querySelector('input[name="payment-method"]:checked');
+            if (paymentMethod) {
+                const methodValue = paymentMethod.value;
+                if (methodValue === 'cash') {
+                    // Redirect to registration page for cash on delivery
+                    window.location.href = 'register.jsp';
+                } else if (methodValue === 'online') {
+                    // Redirect to thank you page for online payment after submitting the form
+                    document.getElementById('payment-form').submit();
+                }
+            } else {
+                alert('Please select a payment method.');
+            }
+        }
+
+        function toggleOnlineFields() {
+            const onlinePaymentFields = document.getElementById('online-payment-fields');
+            onlinePaymentFields.style.display = onlinePaymentFields.style.display === 'none' ? 'block' : 'none';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('input[name="payment-method"]').forEach(radio => {
+                radio.addEventListener('change', () => {
+                    toggleOnlineFields();
+                });
+            });
+
+            // Handle form submission for payment and redirection
+            document.getElementById('payment-form').addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent default form submission
+
+                // Redirect to registration page after submitting payment
+                window.location.href = 'register.jsp';
+            });
+        });
+
+        function handleCashOnDelivery() {
+            // Logic for Cash on Delivery completion
+            alert("Thank you! Your order has been placed. We will get back to you shortly.");
+            window.location.href = "thank-you.jsp"; // Redirect to thank you page
+        }
+
+        function handleOnlinePayment() {
+            // Logic for Online Payment completion
+            alert("Thank you! Your online payment has been completed.");
+            window.location.href = "thank-you.jsp"; // Redirect to thank you page
+        }
+    </script>
+    
     <style>
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
