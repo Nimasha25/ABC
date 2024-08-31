@@ -6,6 +6,9 @@
 <head>
     <title>ABC Restaurant Reservation</title>
     <link rel="stylesheet" href="styles.css">
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css' rel='stylesheet' />
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js'></script>
+    
     <style>
     body {
             font-family: Arial, sans-serif;
@@ -182,6 +185,7 @@
     margin: 10px 0 5px;
 }
 
+
 .form-container input[type="text"],
 .form-container input[type="email"],
 .form-container input[type="tel"],
@@ -212,7 +216,59 @@
 .form-container input[type="submit"]:hover {
     background-color: #002a80; /* Darker blue on hover */
 }
-
+   #calendar {
+            background-color: #333;
+            color: white;
+            max-width: 900px;
+            margin-right: 20px;
+            padding: 20px;
+        }
+        .calendar-images {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .calendar-image {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .calendar-image img {
+            width: 100%;
+            height: auto;
+        }
+        .tag {
+            display: none; /* Hide tags as we won't be using them */
+        }
+        .fc-daygrid-day {
+            border: 1px solid #ddd;
+        }
+        .fc-daygrid-day-frame {
+            position: relative;
+        }
+        .fc-daygrid-day-frame::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+       .available {
+            background-color: #28a745; /* Green for available */
+        }
+        .bookable {
+            background-color: #007bff; /* Blue for bookable */
+        }
+        .reserved {
+            background-color: #ff4c4c; /* Red for reserved */
+        }
+        .pending {
+            background-color: #ff9900; /* Orange for reserved */
     </style>
   <script>
         // Handle form submission using AJAX
@@ -241,6 +297,73 @@
         }
     </script>
 </head>
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                events: [
+                    // August bookings
+                    {
+                        title: 'Booked ',
+                        start: '2024-08-10',
+                        backgroundColor: '#ff4c4c',
+                        borderColor: '#ff4c4c',
+                        extendedProps: {
+                            status: 'booked'
+                        }
+                    },
+                    {
+                        title: 'Reserved ',
+                        start: '2024-08-15',
+                        backgroundColor: '#ff9900',
+                        borderColor: '#ff9900',
+                        extendedProps: {
+                            status: 'reserved'
+                        }
+                    },
+                    // September bookings
+                    {
+                        title: 'Available ',
+                        start: '2024-09-01',
+                        backgroundColor: '#28a745',
+                        borderColor: '#28a745',
+                        extendedProps: {
+                            status: 'available'
+                        }
+                    },
+                    {
+                        title: 'Pending ',
+                        start: '2024-09-05',
+                        backgroundColor: '#ff9900',
+                        borderColor: '#28a745',
+                        extendedProps: {
+                            status: 'Pending'
+                        }
+                    },
+                    {
+                        title: 'Booked ',
+                        start: '2024-09-10',
+                        backgroundColor: '#ff4c4c',
+                        borderColor: '#ff4c4c',
+                        extendedProps: {
+                            status: 'booked'
+                        }
+                    }
+                ],
+                eventDidMount: function(info) {
+                    var status = info.event.extendedProps.status;
+                    if (status) {
+                        var tag = document.createElement('div');
+                        tag.classList.add('tag', status);
+                        tag.innerText = status.charAt(0).toUpperCase() + status.slice(1);
+                        info.el.querySelector('.fc-event-title').appendChild(tag);
+                    }
+                }
+            });
+            calendar.render();
+        });
+    </script>
 <body>
     <div class="navbar">
         <a href="index.jsp">Home</a>
@@ -290,7 +413,7 @@
             <input type="submit" value="Book Now">
         </form>
     </div>
-
+ <div id="calendar"></div>
      <div class="footer">
     <div class="footer-images">
         <div class="footer-image" id="image1">
