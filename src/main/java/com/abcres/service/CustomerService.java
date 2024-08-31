@@ -33,5 +33,9 @@ public class CustomerService {
     public List<Customer> getAllCustomers() throws SQLException {
         return customerDAO.getAllCustomers();
     }
+    // Method to update customer details
+    public void updateCustomer(Customer customer) throws SQLException {
+        customerDAO.updateCustomer(customer);
+    }
 
 }

@@ -68,6 +68,7 @@ public class UserController extends HttpServlet {
         String phone = request.getParameter("phone");
         String password = request.getParameter("password");
         String role = request.getParameter("role");
+        
 
         try {
             User user = new User(username, fullName, email, phone, password, role);

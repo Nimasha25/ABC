@@ -14,9 +14,9 @@
             padding: 0;
             color: #333;
              background-image: url('images/back1.png');
-            background-size: cover; /* Makes sure the image covers the entire body */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    background-position: center; /* Centers the image on the page */
+            background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; 
     background-attachment: fixed;
         }
         .gallery {
@@ -112,8 +112,9 @@
     color: white;
     text-align: center;
     padding: 40px 20px;
-    position: relative; /* Relative positioning for absolute positioning of child elements */
-    overflow: hidden; /* Ensure content doesn't overflow */
+    position: relative; 
+
+    overflow: hidden; 
 }
 
 .footer-images {
@@ -151,7 +152,7 @@
 .footer-logo,
 .opening-hours,
 .sign-up {
-    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
+    background: rgba(0, 0, 0, 0.7); 
     padding: 20px;
     border-radius: 8px;
     color: #fff;
@@ -205,6 +206,19 @@
     font-size: 14px;
     color: #ccc;
 }
+  /* New CSS for Gallery h2 */
+    .section h2 {
+        color: white;
+        transition: color 0.3s ease;
+        text-align: center; /* Optional: Center the heading */
+        margin-bottom: 20px;
+       font-size: 50px;  /* Optional: Add some space below the heading */
+    }
+
+    .section h2:hover {
+        color: #FFD700; /* Example hover color: Gold */
+        cursor: pointer; /* Optional: Change cursor to pointer on hover */
+    }
     </style>
 </head>
 <body>

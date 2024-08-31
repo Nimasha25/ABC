@@ -196,7 +196,7 @@
         <a href="/admin/reservations"><i class="fas fa-calendar-check"></i> Reservations</a>
         <a href="/admin/users"><i class="fas fa-users"></i> Users</a>
         <a href="/admin/settings"><i class="fas fa-cogs"></i> Settings</a>
-        <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+<a href="<%= request.getContextPath() %>/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </div>
 
     <!-- Main Content -->

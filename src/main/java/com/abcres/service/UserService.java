@@ -8,6 +8,8 @@ import java.util.List;
 public class UserService {
     private static UserService instance;
     private UserDAO userDAO;
+    
+    
 
     private UserService(UserDAO userDAO) {
         this.userDAO = userDAO;
@@ -40,6 +42,9 @@ public class UserService {
         return userDAO.deleteUser(username);
     }
     
-    
+   
+    public boolean updateUser(User user) throws SQLException {
+        return userDAO.updateUser(user);
+    }
 
 }

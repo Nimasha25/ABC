@@ -5,26 +5,32 @@ public class Customer {
     private String firstName;   
     private String lastName;    
     private String email;       
-    private String phoneNumber; 
-    
+    private String phoneNumber;
+    private String profilePic;
+    private String password;// Field for profile picture filename
+
+    // Default constructor
     public Customer() {
     }
 
     // Parameterized Constructor
-    public Customer(int customerId, String firstName, String lastName, String email, String phoneNumber) {
+    public Customer(int customerId, String firstName, String lastName, String email, String phoneNumber, String profilePic, String password) {
         this.customerId = customerId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phoneNumber = phoneNumber;
+        this.profilePic = profilePic;
+        this.password = password;
     }
 
     // Parameterized Constructor without ID (For new records)
-    public Customer(String firstName, String lastName, String email, String phoneNumber) {
+    public Customer(String firstName, String lastName, String email, String phoneNumber, String profilePic) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phoneNumber = phoneNumber;
+        this.profilePic = profilePic;
     }
 
     // Getters and Setters
@@ -68,6 +74,14 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
+    public String getProfilePic() {
+        return profilePic;
+    }
+
+    public void setProfilePic(String profilePic) {
+        this.profilePic = profilePic;
+    }
+
     // Override toString() method for easy debugging
     @Override
     public String toString() {
@@ -77,6 +91,14 @@ public class Customer {
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
+                ", profilePic='" + profilePic + '\'' +
                 '}';
+    }
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
