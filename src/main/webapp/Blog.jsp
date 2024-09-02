@@ -141,8 +141,8 @@
     color: white;
     text-align: center;
     padding: 40px 20px;
-    position: relative; /* Relative positioning for absolute positioning of child elements */
-    overflow: hidden; /* Ensure content doesn't overflow */
+    position: relative; 
+    overflow: hidden; 
 }
 
 .footer-images {
