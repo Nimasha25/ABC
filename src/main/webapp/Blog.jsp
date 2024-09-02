@@ -180,7 +180,7 @@
 .footer-logo,
 .opening-hours,
 .sign-up {
-    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
+    background: rgba(0, 0, 0, 0.7); 
     padding: 20px;
     border-radius: 8px;
     color: #fff;
