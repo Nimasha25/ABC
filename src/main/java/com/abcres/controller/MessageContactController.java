@@ -19,7 +19,7 @@ public class MessageContactController extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        contactService = new ContactService(); // Initialize the ContactService
+        contactService = new ContactService(); 
     }
 
     @Override
@@ -45,26 +45,26 @@ public class MessageContactController extends HttpServlet {
     }
 
     private void handleUserGetRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Forward to the contact form for users
+        
         request.getRequestDispatcher("/WEB-INF/view/contact.jsp").forward(request, response);
     }
 
     private void handleUserPostRequest(HttpServletRequest request, HttpServletResponse response, String action) throws ServletException, IOException {
         if ("submit".equals(action)) {
             try {
-                // Get the parameters from the request
+               
                 String name = request.getParameter("name");
                 String email = request.getParameter("email");
                 String subject = request.getParameter("subject");
                 String message = request.getParameter("message");
                 
-                // Create a new Contact object
+                
                 Contact contact = new Contact(name, email, subject, message);
 
-                // Use the service to save the contact
+                
                 contactService.submitContact(contact);
 
-                // Redirect with a success message
+                
                 response.sendRedirect(request.getContextPath() + "/contact?successMessage=Your message has been sent successfully!");
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -72,7 +72,7 @@ public class MessageContactController extends HttpServlet {
                 request.getRequestDispatcher("/WEB-INF/view/error.jsp").forward(request, response);
             }
         } else {
-            // If the action is not recognized, redirect to an error page
+            
             response.sendRedirect(request.getContextPath() + "/WEB-INF/view/error.jsp");
         }
     }
@@ -80,7 +80,7 @@ public class MessageContactController extends HttpServlet {
     private void handleAdminGetRequest(HttpServletRequest request, HttpServletResponse response, String action) throws ServletException, IOException {
         try {
             if ("list".equals(action) || action == null) {
-                // List all contact messages
+                
                 List<Contact> contacts = contactService.getAllContacts();
                 request.setAttribute("contacts", contacts);
                 request.getRequestDispatcher("/WEB-INF/view/manageContacts.jsp").forward(request, response);
@@ -104,12 +104,12 @@ public class MessageContactController extends HttpServlet {
     private void handleAdminPostRequest(HttpServletRequest request, HttpServletResponse response, String action) throws ServletException, IOException {
         try {
             if ("delete".equals(action)) {
-                // Handle contact deletion
+               
                 int id = Integer.parseInt(request.getParameter("id"));
                 contactService.deleteContact(id);
                 response.sendRedirect(request.getContextPath() + "/admin/contacts?action=list");
             } else if ("update".equals(action)) {
-                // Handle contact update
+                
                 int id = Integer.parseInt(request.getParameter("id"));
                 String name = request.getParameter("name");
                 String email = request.getParameter("email");
@@ -120,7 +120,7 @@ public class MessageContactController extends HttpServlet {
                 contactService.updateContact(contact);
                 response.sendRedirect(request.getContextPath() + "/admin/contacts?action=list");
             } else if ("add".equals(action)) {
-                // Handle new contact addition
+               
                 String name = request.getParameter("name");
                 String email = request.getParameter("email");
                 String subject = request.getParameter("subject");

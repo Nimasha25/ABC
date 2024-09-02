@@ -16,12 +16,12 @@
             padding: 0;
             background-color: #f4f4f4;
             background-image: url('images/back1.png');
-            background-size: cover; /* Makes sure the image covers the entire body */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    background-position: center; /* Centers the image on the page */
+            background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center; 
     background-attachment: fixed;
         }
-        /* Existing CSS styles */
+        
         .navbar {
             background-color: #007bff;
             overflow: hidden;
@@ -67,15 +67,15 @@
     color: white;
     text-align: center;
     padding: 40px 20px;
-    position: relative; /* Relative positioning for absolute positioning of child elements */
-    overflow: hidden; /* Ensure content doesn't overflow */
+    position: relative; 
+    overflow: hidden; 
 }
 
 .footer-images {
     display: flex;
-    position: relative; /* Relative positioning for containing absolutely positioned content */
-    z-index: 1; /* Ensures images are behind content */
-    margin-bottom: 40px; /* Space between images and content */
+    position: relative; 
+    z-index: 1; 
+    margin-bottom: 40px; 
 }
 
 .footer-image {
@@ -86,7 +86,7 @@
 
 .footer-image img {
     width: 100%;
-    height: 400px; /* Adjust height as needed */
+    height: 400px; 
     object-fit: cover;
     display: block;
 }
@@ -96,17 +96,17 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90%; /* Adjust width as needed */
+    width: 90%; 
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    z-index: 2; /* Ensure content is above images */
+    z-index: 2; 
 }
 
 .footer-logo,
 .opening-hours,
 .sign-up {
-    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
+    background: rgba(0, 0, 0, 0.7); 
     padding: 20px;
     border-radius: 8px;
     color: #fff;
@@ -160,7 +160,7 @@
     font-size: 14px;
     color: #ccc;
 }
-        /* Styling for the form container */
+       
 .form-container {
     width: 80%;
     max-width: 600px;
@@ -173,7 +173,7 @@
 }
 
 .form-container h2 {
-    color: #0033cc; /* Blue color for the header */
+    color: #0033cc; 
     font-size: 24px;
     margin-bottom: 20px;
     text-align: center;
@@ -198,12 +198,12 @@
     font-size: 16px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    box-sizing: border-box; /* Ensures padding does not affect width */
+    box-sizing: border-box; 
     margin-bottom: 15px;
 }
 
 .form-container input[type="submit"] {
-    background-color: #0033cc; /* Blue color for the submit button */
+    background-color: #0033cc;
     color: #fff;
     padding: 15px 20px;
     border: none;
@@ -214,7 +214,7 @@
 }
 
 .form-container input[type="submit"]:hover {
-    background-color: #002a80; /* Darker blue on hover */
+    background-color: #002a80; 
 }
    #calendar {
             background-color: #333;
@@ -241,7 +241,7 @@
             height: auto;
         }
         .tag {
-            display: none; /* Hide tags as we won't be using them */
+            display: none; 
         }
         .fc-daygrid-day {
             border: 1px solid #ddd;
@@ -259,21 +259,21 @@
             z-index: 1;
         }
        .available {
-            background-color: #28a745; /* Green for available */
+            background-color: #28a745; 
         }
         .bookable {
-            background-color: #007bff; /* Blue for bookable */
+            background-color: #007bff; 
         }
         .reserved {
-            background-color: #ff4c4c; /* Red for reserved */
+            background-color: #ff4c4c; 
         }
         .pending {
-            background-color: #ff9900; /* Orange for reserved */
+            background-color: #ff9900; 
     </style>
   <script>
         // Handle form submission using AJAX
         function handleReservation(event) {
-            event.preventDefault(); // Prevent the form from submitting immediately
+            event.preventDefault(); 
 
             // Get form data
             var form = document.querySelector('.form-container form');
@@ -321,6 +321,7 @@
                         extendedProps: {
                             status: 'reserved'
                         }
+                    
                     },
                     // September bookings
                     {

@@ -52,7 +52,7 @@ public class ReservationController extends HttpServlet {
         }
 
         int guests = Integer.parseInt(request.getParameter("guests"));
-        String status = "pending"; // Default status
+        String status = "pending"; 
 
         Reservation reservation = new Reservation(name, email, phone, serviceType, date, time, guests, status);
 

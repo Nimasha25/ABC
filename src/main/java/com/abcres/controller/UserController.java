@@ -19,18 +19,18 @@ public class UserController extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        UserDAO userDAO = new UserDAO(); // Initialize UserDAO
-        userService = UserService.getInstance(userDAO); // Pass UserDAO to UserService
+        UserDAO userDAO = new UserDAO(); 
+        userService = UserService.getInstance(userDAO); 
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            List<User> users = userService.getAllUsers(); // Fetch users from service
-            request.setAttribute("users", users); // Set the attribute
-            request.getRequestDispatcher("/WEB-INF/view/manageUsers.jsp").forward(request, response); // Forward to JSP
+            List<User> users = userService.getAllUsers(); 
+            request.setAttribute("users", users); 
+            request.getRequestDispatcher("/WEB-INF/view/manageUsers.jsp").forward(request, response); 
         } catch (SQLException e) {
-            e.printStackTrace(); // Log the exception
+            e.printStackTrace(); 
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Unable to retrieve users.");
         }
     

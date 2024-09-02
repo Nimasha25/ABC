@@ -29,11 +29,11 @@ public class PaymentAdminController extends HttpServlet {
             List<Payment> payments = paymentService.getAllPayments();
             request.setAttribute("payments", payments);
         } catch (SQLException e) {
-            e.printStackTrace(); // Log the exception
+            e.printStackTrace(); 
             request.setAttribute("errorMessage", "Unable to retrieve payment data.");
         }
 
-        // Forward to the JSP page for displaying payments
+        
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/payment_dashboard.jsp");
         dispatcher.forward(request, response);
     }

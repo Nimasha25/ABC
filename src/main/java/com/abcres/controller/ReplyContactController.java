@@ -18,7 +18,7 @@ public class ReplyContactController extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        contactService = new ContactService(); // Initialize the ContactService
+        contactService = new ContactService(); 
     }
 
     @Override

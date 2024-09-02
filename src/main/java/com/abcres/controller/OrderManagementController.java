@@ -18,7 +18,7 @@ public class OrderManagementController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<CartItem> orders = cartService.getAllOrders();
-        System.out.println("Orders retrieved: " + orders); // Debugging statement
+        System.out.println("Orders retrieved: " + orders); 
 
         request.setAttribute("orders", orders);
         request.getRequestDispatcher("/WEB-INF/view/manageOrders.jsp").forward(request, response);
@@ -37,7 +37,7 @@ public class OrderManagementController extends HttpServlet {
             success = cartService.updateOrderStatus(id, "Unavailable");
         }
 
-        // Redirect with a query parameter to show success or failure message
+        
         String redirectUrl = "manageOrders?message=" + (success ? "Order updated successfully." : "Failed to update order.");
         response.sendRedirect(redirectUrl);
     }
