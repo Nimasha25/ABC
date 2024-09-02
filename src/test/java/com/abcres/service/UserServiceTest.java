@@ -23,10 +23,6 @@ class UserServiceTest {
         userService = UserService.getInstance(mockUserDAO); // Ensure using the mock UserDAO
     }
 
-   
-
-   
-
     @Test
     void testLoginUser_Failure() throws SQLException {
         // Arrange
