@@ -24,9 +24,9 @@
     box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Optional shadow for better visibility */
 }
 
-/* Hover effect for expanding the sidebar */
+
 .sidebar:hover {
-    width: 250px; /* Expand to full width on hover */
+    width: 250px;
 }
 
 /* Style the links and icons */
