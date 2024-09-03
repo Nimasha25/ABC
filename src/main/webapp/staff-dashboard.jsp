@@ -264,7 +264,7 @@
     </style>
 </head>
 <body>
-   <!-- Sidebar -->
+   
 <div class="sidebar">
     <h2 class="text-center text-light">Staff Dashboard</h2>
     <a href="<%= request.getContextPath() %>/staff/dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
@@ -278,13 +278,11 @@
 </div>
 
 
-    <!-- Main Content -->
+    
     <div class="main-content">
         <nav class="navbar">
             <h1>Welcome, <%= session.getAttribute("userName") != null ? session.getAttribute("userName") : "Staff" %>!</h1>
         </nav>
-
-       
     <div class="container">
             <div class="row">
                 <!-- Orders Card -->

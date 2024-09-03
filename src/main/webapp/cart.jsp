@@ -277,9 +277,9 @@
 
         <button class="checkout-button" onclick="window.location.href='payment.jsp'">Proceed to Checkout</button>
         
-        <!-- Form to submit cart data -->
+      
         <form id="cart-form" method="post" action="saveCart">
-            <!-- JavaScript will dynamically add hidden inputs here -->
+          
             <button type="submit">Save Cart</button>
         </form>
         
