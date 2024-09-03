@@ -5,53 +5,66 @@ import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+/**
+ * Utility class to send emails using Gmail's SMTP server.
+ */
 public class EmailUtil {
 
-    public static void sendEmail(String to, String subject, String body) {
-        // Assuming you are sending email from through Gmail's SMTP
-        String from = "sandunkariyawasam320@gmail.com"; // Your email address
-        final String username = "sandunkariyawasam320@gmail.com"; // Your email username
-        final String password = "oizz tydf bhdh fjpk"; // Your email password
+    // SMTP server configuration
+    private static final String SMTP_HOST = "smtp.gmail.com";
+    private static final int SMTP_PORT = 587; // TLS port
+    private static final String FROM = "sandunkariyawasam320@gmail.com"; // Your email address
+    private static final String USERNAME = "sandunkariyawasam320@gmail.com"; // Your email username
+    private static final String PASSWORD = "oizz tydf bhdh fjpk"; // Your Gmail App Password
 
-        // Setup mail server
+    /**
+     * Sends an email using the Gmail SMTP server.
+     * 
+     * @param to       The recipient's email address
+     * @param subject  The subject of the email
+     * @param body     The body of the email
+     */
+    public static void sendEmail(String to, String subject, String body) {
+        // Setup mail server properties
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.host", "smtp.gmail.com");
-        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.host", SMTP_HOST);
+        props.put("mail.smtp.port", SMTP_PORT);
 
         // Get the Session object
         Session session = Session.getInstance(props,
-          new javax.mail.Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(username, password);
-            }
-          });
+            new Authenticator() {
+                @Override
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(USERNAME, PASSWORD);
+                }
+            });
 
         try {
             // Create a default MimeMessage object
             Message message = new MimeMessage(session);
 
             // Set From: header field of the header
-            message.setFrom(new InternetAddress(from));
+            message.setFrom(new InternetAddress(FROM));
 
             // Set To: header field of the header
-            message.setRecipients(Message.RecipientType.TO,
-                InternetAddress.parse(to));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
 
             // Set Subject: header field
             message.setSubject(subject);
 
-            // Now set the actual message
+            // Set the actual message
             message.setText(body);
 
-            // Send message
+            // Send the message
             Transport.send(message);
 
             System.out.println("Sent message successfully....");
 
         } catch (MessagingException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace(); // Print stack trace for debugging
+            throw new RuntimeException("Error sending email: " + e.getMessage(), e);
         }
     }
 }
