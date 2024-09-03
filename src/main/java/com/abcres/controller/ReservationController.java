@@ -3,6 +3,7 @@ package com.abcres.controller;
 import com.abcres.model.Reservation;
 import com.abcres.service.ReservationService;
 
+import com.abcres.service.EmailUtil;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -52,12 +53,19 @@ public class ReservationController extends HttpServlet {
         }
 
         int guests = Integer.parseInt(request.getParameter("guests"));
-        String status = "pending"; 
+        String status = "pending"; // Default status
 
         Reservation reservation = new Reservation(name, email, phone, serviceType, date, time, guests, status);
 
         try {
             reservationService.addReservation(reservation);
+
+            // Send email notification
+            String subject = "Reservation Confirmation";
+            String body = "Dear " + name + ",\n\nYour reservation for " + serviceType + " on " +
+                          date + " at " + time + " for " + guests + " guests has been confirmed.\n\nThank you!";
+            EmailUtil.sendEmail(email, subject, body);
+
             response.setContentType("text/plain");
             response.getWriter().write("Reservation successful!");
         } catch (SQLException e) {
