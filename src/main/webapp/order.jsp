@@ -10,39 +10,39 @@
     <link rel="stylesheet" href="styles.css">
     
     <style>
-    /* Sidebar styles */
+    
 .sidebar {
     position: fixed;
-    right: 0; /* Place on the right side */
+    right: 0; 
     top: 0;
-    width: 60px; /* Start with a small width */
+    width: 60px;
     height: 100%;
-    background-color: #ffffff; /* White background */
+    background-color: #ffffff; 
     overflow-x: hidden;
-    transition: width 0.3s ease; /* Smooth transition */
-    border-left: 1px solid #ddd; /* Optional border for separation */
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Optional shadow for better visibility */
+    transition: width 0.3s ease; 
+    border-left: 1px solid #ddd; 
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1); 
 }
 
-/* Hover effect for expanding the sidebar */
+
 .sidebar:hover {
-    width: 250px; /* Expand to full width on hover */
+    width: 250px;
 }
 
-/* Style the links and icons */
+
 .sidebar a {
     display: block;
-    color: #333; /* Dark text color for contrast */
+    color: #333; 
     padding: 16px;
     text-decoration: none;
-    white-space: nowrap; /* Prevent text from wrapping */
-    opacity: 0; /* Initially hide the text */
-    transition: opacity 0.3s ease; /* Smooth transition for text appearance */
+    white-space: nowrap; 
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
 }
 
-/* Show the text on hover */
+
 .sidebar:hover a {
-    opacity: 1; /* Show the text on hover */
+    opacity: 1; 
 }
 
 /* Icon styling */
@@ -50,18 +50,18 @@
     margin-right: 10px;
 }
 
-/* Adjust heading for better visibility */
+
 .sidebar h2 {
     font-size: 1.2rem;
     padding: 20px 16px;
     margin: 0;
     text-align: center;
     transition: opacity 0.3s ease;
-    opacity: 0; /* Initially hide the heading text */
+    opacity: 0; 
 }
 
 .sidebar:hover h2 {
-    opacity: 1; /* Show the heading text on hover */
+    opacity: 1;
 }
     
     
@@ -73,9 +73,9 @@
             background-color: #f8f9fa;
             background-image: url('images/back3.png');
 
-    background-size: cover; /* Makes sure the image covers the entire body */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    background-position: center; /* Centers the image on the page */
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
     background-attachment: fixed; 
         }
 
@@ -218,7 +218,7 @@
 
 #cart p {
     font-size: 18px;
-    color: #87CEEB; /* Grey color for text */
+    color: #87CEEB; 
 }
 
 
@@ -253,15 +253,15 @@
     color: white;
     text-align: center;
     padding: 40px 20px;
-    position: relative; /* Relative positioning for absolute positioning of child elements */
-    overflow: hidden; /* Ensure content doesn't overflow */
+    position: relative; 
+    overflow: hidden; 
 }
 
 .footer-images {
     display: flex;
-    position: relative; /* Relative positioning for containing absolutely positioned content */
-    z-index: 1; /* Ensures images are behind content */
-    margin-bottom: 40px; /* Space between images and content */
+    position: relative; 
+    z-index: 1; 
+    margin-bottom: 40px;
 }
 
 .footer-image {
@@ -272,7 +272,7 @@
 
 .footer-image img {
     width: 100%;
-    height: 400px; /* Adjust height as needed */
+    height: 400px; 
     object-fit: cover;
     display: block;
 }
@@ -282,17 +282,17 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90%; /* Adjust width as needed */
+    width: 90%; 
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    z-index: 2; /* Ensure content is above images */
+    z-index: 2;
 }
 
 .footer-logo,
 .opening-hours,
 .sign-up {
-    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
+    background: rgba(0, 0, 0, 0.7); 
     padding: 20px;
     border-radius: 8px;
     color: #fff;
@@ -354,7 +354,7 @@
 }
 
 .promotion-item {
-    display: none; /* Hide all promotions by default */
+    display: none; 
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -363,28 +363,28 @@
 }
 
 .promotion-item.active {
-    display: block; /* Show only the active promotion */
+    display: block; 
 }
 
 h2 {
     font-size: 28px;
-    color: #007bff; /* Blue color */
+    color: #007bff; 
     margin-bottom: 20px;
 }
 
 h3 {
     font-size: 22px;
-    color: #333; /* Darker color */
+    color: #333; 
 }
 
 .discount {
     font-weight: bold;
-    color: #ff0000; /* Red color for discount */
+    color: #ff0000; 
 }
 
 .expiry {
     font-style: italic;
-    color: #666; /* Grey color for expiry date */
+    color: #666; 
 }
 
 .pagination {
@@ -392,7 +392,7 @@ h3 {
 }
 
 .pagination button {
-    background-color: #007bff; /* Blue color */
+    background-color: #007bff; 
     border: none;
     color: white;
     padding: 10px 20px;
@@ -404,7 +404,7 @@ h3 {
 }
 
 .pagination button:hover {
-    background-color: #0056b3; /* Darker blue color on hover */
+    background-color: #0056b3; 
 }
 
     </style>
@@ -426,7 +426,8 @@ h3 {
         <h1>Order Your Favorite Food</h1>
     </div>
     
-    <!-- Sidebar -->
+   
+   
 <div class="sidebar">
     <h2 class="text-center">Customer Panel</h2>
     <a href="<c:url value='/customer/orders' />"><i class="fas fa-shopping-cart"></i> Orders</a>

@@ -17,27 +17,27 @@ public class RatingController extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        ratingDAO = new RatingDAO(); // Initialize DAO
+        ratingDAO = new RatingDAO(); 
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            // Retrieve form data
+           
             int ratingValue = Integer.parseInt(request.getParameter("rating"));
             String customerName = request.getParameter("customerName");
-            int itemId = Integer.parseInt(request.getParameter("itemId")); // Retrieve itemId
+            int itemId = Integer.parseInt(request.getParameter("itemId")); 
 
-            // Create Rating object
+            
             Rating rating = new Rating();
             rating.setRating(ratingValue);
             rating.setCustomerName(customerName);
             rating.setItemId(itemId);
 
-            // Save to database
+           
             ratingDAO.saveRating(rating);
 
-            // Redirect to thank you page or show success message
+            
             response.sendRedirect("rating_success.jsp");
 
         } catch (NumberFormatException e) {

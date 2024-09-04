@@ -27,7 +27,7 @@ public class CartController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<CartItem> cartItems = new ArrayList<>();
 
-        // Extract cart items from the request
+       
         String[] itemNames = request.getParameterValues("cartItems[0].itemName");
         String[] quantities = request.getParameterValues("cartItems[0].quantity");
         String[] prices = request.getParameterValues("cartItems[0].price");

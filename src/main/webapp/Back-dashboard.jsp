@@ -189,7 +189,7 @@
     </style>
 </head>
 <body>
-    <!-- Sidebar -->
+    
     <div class="sidebar">
         <h2 class="text-center text-light">Admin-Panel</h2>
         <a href="/admin/dashboard"><i class="fas fa-tachometer-alt"></i> Dash-board</a>
@@ -199,7 +199,6 @@
 <a href="<%= request.getContextPath() %>/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </div>
 
-    <!-- Main Content -->
     <div class="main-content">
         <nav class="navbar">
             <h1>Admin-Dashboard</h1>

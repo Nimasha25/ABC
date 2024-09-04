@@ -23,7 +23,7 @@ public class AdminReservationController extends HttpServlet {
     @Override
     public void init() throws ServletException {
         super.init();
-        reservationDAO = new ReservationDAO(); // Initialize DAO
+        reservationDAO = new ReservationDAO(); 
     }
 
     @Override
@@ -31,7 +31,7 @@ public class AdminReservationController extends HttpServlet {
         String action = request.getParameter("action");
 
         if (action == null || "list".equals(action)) {
-            // Default action: list all reservations
+            
             try {
                 List<Reservation> reservations = reservationDAO.getAllReservations();
                 request.setAttribute("reservations", reservations);
@@ -44,7 +44,7 @@ public class AdminReservationController extends HttpServlet {
                 dispatcher.forward(request, response);
             }
         } else if ("edit".equals(action)) {
-            // Handle the edit action
+        
             try {
                 int id = Integer.parseInt(request.getParameter("id"));
                 Reservation reservation = reservationDAO.getReservationById(id);
@@ -68,7 +68,7 @@ public class AdminReservationController extends HttpServlet {
 
         try {
             if ("update".equals(action)) {
-                // Handle reservation update
+                
                 int id = Integer.parseInt(request.getParameter("id"));
                 String name = request.getParameter("name");
                 String email = request.getParameter("email");
@@ -94,7 +94,7 @@ public class AdminReservationController extends HttpServlet {
 
                 response.sendRedirect(request.getContextPath() + "/admin/reservations");
             } else if ("delete".equals(action)) {
-                // Handle reservation deletion
+              
                 int id = Integer.parseInt(request.getParameter("id"));
                 reservationDAO.deleteReservation(id);
                 response.sendRedirect(request.getContextPath() + "/admin/reservations");

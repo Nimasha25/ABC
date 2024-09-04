@@ -13,9 +13,9 @@
             padding: 0;
             background-color: #f4f4f4;
             background-image: url('images/back1.png');
-            background-size: cover; /* Makes sure the image covers the entire body */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    background-position: center; /* Centers the image on the page */
+            background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center; 
     background-attachment: fixed;
         }
         .menu-container {
@@ -68,7 +68,7 @@
         }
        .menu-item-price {
     font-size: 18px;
-    color: #87ceeb; /* Light blue color for price */
+    color: #87ceeb; 
     font-weight: bold;
     text-align: right;
     min-width: 100px;
@@ -116,15 +116,15 @@
     font-weight: bold;
     text-transform: uppercase;
     white-space: nowrap;
-    overflow: hidden; /* Hide the overflow */
+    overflow: hidden; 
     display: inline-block;
     position: relative;
-    opacity: 0; /* Start with the text hidden */
-    transition: opacity 1s ease-in-out; /* Smooth transition for the opacity */
+    opacity: 0; 
+    transition: opacity 1s ease-in-out; 
 }
 
 .header h1.show {
-    opacity: 1; /* Show text when class is added */
+    opacity: 1; 
 }
 
 .header h1 span {
@@ -132,16 +132,16 @@
     z-index: 2;
     display: inline-block;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out; /* Smooth transition for each letter */
+    transition: opacity 0.5s ease-in-out; 
 }
 
 .header h1 span.show {
-    opacity: 1; /* Show letters when class is added */
+    opacity: 1; 
 }
 
 /* Hover effect for the text */
 .header h1:hover {
-    color: #1E90FF; /* Change text color on hover */
+    color: #1E90FF; 
     cursor: pointer;
 }
 
@@ -150,15 +150,15 @@
     color: white;
     text-align: center;
     padding: 40px 20px;
-    position: relative; /* Relative positioning for absolute positioning of child elements */
-    overflow: hidden; /* Ensure content doesn't overflow */
+    position: relative; 
+    overflow: hidden; 
 }
 
 .footer-images {
     display: flex;
-    position: relative; /* Relative positioning for containing absolutely positioned content */
-    z-index: 1; /* Ensures images are behind content */
-    margin-bottom: 40px; /* Space between images and content */
+    position: relative; 
+    z-index: 1; 
+    margin-bottom: 40px; 
 }
 
 .footer-image {
@@ -169,7 +169,7 @@
 
 .footer-image img {
     width: 100%;
-    height: 400px; /* Adjust height as needed */
+    height: 400px; 
     object-fit: cover;
     display: block;
 }
@@ -179,17 +179,17 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90%; /* Adjust width as needed */
+    width: 90%; 
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    z-index: 2; /* Ensure content is above images */
+    z-index: 2; 
 }
 
 .footer-logo,
 .opening-hours,
 .sign-up {
-    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
+    background: rgba(0, 0, 0, 0.7);
     padding: 20px;
     border-radius: 8px;
     color: #fff;
@@ -244,7 +244,7 @@
     color: #ccc;
 }
 
-  /* Add the shaking animation keyframes */
+ 
 @keyframes shake {
     0% { transform: translateX(0); }
     25% { transform: translateX(-10px); }
@@ -253,12 +253,12 @@
     100% { transform: translateX(0); }
 }
 
-/* Apply the animation to the h1 element */
+
 .header h1.shake {
     animation: shake 0.5s ease-in-out;
 }
 
-/* Ensure the text shows up gradually as before */
+
 .header h1.show {
     opacity: 1;
 }
