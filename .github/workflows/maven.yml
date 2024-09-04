@@ -12,7 +12,7 @@ on:
   push:
     branches: [ "master" ]
     paths-ignore:
-      - '/src/test/java**'
+      - 'com/abcres/src/test/java**'
 
   pull_request:
     branches: [ "master" ]
