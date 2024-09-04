@@ -11,6 +11,9 @@ name: Java CI with Maven
 on:
   push:
     branches: [ "master" ]
+    paths-ignore:
+      - 'src/test/java**'
+
   pull_request:
     branches: [ "master" ]
 
