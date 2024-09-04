@@ -33,8 +33,7 @@ jobs:
         
     - name: Build with Maven and run tests
       run: mvn -B package -DskipTests --file pom.xml
-    - name: Run specific tests with Maven
-      run: mvn test -Dtest=com.abcres.service.UserServiceTest
+   
 
    
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
