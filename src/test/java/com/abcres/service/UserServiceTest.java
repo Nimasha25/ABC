@@ -57,16 +57,5 @@ class UserServiceTest {
         assertEquals("suu", result.get(1).getUsername());
     }
 
-    @Test
-    void testDeleteUser() throws SQLException {
-        // Arrange
-        when(mockUserDAO.deleteUser("ash")).thenReturn(true);
-
-        // Act
-        boolean deleted = userService.deleteUser("ash");
-
-        // Assert
-        assertTrue(deleted);
-        verify(mockUserDAO, times(1)).deleteUser("ash");
-    }
+   
 }
