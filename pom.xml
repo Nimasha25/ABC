@@ -42,11 +42,26 @@
         <artifactId>mysql-connector-java</artifactId>
         <version>8.0.32</version>
     </dependency>
+    <!-- JUnit 5 API and Engine -->
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version>5.9.3</version>
+        <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-engine</artifactId>
+        <version>5.9.3</version>
+        <scope>test</scope>
+    </dependency>
+
+    <!-- Mockito for mocking objects -->
+    <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-core</artifactId>
+        <version>4.0.0</version>
+        <scope>test</scope>
     </dependency>
     <dependency>
 			<groupId>javax.servlet</groupId>
@@ -58,18 +73,7 @@
 			<artifactId>standard</artifactId>
 			<version>1.1.2</version>
 		</dependency>
-		<dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-    <groupId>org.mockito</groupId>
-    <artifactId>mockito-core</artifactId>
-    <version>4.8.0</version> <!-- Check for the latest version -->
-    <scope>test</scope>
-</dependency>
+		
 <dependency>
     <groupId>com.sun.mail</groupId>
     <artifactId>javax.mail</artifactId>
