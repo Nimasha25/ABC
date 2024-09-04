@@ -13,9 +13,9 @@ public class EmailUtil {
     // SMTP server configuration
     private static final String SMTP_HOST = "smtp.gmail.com";
     private static final int SMTP_PORT = 587; // TLS port
-    private static final String FROM = "sandunkariyawasam320@gmail.com"; // Your email address
-    private static final String USERNAME = "sandunkariyawasam320@gmail.com"; // Your email username
-    private static final String PASSWORD = "oizz tydf bhdh fjpk"; // Your Gmail App Password
+    private static final String FROM = "sandunkariyawasam320@gmail.com"; 
+    private static final String USERNAME = "sandunkariyawasam320@gmail.com"; 
+    private static final String PASSWORD = "oizz tydf bhdh fjpk"; 
 
     /**
      * Sends an email using the Gmail SMTP server.
