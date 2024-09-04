@@ -24,7 +24,7 @@ public class SystemConfigController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Assume the key is passed as a query parameter
+        
         String key = request.getParameter("key");
         if (key != null) {
             SystemConfig config = service.getConfig(key);
@@ -41,10 +41,10 @@ public class SystemConfigController extends HttpServlet {
             SystemConfig config = new SystemConfig(key, value);
             try {
                 if (service.getConfig(key) == null) {
-                    // If the config doesn't exist, add it
+                    
                     service.addConfig(config);
                 } else {
-                    // Otherwise, update the existing config
+                    
                     service.updateConfig(config);
                 }
                 response.sendRedirect("settings?key=" + URLEncoder.encode(key, "UTF-8") + "&success=true");

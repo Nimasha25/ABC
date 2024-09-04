@@ -19,7 +19,7 @@ public class ContactAdminController extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        contactService = new ContactService(); // Initialize the ContactService
+        contactService = new ContactService(); 
     }
 
     @Override
@@ -28,7 +28,7 @@ public class ContactAdminController extends HttpServlet {
 
         try {
             if ("list".equals(action) || action == null) {
-                // Fetch all contacts from the database
+                
                 List<Contact> contacts = contactService.getAllContacts();
                 request.setAttribute("contacts", contacts);
                 request.getRequestDispatcher("/WEB-INF/view/contact_list.jsp").forward(request, response);
