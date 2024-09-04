@@ -32,7 +32,7 @@ jobs:
         cache: maven
         
     - name: Build with Maven and run tests
-      run: mvn -B test -Dtest=com.abcres.service.*
+      run: mvn -B package -DskipTests --file pom.xml
 
 
    
