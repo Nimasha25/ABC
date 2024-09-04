@@ -1,21 +1,23 @@
 //package com.abcres.service;
 //
 //import com.abcres.model.Payment;
-//import org.junit.jupiter.api.BeforeEach;
-//import org.junit.jupiter.api.Test;
+//
 //
 //import java.math.BigDecimal;
 //import java.sql.SQLException;
 //import java.sql.Timestamp;
 //import java.util.List;
 //
-//import static org.junit.jupiter.api.Assertions.*;
+//import org.junit.Before;
+//import org.junit.Test;
+//
+//
 //
 //public class PaymentServiceTest {
 //
 //    private PaymentService paymentService;
 //
-//    @BeforeEach
+//    @Before
 //    public void setUp() {
 //        paymentService = new PaymentService();
 //    }

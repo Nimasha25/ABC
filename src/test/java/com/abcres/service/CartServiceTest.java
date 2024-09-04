@@ -18,15 +18,16 @@ import static org.mockito.Mockito.when;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Before;
 import org.junit.Test;
+
 
 class CartServiceTest {
 
     private CartDAO mockCartDAO;
     private CartService cartService;
 
-    @Before
+    
+    @Test
     void setUp() {
         mockCartDAO = mock(CartDAO.class);
         cartService = new CartService(mockCartDAO);
