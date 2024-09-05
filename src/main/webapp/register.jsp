@@ -260,6 +260,12 @@
                 <input type="submit" value="Register">
                
             </form>
+            <form action="/uploadProfilePic" method="post" enctype="multipart/form-data">
+    <input type="file" name="profilePic" accept="image/*">
+    <input type="submit" value="Upload">
+    
+</form>
+            
 
              <% 
             String username = request.getParameter("username");

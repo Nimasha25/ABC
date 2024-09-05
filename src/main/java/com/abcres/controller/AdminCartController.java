@@ -78,7 +78,7 @@ public class AdminCartController extends HttpServlet {
     private void viewCartItems(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<CartItem> cartItems = cartService.getAllOrders();
         request.setAttribute("cartItems", cartItems);
-        request.getRequestDispatcher("/WEB-INF/view/manageCart.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/view//manageCart.jsp").forward(request, response);
     }
 
     private void updateOrderStatus(HttpServletRequest request, HttpServletResponse response) throws IOException {

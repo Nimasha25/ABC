@@ -15,7 +15,7 @@ public class PaymentDAO {
     }
 
     public void save(Payment payment) {
-        String sql = "INSERT INTO payments (amount, payment_method, card_number, card_expiry, phone_number, email, created_at) VALUES (?, ?, ?, ?, ?, ?, NOW())";
+        String sql = "INSERT INTO payments (amount, payment_method, card_number, card_expiry, phone_number, email, created_at, status) VALUES (?, ?, ?, ?, ?, ?, NOW())";
         
         try (Connection conn = DBConn.getInstance().getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -49,7 +49,9 @@ public class PaymentDAO {
                 payment.setCardExpiry(rs.getString("card_expiry"));
                 payment.setPhoneNumber(rs.getString("phone_number"));
                 payment.setEmail(rs.getString("email"));
-                payment.setPaymentDate(rs.getTimestamp("created_at")); // Adjust if necessary
+                payment.setPaymentDate(rs.getTimestamp("created_at")); 
+                payment.setStatus(rs.getString("status"));
+             
                 payments.add(payment);
             }
         }
