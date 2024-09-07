@@ -15,7 +15,7 @@ public class PaymentDAO {
     }
 
     public void save(Payment payment) {
-        String sql = "INSERT INTO payments (amount, payment_method, card_number, card_expiry, phone_number, email, created_at, status) VALUES (?, ?, ?, ?, ?, ?, NOW())";
+        String sql = "INSERT INTO payments (amount, payment_method, card_number, card_expiry, phone_number, email, created_at, status) VALUES (?, ?, ?, ?, ?, ?, NOW(), ?)";
         
         try (Connection conn = DBConn.getInstance().getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -26,6 +26,7 @@ public class PaymentDAO {
             stmt.setString(4, payment.getCardExpiry());
             stmt.setString(5, payment.getPhoneNumber());
             stmt.setString(6, payment.getEmail());
+            stmt.setString(7, payment.getStatus()); // Assuming 'status' is stored as a String
 
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -33,6 +34,7 @@ public class PaymentDAO {
             throw new RuntimeException("Error saving payment data");
         }
     }
+
 
 
     public List<Payment> getAllPayments() throws SQLException {

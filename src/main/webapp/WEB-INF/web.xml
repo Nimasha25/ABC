@@ -197,6 +197,12 @@
   	<description></description>
   	<servlet-class>com.abcres.controller.ProfileController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>SmsServlet</servlet-name>
+  	<display-name>SmsServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.SmsServlet</servlet-class>
+  </servlet>
   
   
   <servlet-mapping>
@@ -321,6 +327,10 @@
   <servlet-mapping>
   	<servlet-name>ProfileController</servlet-name>
   	<url-pattern>/ProfileController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SmsServlet</servlet-name>
+  	<url-pattern>/SmsServlet</url-pattern>
   </servlet-mapping>
   
   <session-config>

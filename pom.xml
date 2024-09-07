@@ -13,6 +13,7 @@
     <maven.compiler.target>17</maven.compiler.target>
   </properties>
   <dependencies>
+  
   <dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
@@ -65,13 +66,34 @@
     <version>4.8.0</version> <!-- Check for the latest version -->
     <scope>test</scope>
 </dependency>
+
 <dependency>
         <groupId>com.sun.mail</groupId>
         <artifactId>javax.mail</artifactId>
         <version>1.6.2</version>
     </dependency>
-		
+	<dependency>
+    <groupId>org.apache.httpcomponents</groupId>
+    <artifactId>httpclient</artifactId>
+    <version>4.5.13</version>
+</dependency>
+ <dependency>
+        <groupId>com.twilio.sdk</groupId>
+        <artifactId>twilio</artifactId>
+        <version>8.27.0</version> <!-- Ensure the latest version is used -->
+    </dependency>
+ 
   </dependencies>
+  <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+        <repository>
+            <id>jcenter</id>
+            <url>https://jcenter.bintray.com/</url>
+        </repository>
+    </repositories>
   <build>
     <finalName>abcres</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->

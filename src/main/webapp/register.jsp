@@ -260,71 +260,57 @@
                 <input type="submit" value="Register">
                
             </form>
-            <form action="/uploadProfilePic" method="post" enctype="multipart/form-data">
-    <input type="file" name="profilePic" accept="image/*">
-    <input type="submit" value="Upload">
-    
-</form>
-            
 
-             <% 
-            String username = request.getParameter("username");
-            String fullName = request.getParameter("full-name");
-            String email = request.getParameter("email");
-            String phone = request.getParameter("phone");
-            String password = request.getParameter("password");
-            String role = request.getParameter("role");
+              <%
+        String username = request.getParameter("username");
+        String fullName = request.getParameter("full-name");
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone");
+        String password = request.getParameter("password"); // Storing plain-text password
+        String role = request.getParameter("role");
 
-            if (username != null && fullName != null && email != null && phone != null && password != null && role != null) {
-                String url = "jdbc:mysql://localhost:3306/abc_res_db";
-                String user = "root";
-                String pass = "MySQL@25";
-                Connection conn = null;
-                PreparedStatement pst = null;
+        if (username != null && fullName != null && email != null && phone != null && password != null && role != null) {
+            String url = "jdbc:mysql://localhost:3306/abc_res_db";
+            String user = "root";
+            String pass = "MySQL@25";
+            Connection conn = null;
+            PreparedStatement pst = null;
 
-                try {
-                    // Load database driver
-                    Class.forName("com.mysql.cj.jdbc.Driver");
-                    conn = DriverManager.getConnection(url, user, pass);
+            try {
+                // Load MySQL JDBC Driver
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                conn = DriverManager.getConnection(url, user, pass);
 
-                    // Insert registration data into database
-                    String sql = "INSERT INTO users (username, full_name, email, phone, password, role) VALUES (?, ?, ?, ?, ?, ?)";
-                    pst = conn.prepareStatement(sql);
-                    pst.setString(1, username);
-                    pst.setString(2, fullName);
-                    pst.setString(3, email);
-                    pst.setString(4, phone);
-                    pst.setString(5, password); // Hash passwords before storing
-                    pst.setString(6, role);
-                    int result = pst.executeUpdate();
+                // SQL to insert user data into the database
+                String sql = "INSERT INTO users (username, full_name, email, phone, password, role) VALUES (?, ?, ?, ?, ?, ?)";
+                pst = conn.prepareStatement(sql);
+                pst.setString(1, username);
+                pst.setString(2, fullName);
+                pst.setString(3, email);
+                pst.setString(4, phone);
+                pst.setString(5, password); // Storing plain-text password
+                pst.setString(6, role);
 
-                    if (result > 0) {
-                        // Debugging output
-                        System.out.println("Registration successful for role: " + role);
-
-                        // Check role and redirect accordingly
-                        if ("customer".equalsIgnoreCase(role)) {
-                            response.sendRedirect("payment.jsp");
-                        } else if ("admin".equalsIgnoreCase(role) || "staff".equalsIgnoreCase(role)) {
-                            response.sendRedirect("login.jsp");
-                        } else {
-                            String errorMessage = URLEncoder.encode("Invalid role selected. Please try again.", "UTF-8");
-                            response.sendRedirect("error.jsp?errorMessage=" + errorMessage);
-                        }
+                int result = pst.executeUpdate();
+                if (result > 0) {
+                    // Registration successful, redirect based on role
+                    if ("customer".equalsIgnoreCase(role)) {
+                        response.sendRedirect("payment.jsp"); // Redirect customer to payment page
                     } else {
-                        String errorMessage = URLEncoder.encode("Registration failed. Please try again.", "UTF-8");
-                        response.sendRedirect("error.jsp?errorMessage=" + errorMessage);
+                        response.sendRedirect("login.jsp"); // Redirect staff/admin to login page
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    String errorMessage = URLEncoder.encode("An error occurred. Please try again later.", "UTF-8");
-                    response.sendRedirect("error.jsp?errorMessage=" + errorMessage);
-                } finally {
-                    if (pst != null) try { pst.close(); } catch (SQLException e) { e.printStackTrace(); }
-                    if (conn != null) try { conn.close(); } catch (SQLException e) { e.printStackTrace(); }
+                } else {
+                    out.println("Registration failed.<br>");
                 }
+            } catch (Exception e) {
+                e.printStackTrace();
+                out.println("Error: " + e.getMessage() + "<br>");
+            } finally {
+                if (pst != null) try { pst.close(); } catch (SQLException e) { e.printStackTrace(); }
+                if (conn != null) try { conn.close(); } catch (SQLException e) { e.printStackTrace(); }
             }
-            %>
+        }
+    %>
         </div>
     </div>
 

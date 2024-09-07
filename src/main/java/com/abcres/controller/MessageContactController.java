@@ -46,7 +46,7 @@ public class MessageContactController extends HttpServlet {
 
     private void handleUserGetRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
-        request.getRequestDispatcher("/WEB-INF/view/contact.jsp").forward(request, response);
+        request.getRequestDispatcher("/Contact.jsp").forward(request, response);
     }
 
     private void handleUserPostRequest(HttpServletRequest request, HttpServletResponse response, String action) throws ServletException, IOException {

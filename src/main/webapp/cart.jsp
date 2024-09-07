@@ -239,6 +239,85 @@
     font-size: 14px;
     color: #ccc;
 }
+#cart-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#cartItems {
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fafafa;
+}
+
+.cart-item input[type="text"],
+.cart-item input[type="number"] {
+    flex: 1;
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.cart-item input[type="text"]:last-child,
+.cart-item input[type="number"]:last-child {
+    margin-right: 0;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Alert Styles */
+.alert {
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 4px;
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
+
+.alert.success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.alert.failure {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
 
     </style>
 </head>
@@ -260,30 +339,30 @@
 
     <div class="container">
         <h2>Items in Your Cart</h2>
-        <table class="cart-table">
-            <thead>
-                <tr>
-                    <th>Item</th>
-                    <th>Quantity</th>
-                    <th>Price (per item)</th>
-                    <th>Total</th>
-                </tr>
-            </thead>
-            <tbody id="cart-items">
-                <!-- Cart items will be inserted here by JavaScript -->
-            </tbody>
-        </table>
-        <h3>Total Price: LKR <span id="total-price">0.00</span></h3>
+       <form id="cart-form" method="post" action="saveCart">
+    <div id="cartItems">
+        <!-- Example structure for cart items -->
+        <div class="cart-item">
+            <input type="text" name="cartItems[0].itemName" placeholder="Item Name" required />
+            <input type="number" name="cartItems[0].quantity" placeholder="Quantity" required />
+            <input type="text" name="cartItems[0].price" placeholder="Price" required />
+        </div>
+    </div>
+    
+    <button type="submit">Save Cart</button>
+</form>
+
+<!-- Display success or failure message -->
+<c:if test="${not empty message}">
+    <div class="alert">
+        ${message}
+    </div>
+</c:if>
 
         <button class="checkout-button" onclick="window.location.href='payment.jsp'">Proceed to Checkout</button>
         
       
-        <form id="cart-form" method="post" action="saveCart">
-          
-            <button type="submit">Save Cart</button>
-        </form>
         
-        <p id="save-message"></p>
     </div>
     <div class="footer">
     <div class="footer-images">
