@@ -9,7 +9,7 @@ public class User {
     private String role;
     private String status;
 
-    // Constructor with all parameters
+    
     public User(String username, String fullName, String email, String phone, String password, String role) {
         this.username = username;
         this.fullName = fullName;
@@ -26,11 +26,11 @@ public class User {
     public void setStatus(String status) {
         this.status = status;
     }
-    // Default constructor
+   
     public User() {
     }
 
-    // Getter and setter methods
+    
     public String getUsername() {
         return username;
     }

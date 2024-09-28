@@ -10,7 +10,7 @@
 
     <div class="content">
         <h1>My Orders</h1>
-        <!-- Display orders here -->
+        
         <table>
             <thead>
                 <tr>
@@ -21,14 +21,14 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Example row; dynamically generate rows with server-side data -->
+                
                 <tr>
                     <td>12345</td>
                     <td>2024-08-28</td>
                     <td>$99.99</td>
                     <td>Shipped</td>
                 </tr>
-                <!-- More rows as needed -->
+               
             </tbody>
         </table>
     </div>

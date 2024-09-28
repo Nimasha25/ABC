@@ -18,12 +18,12 @@ public class CartService {
         }
         return true;
     }
- // Default constructor that initializes CartDAO
+ 
     public CartService() {
         this.cartDAO = new CartDAO();
     }
 
-    // Constructor for injecting CartDAO (for testing purposes)
+   
     public CartService(CartDAO cartDAO) {
         this.cartDAO = cartDAO;
     }

@@ -8,7 +8,7 @@
     <title>Thank You</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-      /* Rating bar styles */
+     
         .rating-bar {
             margin-top: 30px;
         }

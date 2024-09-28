@@ -99,7 +99,7 @@ public class AdminReservationController extends HttpServlet {
                 reservationDAO.deleteReservation(id);
                 response.sendRedirect(request.getContextPath() + "/admin/reservations");
             } else if ("confirm".equals(action)) {
-                // Handle reservation confirmation
+              
                 int id = Integer.parseInt(request.getParameter("id"));
                 Reservation reservation = reservationDAO.getReservationById(id);
                 if (reservation != null) {

@@ -5,8 +5,7 @@ public class OrderItemClass {
     private int quantity;
     private double price;
 
-    // Getters and Setters
-
+    
     public String getItemName() {
         return itemName;
     }

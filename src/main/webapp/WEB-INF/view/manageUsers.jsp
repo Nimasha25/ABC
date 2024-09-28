@@ -7,7 +7,7 @@
     <title>Manage Users</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Add your styles here */
+        
         table {
             width: 100%;
             border-collapse: collapse;

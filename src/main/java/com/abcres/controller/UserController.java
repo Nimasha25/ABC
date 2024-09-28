@@ -11,16 +11,19 @@ import com.abcres.model.User;
 import com.abcres.service.UserService;
 import java.util.List;
 import com.abcres.dao.UserDAO;
+import com.abcres.service.SmsService;
 
 @WebServlet("/user")
 public class UserController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private UserService userService;
+    private SmsService smsService;
 
     @Override
     public void init() throws ServletException {
         UserDAO userDAO = new UserDAO(); 
         userService = UserService.getInstance(userDAO); 
+        smsService = new SmsService();
     }
 
     @Override
@@ -45,6 +48,28 @@ public class UserController extends HttpServlet {
             loginUser(request, response);
         }
     }
+    private void addUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String username = request.getParameter("username");
+        String fullName = request.getParameter("full-name");
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone");
+        String password = request.getParameter("password");
+        String role = request.getParameter("role");
+
+        try {
+            User user = new User(username, fullName, email, phone, password, role);
+            userService.registerUser(user);
+
+            
+            smsService.sendSms(phone, "Registration Successful! Welcome to our service.");
+
+            response.sendRedirect("user?action=list");
+        } catch (SQLException e) {
+            request.setAttribute("errorMessage", "Database error: " + e.getMessage());
+            request.getRequestDispatcher("WEB-INF/view/error.jsp").forward(request, response);
+        }
+    }
+    
 
     private void listUsers(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
@@ -61,24 +86,7 @@ public class UserController extends HttpServlet {
         request.getRequestDispatcher("WEB-INF/view/addUser.jsp").forward(request, response);
     }
 
-    private void addUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String username = request.getParameter("username");
-        String fullName = request.getParameter("full-name");
-        String email = request.getParameter("email");
-        String phone = request.getParameter("phone");
-        String password = request.getParameter("password");
-        String role = request.getParameter("role");
-        
-
-        try {
-            User user = new User(username, fullName, email, phone, password, role);
-            userService.registerUser(user);
-            response.sendRedirect("user?action=list");
-        } catch (SQLException e) {
-            request.setAttribute("errorMessage", "Database error: " + e.getMessage());
-            request.getRequestDispatcher("WEB-INF/view/error.jsp").forward(request, response);
-        }
-    }
+    
 
     private void showLoginForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("WEB-INF/view/login.jsp").forward(request, response);

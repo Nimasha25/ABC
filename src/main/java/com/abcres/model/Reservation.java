@@ -12,7 +12,7 @@ public class Reservation {
     private Date reservationDate;
     private Time reservationTime;
     private int guests;
-    private String status; // Added status field
+    private String status; 
 
     // Constructor
     public Reservation(String name, String email, String phone, String serviceType, Date reservationDate, Time reservationTime, int guests, String status) {
@@ -26,10 +26,10 @@ public class Reservation {
         this.status = status;
     }
 
-    // Default constructor
+    
     public Reservation() {}
 
-    // Getters and setters
+   
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 

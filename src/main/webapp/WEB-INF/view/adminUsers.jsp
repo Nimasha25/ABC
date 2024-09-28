@@ -23,7 +23,7 @@
     <div class="container">
         <h2 class="mb-4">Manage Users</h2>
 
-        <!-- Display message if any -->
+       
         <c:if test="${not empty successMessage}">
             <div class="alert alert-success">${successMessage}</div>
         </c:if>

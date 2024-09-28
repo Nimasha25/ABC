@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public class SystemConfigDAO {
 
-	// Retrieve configuration by key
+	
     public SystemConfig getConfig(String key) throws SQLException {
         String sql = "SELECT * FROM system_config WHERE config_key = ?";
         try (Connection conn = DBConn.getInstance().getConnection();
@@ -25,7 +25,7 @@ public class SystemConfigDAO {
         return null;
     }
 
-    // Update configuration value by key
+    
     public void updateConfig(SystemConfig config) throws SQLException {
         String sql = "UPDATE system_config SET config_value = ? WHERE config_key = ?";
         try (Connection conn = DBConn.getInstance().getConnection();
@@ -47,7 +47,7 @@ public class SystemConfigDAO {
     }
 
 
-    // Delete a configuration by key
+    
     public void deleteConfig(String key) throws SQLException {
         String sql = "DELETE FROM system_config WHERE config_key = ?";
         try (Connection conn = DBConn.getInstance().getConnection();

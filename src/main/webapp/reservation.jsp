@@ -271,11 +271,11 @@
             background-color: #ff9900; 
     </style>
   <script>
-        // Handle form submission using AJAX
+        
         function handleReservation(event) {
             event.preventDefault(); 
 
-            // Get form data
+            
             var form = document.querySelector('.form-container form');
             var formData = new FormData(form);
 
@@ -287,7 +287,7 @@
             .then(result => {
                 alert(result);
                 if (result === "Reservation successful!") {
-                    form.reset(); // Reset form fields after success
+                    form.reset(); 
                 }
             })
             .catch(error => {

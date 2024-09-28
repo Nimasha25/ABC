@@ -60,7 +60,7 @@
             background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 5px;
-            display: none; /* Initially hidden */
+            display: none; 
             text-align: left;
         }
         .search-results p {

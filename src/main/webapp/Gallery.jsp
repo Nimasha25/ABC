@@ -119,9 +119,9 @@
 
 .footer-images {
     display: flex;
-    position: relative; /* Relative positioning for containing absolutely positioned content */
-    z-index: 1; /* Ensures images are behind content */
-    margin-bottom: 40px; /* Space between images and content */
+    position: relative; 
+    z-index: 1; 
+    margin-bottom: 40px; 
 }
 
 .footer-image {
@@ -132,7 +132,7 @@
 
 .footer-image img {
     width: 100%;
-    height: 400px; /* Adjust height as needed */
+    height: 400px; 
     object-fit: cover;
     display: block;
 }
@@ -142,11 +142,11 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90%; /* Adjust width as needed */
+    width: 90%; 
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    z-index: 2; /* Ensure content is above images */
+    z-index: 2; 
 }
 
 .footer-logo,
@@ -210,14 +210,14 @@
     .section h2 {
         color: white;
         transition: color 0.3s ease;
-        text-align: center; /* Optional: Center the heading */
+        text-align: center; 
         margin-bottom: 20px;
-       font-size: 50px;  /* Optional: Add some space below the heading */
+       font-size: 50px;  
     }
 
     .section h2:hover {
-        color: #FFD700; /* Example hover color: Gold */
-        cursor: pointer; /* Optional: Change cursor to pointer on hover */
+        color: #FFD700; 
+        cursor: pointer;
     }
     </style>
 </head>

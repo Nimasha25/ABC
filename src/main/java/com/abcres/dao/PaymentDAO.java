@@ -26,7 +26,7 @@ public class PaymentDAO {
             stmt.setString(4, payment.getCardExpiry());
             stmt.setString(5, payment.getPhoneNumber());
             stmt.setString(6, payment.getEmail());
-            stmt.setString(7, payment.getStatus()); // Assuming 'status' is stored as a String
+            stmt.setString(7, payment.getStatus()); 
 
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -39,7 +39,7 @@ public class PaymentDAO {
 
     public List<Payment> getAllPayments() throws SQLException {
         List<Payment> payments = new ArrayList<>();
-        String query = "SELECT * FROM payments"; // Ensure the table name is correct
+        String query = "SELECT * FROM payments"; 
         try (PreparedStatement stmt = connection.prepareStatement(query);
              ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {

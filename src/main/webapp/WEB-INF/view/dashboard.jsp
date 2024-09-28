@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css"> 
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -53,7 +53,6 @@
         <ul>
             <li><a href="${pageContext.request.contextPath}/admin/reservations">Manage Reservations</a></li>
             <li><a href="${pageContext.request.contextPath}/admin/users">Manage Users</a></li>
-            <!-- Add other management links here -->
         </ul>
     </nav>
     <main>
@@ -63,12 +62,10 @@
         </div>
         <div class="section">
             <h2>Recent Reservations</h2>
-            <!-- Example section for displaying recent reservations -->
             <p>No recent reservations to display.</p>
         </div>
         <div class="section">
             <h2>System Status</h2>
-            <!-- Example section for system status or metrics -->
             <p>All systems are operational.</p>
         </div>
     </main>

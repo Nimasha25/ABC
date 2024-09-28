@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Ensure path is correct -->
+    <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
     <h1>Contact Us</h1>
 
-    <!-- Success and Error Messages -->
+   
     <c:if test="${not empty successMessage}">
         <p style="color: green;">${successMessage}</p>
     </c:if>
@@ -56,7 +56,7 @@
                             <input type="hidden" name="id" value="${contact.id}"/>
                             <input type="submit" value="Delete" onclick="return confirm('Are you sure you want to delete this message?');"/>
                         </form>
-                        <!-- Add edit form here if needed -->
+                       
                     </td>
                 </tr>
             </c:forEach>

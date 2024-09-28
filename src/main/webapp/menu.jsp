@@ -540,13 +540,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     const animatedText = document.getElementById('animated-text');
     
-    // Add the 'show' class to make the text visible
+    
     animatedText.classList.add('show');
     
-    // Add the 'shake' class to trigger the animation
+   
     animatedText.classList.add('shake');
     
-    // Remove the 'shake' class after animation ends to allow re-triggering
+   
     animatedText.addEventListener('animationend', function() {
         animatedText.classList.remove('shake');
     });

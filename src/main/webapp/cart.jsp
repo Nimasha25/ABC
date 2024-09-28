@@ -14,9 +14,9 @@
             padding: 0;
              background-image: url('images/back3.png');
 
-    background-size: cover; /* Makes sure the image covers the entire body */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    background-position: center; /* Centers the image on the page */
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
     background-attachment: fixed; 
         }
         }
@@ -61,7 +61,7 @@
             text-transform: uppercase;
         }
       .container {
-    color: #FF6347; /* Tomato Red for text */
+    color: #FF6347; 
 }
 
 .container h2, 
@@ -69,17 +69,17 @@
 .container table th, 
 .container table td, 
 .container button {
-    color: #FF6347; /* Tomato Red for specific elements */
+    color: #FF6347; 
 }
 
 .container table th, 
 .container table td {
-    border-color: #FF6347; /* Tomato Red for table borders */
+    border-color: #FF6347; 
 }
 
 .container button {
     background-color: transparent;
-    border: 1px solid #FF6347; /* Tomato Red border */
+    border: 1px solid #FF6347; 
     padding: 12px 24px;
     cursor: pointer;
     border-radius: 4px;
@@ -88,8 +88,8 @@
 }
 
 .container button:hover {
-    background-color: #FF6347; /* Red background on hover */
-    color: #FFFFFF; /* White text on hover */
+    background-color: #FF6347; 
+    color: #FFFFFF; 
 }
 
 
@@ -125,36 +125,36 @@
             text-align: center;
         }
         #cart-form button {
-            background-color: #4CAF50; /* Green background */
-            color: white; /* White text */
-            border: none; /* Remove default border */
-            padding: 10px 20px; /* Padding around the text */
-            text-align: center; /* Center the text */
-            text-decoration: none; /* Remove underline */
-            display: inline-block; /* Align button */
-            font-size: 16px; /* Font size */
-            margin: 4px 2px; /* Margin for spacing */
-            cursor: pointer; /* Pointer cursor on hover */
-            border-radius: 4px; /* Rounded corners */
-            transition: background-color 0.3s ease; /* Smooth background color transition */
+            background-color: #4CAF50; 
+            color: white; 
+            border: none; 
+            padding: 10px 20px; 
+            text-align: center; 
+            text-decoration: none; 
+            display: inline-block; 
+            font-size: 16px; 
+            margin: 4px 2px; 
+            cursor: pointer; 
+            border-radius: 4px; 
+            transition: background-color 0.3s ease; 
         }
         #cart-form button:hover {
-            background-color: #45a049; /* Darker green on hover */
+            background-color: #45a049; 
         }
         .footer {
     background-color: #333;
     color: white;
     text-align: center;
     padding: 40px 20px;
-    position: relative; /* Relative positioning for absolute positioning of child elements */
-    overflow: hidden; /* Ensure content doesn't overflow */
+    position: relative; 
+    overflow: hidden; 
 }
 
 .footer-images {
     display: flex;
-    position: relative; /* Relative positioning for containing absolutely positioned content */
-    z-index: 1; /* Ensures images are behind content */
-    margin-bottom: 40px; /* Space between images and content */
+    position: relative; 
+    z-index: 1; 
+    margin-bottom: 40px; 
 }
 
 .footer-image {
@@ -165,7 +165,7 @@
 
 .footer-image img {
     width: 100%;
-    height: 400px; /* Adjust height as needed */
+    height: 400px; 
     object-fit: cover;
     display: block;
 }
@@ -175,17 +175,17 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90%; /* Adjust width as needed */
+    width: 90%; 
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    z-index: 2; /* Ensure content is above images */
+    z-index: 2; 
 }
 
 .footer-logo,
 .opening-hours,
 .sign-up {
-    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
+    background: rgba(0, 0, 0, 0.7); 
     padding: 20px;
     border-radius: 8px;
     color: #fff;
@@ -296,7 +296,7 @@ button[type="submit"]:hover {
     background-color: #0056b3;
 }
 
-/* Alert Styles */
+
 .alert {
     padding: 15px;
     margin-top: 20px;
@@ -399,12 +399,12 @@ button[type="submit"]:hover {
             const cart = JSON.parse(localStorage.getItem('cart')) || {};
             const form = document.getElementById('cart-form');
             
-            // Remove existing hidden inputs
+            
             while (form.querySelector('input[type="hidden"]')) {
                 form.removeChild(form.querySelector('input[type="hidden"]'));
             }
 
-            // Add new hidden inputs for each cart item
+            
             Object.entries(cart).forEach(([name, { quantity, price, total }], index) => {
                 form.appendChild(createHiddenInput(`cartItems[${index}].itemName`, name));
                 form.appendChild(createHiddenInput(`cartItems[${index}].quantity`, quantity));
@@ -425,7 +425,7 @@ button[type="submit"]:hover {
             const cartItems = document.getElementById('cart-items');
             const totalPriceElem = document.getElementById('total-price');
 
-            cartItems.innerHTML = ''; // Clear existing items
+            cartItems.innerHTML = ''; 
             let totalPrice = 0;
 
             if (Object.keys(cart).length === 0) {
@@ -450,8 +450,8 @@ button[type="submit"]:hover {
         }
 
         window.onload = function() {
-            displayCart(); // Display the cart items on page load
-            generateCartForm(); // Generate the hidden form inputs on page load
+            displayCart(); 
+            generateCartForm(); 
         };
         
         function calculateTotal(cart) {

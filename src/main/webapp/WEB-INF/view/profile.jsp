@@ -7,10 +7,9 @@
     <title>User Profile</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/profile.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style ">
-    /* profile.css */
+    <style>
+   
 
-/* Additional styling for profile page */
 .profile-pic {
     margin-top: 10px;
     max-width: 150px;
@@ -26,7 +25,7 @@
 .btn-primary:hover {
     background-color: #45a049;
 }
-    /* Sidebar Styles */
+   
 .sidebar {
     width: 250px;
     background-color: #343a40;

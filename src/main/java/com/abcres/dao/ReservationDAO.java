@@ -10,12 +10,12 @@ import java.util.List;
 public class ReservationDAO {
 	 private Connection connection;
 
-	    // Existing constructor for normal use
+	    
 	    public ReservationDAO() {
-	        // Default constructor
+	        
 	    }
 
-	    // Constructor for testing with a Connection instance
+	    
 	    public ReservationDAO(Connection connection) {
 	        this.connection = connection;
 	    }
@@ -29,11 +29,11 @@ public class ReservationDAO {
 
 	
 
-    // Method to save a reservation to the database
+    
     public void saveReservation(Reservation reservation) throws SQLException {
         String sql = "INSERT INTO reservations (name, email, phone, serviceType, reservationDate, reservationTime, guests, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
-        // Use try-with-resources to ensure that resources are closed properly
+       
         try (Connection conn = DBConn.getInstance().getConnection();
              PreparedStatement pst = conn.prepareStatement(sql)) {
 
@@ -53,12 +53,12 @@ public class ReservationDAO {
         }
     }
 
-    // Method to retrieve all reservations from the database
+   
     public List<Reservation> getAllReservations() throws SQLException {
         String sql = "SELECT * FROM reservations";
         List<Reservation> reservations = new ArrayList<>();
 
-        // Use try-with-resources to ensure that resources are closed properly
+        
         try (Connection conn = DBConn.getInstance().getConnection();
              PreparedStatement pst = conn.prepareStatement(sql);
              ResultSet rs = pst.executeQuery()) {
@@ -84,11 +84,11 @@ public class ReservationDAO {
         return reservations;
     }
 
-    // Method to update a reservation in the database
+   
     public void updateReservation(Reservation reservation) throws SQLException {
         String sql = "UPDATE reservations SET name = ?, email = ?, phone = ?, serviceType = ?, reservationDate = ?, reservationTime = ?, guests = ?, status = ? WHERE id = ?";
 
-        // Use try-with-resources to ensure that resources are closed properly
+        
         try (Connection conn = DBConn.getInstance().getConnection();
              PreparedStatement pst = conn.prepareStatement(sql)) {
 
@@ -109,11 +109,11 @@ public class ReservationDAO {
         }
     }
 
-    // Method to delete a reservation from the database
+    
     public void deleteReservation(int id) throws SQLException {
         String sql = "DELETE FROM reservations WHERE id = ?";
 
-        // Use try-with-resources to ensure that resources are closed properly
+       
         try (Connection conn = DBConn.getInstance().getConnection();
              PreparedStatement pst = conn.prepareStatement(sql)) {
 
@@ -138,12 +138,12 @@ public class ReservationDAO {
         }
     }
 
-    // Method to retrieve a reservation by ID
+   
     public Reservation getReservationById(int id) throws SQLException {
         String sql = "SELECT * FROM reservations WHERE id = ?";
         Reservation reservation = null;
 
-        // Use try-with-resources to ensure that resources are closed properly
+        
         try (Connection conn = DBConn.getInstance().getConnection();
              PreparedStatement pst = conn.prepareStatement(sql)) {
 

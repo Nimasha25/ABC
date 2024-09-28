@@ -20,7 +20,7 @@
         margin-bottom: 20px;
     }
 
-    /* Button Styles */
+  
     .btn {
         display: inline-block;
         padding: 10px 15px;
@@ -58,7 +58,7 @@
         background-color: #c82333;
     }
 
-    /* Table Styles */
+   
     .table {
         width: 100%;
         border-collapse: collapse;
@@ -108,7 +108,7 @@
         background-color: #c82333;
     }
 
-    /* Link Styles */
+  
     a {
         color: #007bff;
         text-decoration: none;
@@ -121,7 +121,7 @@
 </head>
 <body>
     <h1>Contact List</h1>
-    <a href="${pageContext.request.contextPath}/admin/contact-admin?action=add" class="btn btn-primary">Add New Contact</a>
+<a href="${pageContext.request.contextPath}/admin/contact-admin?action=add" class="btn btn-primary">Add New Contact</a>
     <a href="${pageContext.request.contextPath}/staff/reply-form?id" class="btn btn-secondary">Reply</a>
     
     <table class="table">
@@ -132,7 +132,7 @@
                 <th>Email</th>
                 <th>Subject</th>
                 <th>Message</th>
-                <th>Reply</th> <!-- Added Reply Header -->
+                <th>Reply</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -147,7 +147,7 @@
                 <td><%= contact.getEmail() %></td>
                 <td><%= contact.getSubject() %></td>
                 <td><%= contact.getMessage() %></td>
-                <td><%= contact.getReply() %></td> <!-- Added Reply Data -->
+                <td><%= contact.getReply() %></td> 
                 <td>
                  <a href="${pageContext.request.contextPath}/staff/reply-form?id=<%= contact.getId() %>" class="btn btn-secondary">Reply</a>
                     <a href="${pageContext.request.contextPath}/admin/contact-admin?action=edit&id=<%= contact.getId() %>">Edit</a>

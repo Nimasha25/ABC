@@ -29,11 +29,11 @@ public class PaymentProcessingController extends HttpServlet {
         String action = request.getParameter("action");
 
         if ("submit".equals(action)) {
-            // Redirect to registration page
+            
             response.sendRedirect("register.jsp");
         } else if ("complete".equals(action)) {
             try {
-                // Gather form data
+                
                 String paymentMethod = request.getParameter("payment-method");
                 String cardNumber = request.getParameter("card-number");
                 String cardExpiry = request.getParameter("card-expiry");
@@ -42,7 +42,7 @@ public class PaymentProcessingController extends HttpServlet {
                 BigDecimal amount = new BigDecimal(amountStr);
                 String email = request.getParameter("email");
 
-                // Create a Payment object and set its properties
+               
                 Payment payment = new Payment();
                 payment.setPaymentMethod(paymentMethod);
                 payment.setCardNumber(cardNumber);
@@ -51,15 +51,15 @@ public class PaymentProcessingController extends HttpServlet {
                 payment.setAmount(amount);
                 payment.setEmail(email);
 
-                // Save payment data to the database
+                
                 paymentService.savePayment(payment);
 
-                // Send SMS confirmation to your phone number
-                String yourPhoneNumber = "0094766023304"; // Replace with your actual phone number
+                
+                String yourPhoneNumber = "0094766023304"; 
                 String orderDetails = "Payment of " + amount + " using " + paymentMethod + " has been successfully processed. Thank you for your order.";
                 smsService.sendSms(yourPhoneNumber, orderDetails);
 
-                // Redirect to thank you page with a success message
+                
                 response.sendRedirect("thank-you.jsp?message=Payment successful! Thank you for your order.");
             } catch (NumberFormatException e) {
                 request.setAttribute("error", "Invalid input format. Please check your input data.");
@@ -70,7 +70,7 @@ public class PaymentProcessingController extends HttpServlet {
                 request.getRequestDispatcher("/WEB-INF/view/payment-error.jsp").forward(request, response);
             }
         } else {
-            // Handle unexpected actions
+            
             response.sendRedirect("thank-you.jsp");
         }
     }

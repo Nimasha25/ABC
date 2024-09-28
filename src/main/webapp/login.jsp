@@ -84,15 +84,15 @@
     color: white;
     text-align: center;
     padding: 40px 20px;
-    position: relative; /* Relative positioning for absolute positioning of child elements */
-    overflow: hidden; /* Ensure content doesn't overflow */
+    position: relative; 
+    overflow: hidden; 
 }
 
 .footer-images {
     display: flex;
-    position: relative; /* Relative positioning for containing absolutely positioned content */
-    z-index: 1; /* Ensures images are behind content */
-    margin-bottom: 40px; /* Space between images and content */
+    position: relative;
+    z-index: 1; 
+    margin-bottom: 40px; 
 }
 
 .footer-image {
@@ -103,7 +103,7 @@
 
 .footer-image img {
     width: 100%;
-    height: 400px; /* Adjust height as needed */
+    height: 400px; 
     object-fit: cover;
     display: block;
 }
@@ -113,17 +113,17 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90%; /* Adjust width as needed */
+    width: 90%;
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    z-index: 2; /* Ensure content is above images */
+    z-index: 2; 
 }
 
 .footer-logo,
 .opening-hours,
 .sign-up {
-    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
+    background: rgba(0, 0, 0, 0.7); 
     padding: 20px;
     border-radius: 8px;
     color: #fff;
@@ -210,7 +210,7 @@
                 String password = request.getParameter("password");
 
                 if (username != null && password != null) {
-                    // Replace with your database connection details
+                   
                     String url = "jdbc:mysql://localhost:3306/abc_res_db";
                     String user = "root";
                     String pass = "MySQL@25";
@@ -219,27 +219,32 @@
                     ResultSet rs = null;
 
                     try {
-                        // Load database driver
+                      
                         Class.forName("com.mysql.cj.jdbc.Driver");
                         conn = DriverManager.getConnection(url, user, pass);
 
-                        // Validate user credentials
+                        
                         String sql = "SELECT role FROM users WHERE username = ? AND password = ?";
                         pst = conn.prepareStatement(sql);
                         pst.setString(1, username);
-                        pst.setString(2, password); // Ideally, passwords should be hashed
+                        pst.setString(2, password); 
                         rs = pst.executeQuery();
 
                         if (rs.next()) {
-                            String role = rs.getString("role");
-                            // Redirect based on role
-                            if ("customer".equalsIgnoreCase(role)) {
-                                response.sendRedirect("payment.jsp");
-                            } else {
-                                response.sendRedirect("Back-dashboard.jsp"); // Redirect to a role-specific page or dashboard
-                            }
+                        	 String role = rs.getString("role");
+                             // Redirect based on role
+                             if ("admin".equalsIgnoreCase(role)) {
+                                 response.sendRedirect("Back-dashboard.jsp"); 
+                             } else if ("staff".equalsIgnoreCase(role)) {
+                                 response.sendRedirect("staff-dashboard.jsp");
+                             } else if ("customer".equalsIgnoreCase(role)) {
+                                 response.sendRedirect("payment.jsp"); 
+                             } else {
+                                 String errorMessage = URLEncoder.encode("Invalid role for the user.", "UTF-8");
+                                 response.sendRedirect("error.jsp?errorMessage=" + errorMessage);
+                             }
                         } else {
-                            // Invalid credentials
+                           
                             String errorMessage = URLEncoder.encode("Invalid username or password.", "UTF-8");
                             response.sendRedirect("error.jsp?errorMessage=" + errorMessage);
                         }

@@ -11,49 +11,47 @@
             position: fixed;
             right: 0;
             top: 0;
-            width: 60px; /* Start with a small width */
+            width: 60px; 
             height: 100%;
             background-color: #ffffff;
             overflow-x: hidden;
-            transition: width 0.3s ease; /* Smooth transition */
-            border-left: 2px solid #ccc; /* Optional border for better visibility */
-            box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Optional shadow */
+            transition: width 0.3s ease; 
+            border-left: 2px solid #ccc; 
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
 
-        /* Hover effect for expanding the sidebar */
+        
         .sidebar:hover {
-            width: 250px; /* Expand to full width on hover */
+            width: 250px; 
         }
 
-        /* Style the links and icons */
-        .sidebar a {
+       .sidebar a {
             display: block;
             color: #333;
             padding: 16px;
             text-decoration: none;
-            white-space: nowrap; /* Prevent text from wrapping */
-            transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+            white-space: nowrap; 
+            transition: background-color 0.3s ease, color 0.3s ease; 
         }
 
-        /* Hover effect for links */
         .sidebar a:hover {
-            background-color: #f1f1f1; /* Light background on hover */
-            color: #000; /* Change text color on hover */
+            background-color: #f1f1f1; 
+            color: #000; 
         }
 
-        /* Icon styling */
+       
         .sidebar a i {
             margin-right: 10px;
         }
 
-        /* Adjust heading for better visibility */
+       
         .sidebar h2 {
             font-size: 1.2rem;
             padding: 20px 16px;
             margin: 0;
             text-align: center;
-            border-bottom: 1px solid #ccc; /* Optional border */
-            background-color: #f8f9fa; /* Light background color */
+            border-bottom: 1px solid #ccc; 
+            background-color: #f8f9fa; 
         }
     </style>
 </head>

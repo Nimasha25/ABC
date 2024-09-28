@@ -113,7 +113,7 @@ public class CartDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null; // Return null if no item is found with the given ID
+        return null; 
     }
     
 }

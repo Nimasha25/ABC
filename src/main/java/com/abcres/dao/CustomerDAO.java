@@ -10,7 +10,7 @@ import java.util.List;
 
 public class CustomerDAO {
 
-    // Method to add a new customer to the database
+    
     public void addCustomer(Customer customer) {
         String sql = "INSERT INTO Customers (first_name, last_name, email, phone_number, profile_pic) VALUES (?, ?, ?, ?, ?)";
 
@@ -29,7 +29,7 @@ public class CustomerDAO {
         }
     }
 
-    // Method to retrieve a customer by ID
+   
     public Customer getCustomerById(int customerId) {
         String sql = "SELECT * FROM Customers WHERE customer_id = ?";
         Customer customer = null;
@@ -50,12 +50,12 @@ public class CustomerDAO {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace(); // Handle exception and consider logging the error
+            e.printStackTrace(); 
         }
         return customer;
     }
 
-    // Method to retrieve all customers
+    
     public List<Customer> getAllCustomers() {
         String sql = "SELECT * FROM Customers";
         List<Customer> customers = new ArrayList<>();
@@ -75,12 +75,12 @@ public class CustomerDAO {
                 customers.add(customer);
             }
         } catch (SQLException e) {
-            e.printStackTrace(); // Handle exception and consider logging the error
+            e.printStackTrace(); 
         }
         return customers;
     }
 
-    // Method to update a customer's details
+
     public void updateCustomer(Customer customer) throws SQLException {
         String sql = "UPDATE Customers SET first_name = ?, last_name = ?, email = ?, phone_number = ?, password = ?, profile_pic = ? WHERE customer_id = ?";
 
@@ -91,15 +91,15 @@ public class CustomerDAO {
             statement.setString(2, customer.getLastName());
             statement.setString(3, customer.getEmail());
             statement.setString(4, customer.getPhoneNumber());
-            statement.setString(5, customer.getPassword()); // Assuming you want to update the password
-            statement.setString(6, customer.getProfilePic()); // For profile picture
+            statement.setString(5, customer.getPassword()); 
+            statement.setString(6, customer.getProfilePic()); 
             statement.setInt(7, customer.getCustomerId());
 
             statement.executeUpdate();
         }
     }
 
-    // Method to delete a customer by ID
+    
     public void deleteCustomer(int customerId) {
         String sql = "DELETE FROM Customers WHERE customer_id = ?";
 
@@ -109,7 +109,7 @@ public class CustomerDAO {
             statement.setInt(1, customerId);
             statement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace(); // Handle exception and consider logging the error
+            e.printStackTrace(); 
         }
     }
 }

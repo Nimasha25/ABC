@@ -15,10 +15,10 @@ public class Payment {
     private Timestamp paymentDate;
     private String status;
 
-    // Default constructor
+   
     public Payment() {}
 
-    // Parameterized constructor
+
     public Payment(int id, int orderId, String paymentMethod, String cardNumber, String cardExpiry,
                    String phoneNumber, BigDecimal amount, String email, Timestamp paymentDate, String status) {
         this.id = id;

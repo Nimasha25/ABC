@@ -13,56 +13,56 @@
             background-color: #f4f4f4;
             background-image: url('images/back3.png');
         }
-       /* Default sidebar styling */
+      
 .sidebar {
     position: fixed;
     left: 0;
     top: 0;
-    width: 60px; /* Start with a small width */
+    width: 60px; 
     height: 100%;
     background-color: #343a40;
     overflow-x: hidden;
-    transition: width 0.3s ease; /* Smooth transition */
+    transition: width 0.3s ease; 
 }
 
-/* Hover effect for expanding the sidebar */
+
 .sidebar:hover {
-    width: 200px; /* Expand to full width on hover */
+    width: 200px; 
 }
 
-/* Style the links and icons */
+
 .sidebar a {
     display: block;
     color: white;
     padding: 16px;
     text-decoration: none;
-    white-space: nowrap; /* Prevent text from wrapping */
-    opacity: 0; /* Initially hide the text */
-    transition: opacity 0.3s ease; /* Smooth transition for text appearance */
+    white-space: nowrap; 
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
 }
 
-/* Show the text on hover */
+
 .sidebar:hover a {
-    opacity: 1; /* Show the text on hover */
+    opacity: 1; 
 }
 
-/* Icon styling */
+
 .sidebar a i {
     margin-right: 10px;
 }
 
-/* Adjust heading for better visibility */
+
 .sidebar h2 {
     font-size: 1.2rem;
     padding: 20px 16px;
     margin: 0;
     text-align: center;
     transition: opacity 0.3s ease;
-    opacity: 0; /* Initially hide the heading text */
+    opacity: 0; 
 }
 
 .sidebar:hover h2 {
-    opacity: 1; /* Show the heading text on hover */
+    opacity: 1; 
 }
 
         .main-content {
@@ -112,7 +112,7 @@
 
 .footer-image img {
     width: 100%;
-    height: 400px; /* Adjust height as needed */
+    height: 400px; 
     object-fit: cover;
     display: block;
 }

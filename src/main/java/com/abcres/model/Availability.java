@@ -2,17 +2,17 @@ package com.abcres.model;
 
 public class Availability {
     private int day;
-    private boolean available;  // true for available, false for not available
-    private boolean halfReserved; // true if half-reserved, false otherwise
+    private boolean available;  
+    private boolean halfReserved; 
 
-    // Constructors
+   
     public Availability(int day, boolean available, boolean halfReserved) {
         this.day = day;
         this.available = available;
         this.halfReserved = halfReserved;
     }
 
-    // Getters and setters
+    
     public int getDay() {
         return day;
     }

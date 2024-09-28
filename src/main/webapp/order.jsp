@@ -1019,7 +1019,7 @@ h3 {
             updateCart();
         }
 
-        updateCart(); // Initialize cart on page load
+        updateCart(); 
     </script>
     <script>
     let currentPromotionIndex = 1;
@@ -1038,7 +1038,7 @@ h3 {
         showPromotion(currentPromotionIndex);
     }
 
-    // Initialize the first promotion as visible
+   
     showPromotion(currentPromotionIndex);
 </script>
 
@@ -1065,7 +1065,6 @@ h3 {
     document.querySelector('.prev').addEventListener('click', () => changePromotion(-1));
     document.querySelector('.next').addEventListener('click', () => changePromotion(1));
 
-    // Initialize the first promotion
     showPromotion(currentPromotion);
 </script>
 

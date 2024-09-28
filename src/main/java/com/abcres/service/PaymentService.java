@@ -17,7 +17,7 @@ public class PaymentService {
     }
 
     public void savePayment(Payment payment) throws Exception {
-        // Save the payment to the database
+        
         paymentDAO.save(payment);
 
         // Send an SMS notification

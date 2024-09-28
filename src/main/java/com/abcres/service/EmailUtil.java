@@ -10,9 +10,9 @@ import javax.mail.internet.MimeMessage;
  */
 public class EmailUtil {
 
-    // SMTP server configuration
+  
     private static final String SMTP_HOST = "smtp.gmail.com";
-    private static final int SMTP_PORT = 587; // TLS port
+    private static final int SMTP_PORT = 587; 
     private static final String FROM = "sandunkariyawasam320@gmail.com"; 
     private static final String USERNAME = "sandunkariyawasam320@gmail.com"; 
     private static final String PASSWORD = "oizz tydf bhdh fjpk"; 
@@ -25,14 +25,14 @@ public class EmailUtil {
      * @param body     The body of the email
      */
     public static void sendEmail(String to, String subject, String body) {
-        // Setup mail server properties
+        
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", SMTP_HOST);
         props.put("mail.smtp.port", SMTP_PORT);
 
-        // Get the Session object
+        
         Session session = Session.getInstance(props,
             new Authenticator() {
                 @Override
@@ -63,7 +63,7 @@ public class EmailUtil {
             System.out.println("Sent message successfully....");
 
         } catch (MessagingException e) {
-            e.printStackTrace(); // Print stack trace for debugging
+            e.printStackTrace(); 
             throw new RuntimeException("Error sending email: " + e.getMessage(), e);
         }
     }

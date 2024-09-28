@@ -105,11 +105,7 @@
         <h2>Results for: <%= request.getParameter("query") %></h2>
         <%
             String query = request.getParameter("query");
-            // Simulate a search across the website.
-            // In a real application, you'd query the database or search index.
-            // Here, we'll just use some static examples for demonstration.
-
-            // Example results
+            
             String[] results = {
                 "Dish 1 - Description of Dish 1. <a href='Menu.jsp'>View Menu</a>",
                 "Dish 2 - Description of Dish 2. <a href='Menu.jsp'>View Menu</a>",

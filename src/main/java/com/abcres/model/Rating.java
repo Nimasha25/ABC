@@ -3,9 +3,9 @@ package com.abcres.model;
 public class Rating {
     private int rating;
     private String customerName;
-    private int itemId; // Add itemId field
+    private int itemId; 
 
-    // Getters and Setters
+    
     public int getRating() {
         return rating;
     }

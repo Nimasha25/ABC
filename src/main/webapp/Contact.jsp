@@ -276,7 +276,7 @@
     display: block;
 }
 
-/* Responsive design */
+
 @media (max-width: 768px) {
     .faq-section {
         padding: 20px;

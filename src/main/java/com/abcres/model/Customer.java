@@ -7,13 +7,13 @@ public class Customer {
     private String email;       
     private String phoneNumber;
     private String profilePic;
-    private String password;// Field for profile picture filename
+    private String password;
 
-    // Default constructor
+   
     public Customer() {
     }
 
-    // Parameterized Constructor
+    
     public Customer(int customerId, String firstName, String lastName, String email, String phoneNumber, String profilePic, String password) {
         this.customerId = customerId;
         this.firstName = firstName;
@@ -24,7 +24,7 @@ public class Customer {
         this.password = password;
     }
 
-    // Parameterized Constructor without ID (For new records)
+   
     public Customer(String firstName, String lastName, String email, String phoneNumber, String profilePic) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -33,7 +33,7 @@ public class Customer {
         this.profilePic = profilePic;
     }
 
-    // Getters and Setters
+   
     public int getCustomerId() {
         return customerId;
     }
@@ -82,7 +82,7 @@ public class Customer {
         this.profilePic = profilePic;
     }
 
-    // Override toString() method for easy debugging
+    
     @Override
     public String toString() {
         return "Customer{" +

@@ -11,9 +11,9 @@ public class Order {
     private double total;
     private Date orderDate;
     private String status;
-    private List<OrderItemClass> items; // Add this field
+    private List<OrderItemClass> items;
 
-    // Getters and Setters
+    
 
     public int getId() {
         return id;
@@ -71,11 +71,11 @@ public class Order {
         this.status = status;
     }
 
-    public List<OrderItemClass> getItems() { // Add this method
+    public List<OrderItemClass> getItems() { 
         return items;
     }
 
-    public void setItems(List<OrderItemClass> items) { // Add this method
+    public void setItems(List<OrderItemClass> items) { 
         this.items = items;
     }
 }

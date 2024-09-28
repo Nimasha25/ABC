@@ -160,7 +160,7 @@
 
 .footer-image img {
     width: 100%;
-    height: 400px; /* Adjust height as needed */
+    height: 400px; 
     object-fit: cover;
     display: block;
 }
@@ -170,11 +170,11 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90%; /* Adjust width as needed */
+    width: 90%; 
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    z-index: 2; /* Ensure content is above images */
+    z-index: 2; 
 }
 
 .footer-logo,

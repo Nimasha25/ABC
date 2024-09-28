@@ -17,9 +17,9 @@
             color: #333;
             background-color: #f8f9fa;
              background-image: url('images/back1.png');
-            background-size: cover; /* Makes sure the image covers the entire body */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    background-position: center; /* Centers the image on the page */
+            background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center;
     background-attachment: fixed;
         }
         .header {
@@ -28,14 +28,14 @@
 }
 
 .header .logo {
-    max-width: 150px; /* Adjust this value to make the logo smaller */
-    height: auto; /* Maintain aspect ratio */
+    max-width: 150px; 
+    height: auto; 
 }
 
 .header h1 {
-    font-size: 24px; /* Adjust this value to make the text smaller */
+    font-size: 24px;
     margin-top: 10px;
-    color: #FFFFFF; /* Royal Blue, if desired */
+    color: #FFFFFF; 
 }
 
         
@@ -116,15 +116,15 @@
     color: white;
     text-align: center;
     padding: 40px 20px;
-    position: relative; /* Relative positioning for absolute positioning of child elements */
-    overflow: hidden; /* Ensure content doesn't overflow */
+    position: relative; 
+    overflow: hidden; 
 }
 
 .footer-images {
     display: flex;
-    position: relative; /* Relative positioning for containing absolutely positioned content */
-    z-index: 1; /* Ensures images are behind content */
-    margin-bottom: 40px; /* Space between images and content */
+    position: relative;
+    z-index: 1; 
+    margin-bottom: 40px; 
 }
 
 .footer-image {
@@ -135,7 +135,7 @@
 
 .footer-image img {
     width: 100%;
-    height: 400px; /* Adjust height as needed */
+    height: 400px; 
     object-fit: cover;
     display: block;
 }
@@ -145,17 +145,17 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90%; /* Adjust width as needed */
+    width: 90%; 
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    z-index: 2; /* Ensure content is above images */
+    z-index: 2; 
 }
 
 .footer-logo,
 .opening-hours,
 .sign-up {
-    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
+    background: rgba(0, 0, 0, 0.7);
     padding: 20px;
     border-radius: 8px;
     color: #fff;
@@ -266,7 +266,7 @@
         String fullName = request.getParameter("full-name");
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
-        String password = request.getParameter("password"); // Storing plain-text password
+        String password = request.getParameter("password"); 
         String role = request.getParameter("role");
 
         if (username != null && fullName != null && email != null && phone != null && password != null && role != null) {
@@ -288,16 +288,16 @@
                 pst.setString(2, fullName);
                 pst.setString(3, email);
                 pst.setString(4, phone);
-                pst.setString(5, password); // Storing plain-text password
+                pst.setString(5, password); 
                 pst.setString(6, role);
 
                 int result = pst.executeUpdate();
                 if (result > 0) {
-                    // Registration successful, redirect based on role
+                    // Registration successful
                     if ("customer".equalsIgnoreCase(role)) {
-                        response.sendRedirect("payment.jsp"); // Redirect customer to payment page
+                        response.sendRedirect("payment.jsp"); 
                     } else {
-                        response.sendRedirect("login.jsp"); // Redirect staff/admin to login page
+                        response.sendRedirect("login.jsp"); 
                     }
                 } else {
                     out.println("Registration failed.<br>");

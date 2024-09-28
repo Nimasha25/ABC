@@ -9,7 +9,7 @@ import java.util.List;
 
 public class OrderDAO {
     private Connection getConnection() throws SQLException {
-        // Implement your database connection here
+        
         String url = "jdbc:mysql://localhost:3306/abc_res_db";
         String user = "root";
         String password = "MySQL@25";
@@ -45,7 +45,7 @@ public class OrderDAO {
             stmt.setInt(3, order.getQuantity());
             stmt.setDouble(4, order.getTotal());
             stmt.setDate(5, new java.sql.Date(order.getOrderDate().getTime()));
-            stmt.setString(6, order.getStatus()); // Add status
+            stmt.setString(6, order.getStatus());
             stmt.setInt(7, order.getId());
             stmt.executeUpdate();
         }
@@ -65,9 +65,9 @@ public class OrderDAO {
                     order.setQuantity(rs.getInt("quantity"));
                     order.setTotal(rs.getDouble("total"));
                     order.setOrderDate(rs.getDate("order_date"));
-                    order.setStatus(rs.getString("status")); // Add status
+                    order.setStatus(rs.getString("status")); 
 
-                    // Fetch and set order items
+                    
                     List<OrderItemClass> items = getOrderItems(id);
                     order.setItems(items);
                 }
@@ -88,14 +88,14 @@ public class OrderDAO {
                 order.setQuantity(rs.getInt("quantity"));
                 order.setTotal(rs.getDouble("total"));
                 order.setOrderDate(rs.getDate("order_date"));
-                order.setStatus(rs.getString("status")); // Add status
+                order.setStatus(rs.getString("status")); 
                 orders.add(order);
             }
         }
         return orders;
     }
 
- // Inside OrderDAO class
+
     private List<OrderItemClass> getOrderItems(int orderId) throws SQLException {
         String sql = "SELECT item_name, quantity, price FROM order_items WHERE order_id = ?";
         List<OrderItemClass> items = new ArrayList<>();

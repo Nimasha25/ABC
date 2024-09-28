@@ -9,10 +9,10 @@ public class Contact {
     private String createdAt;
     private String reply;
 
-    // Default constructor
+   
     public Contact() {}
 
-    // Constructor
+    
     public Contact(int id, String name, String email, String subject, String message,String reply) {
     	this.id = id; 
         this.name = name;
@@ -21,7 +21,7 @@ public class Contact {
         this.message = message;
         this.reply = reply;
     }
- // Constructor without id
+
     public Contact(String name, String email, String subject, String message) {
         this.name = name;
         this.email = email;
@@ -30,7 +30,7 @@ public class Contact {
     }
   
     
-    // Getters and setters
+    
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 

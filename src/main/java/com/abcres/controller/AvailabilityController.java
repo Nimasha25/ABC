@@ -55,7 +55,7 @@ public class AvailabilityController extends HttpServlet {
             month = Integer.parseInt(request.getParameter("month"));
             year = Integer.parseInt(request.getParameter("year"));
         } catch (NumberFormatException e) {
-            // Handle the case where parameters are missing or invalid
+            
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Invalid month or year");
             return;
         }

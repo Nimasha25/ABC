@@ -132,7 +132,7 @@
             const query = document.getElementById('search-bar').value.trim().toLowerCase();
             const resultsContainer = document.getElementById('search-results');
 
-            // Define page links and services
+           
             const pages = {
                 "reservation": "reservation.jsp",
                 "menu": "menu.jsp",

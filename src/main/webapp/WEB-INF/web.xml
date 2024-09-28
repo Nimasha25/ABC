@@ -203,6 +203,12 @@
   	<description></description>
   	<servlet-class>com.abcres.controller.SmsServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>EmailServlet</servlet-name>
+  	<display-name>EmailServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.abcres.controller.EmailServlet</servlet-class>
+  </servlet>
   
   
   <servlet-mapping>
@@ -331,6 +337,10 @@
   <servlet-mapping>
   	<servlet-name>SmsServlet</servlet-name>
   	<url-pattern>/SmsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>EmailServlet</servlet-name>
+  	<url-pattern>/EmailServlet</url-pattern>
   </servlet-mapping>
   
   <session-config>

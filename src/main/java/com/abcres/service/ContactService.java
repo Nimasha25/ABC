@@ -16,7 +16,7 @@ public class ContactService {
         return contactDAO.getAllContacts();
     }
     public void updateContact(Contact contact) throws SQLException {
-        contactDAO.updateContact(contact); // Ensure this method exists in ContactDAO
+        contactDAO.updateContact(contact); 
     }
 
     public Contact getContactById(int id) throws SQLException {
@@ -27,11 +27,11 @@ public class ContactService {
         contactDAO.deleteContact(id);
     }
     
- // Default constructor
+
     public ContactService() {
-        this.contactDAO = new ContactDAO(); // Initialize with a new ContactDAO
+        this.contactDAO = new ContactDAO(); 
     }
- // Constructor to initialize with a ContactDAO
+ 
     public ContactService(ContactDAO contactDAO) {
         this.contactDAO = contactDAO;
     }
@@ -42,8 +42,9 @@ public class ContactService {
     }
     public void addReply(int id, String reply) throws SQLException {
         Contact contact = contactDAO.getContactById(id);
-        contact.setReply(reply); // Update the reply in the model
-        contactDAO.updateContact(contact); // Save the updated contact
+        contact.setReply(reply); 
+        contactDAO.updateContact(contact); 
     }
+    
  
 }

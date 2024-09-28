@@ -9,12 +9,12 @@ import java.util.List;
 public class ContactDAO {
     private Connection connection;
 
-    // Constructor to initialize the connection
+    
     public ContactDAO() {
         this.connection = DBConn.getInstance().getConnection();
     }
     
-    // Constructor to initialize the connection
+    
     public ContactDAO(Connection connection) {
         this.connection = connection;
     }
@@ -29,7 +29,7 @@ public class ContactDAO {
     }
 
     
- // Method to get all contacts with replies
+ 
     public List<Contact> getAllContactsWithReplies() throws SQLException {
         List<Contact> contacts = new ArrayList<>();
         String sql = "SELECT * FROM contacts WHERE reply IS NOT NULL AND reply != ''";
@@ -44,7 +44,7 @@ public class ContactDAO {
                 contact.setEmail(rs.getString("email"));
                 contact.setSubject(rs.getString("subject"));
                 contact.setMessage(rs.getString("message"));
-                contact.setReply(rs.getString("reply")); // Include reply in the contact object
+                contact.setReply(rs.getString("reply")); 
                 contact.setCreatedAt(rs.getString("created_at"));
                 contacts.add(contact);
             }
@@ -52,7 +52,7 @@ public class ContactDAO {
         return contacts;
     }
 
-    // Retrieve all contacts
+   
     public List<Contact> getAllContacts() throws SQLException {
         List<Contact> contacts = new ArrayList<>();
         String sql = "SELECT * FROM contacts";
@@ -76,7 +76,7 @@ public class ContactDAO {
     
     
 
-    // Save a new contact
+   
     public void saveContact(Contact contact) throws SQLException {
         String sql = "INSERT INTO contacts (name, email, subject, message) VALUES (?, ?, ?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -88,7 +88,7 @@ public class ContactDAO {
         }
     }
     
-    // Update an existing contact
+   
     public void updateContact(Contact contact) throws SQLException {
         String sql = "UPDATE contacts SET name = ?, email = ?, subject = ?, message = ? , reply = ? WHERE id = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -103,7 +103,7 @@ public class ContactDAO {
         }
     }
     
-    // Retrieve a contact by its ID
+   
     public Contact getContactById(int id) throws SQLException {
         String query = "SELECT * FROM contacts WHERE id = ?";
         try (PreparedStatement pstmt = connection.prepareStatement(query)) {
@@ -116,7 +116,7 @@ public class ContactDAO {
                             rs.getString("email"),
                             rs.getString("subject"),
                             rs.getString("message"),
-                            rs.getString("reply") // Retrieve the reply
+                            rs.getString("reply") 
                     );
                 }
             }
@@ -124,7 +124,7 @@ public class ContactDAO {
         return null;
     }
 
-    // Delete a contact by its ID
+   
     public void deleteContact(int id) throws SQLException {
         String sql = "DELETE FROM contacts WHERE id = ?";
         
@@ -140,7 +140,7 @@ public class ContactDAO {
             pstmt.setString(2, contact.getEmail());
             pstmt.setString(3, contact.getSubject());
             pstmt.setString(4, contact.getMessage());
-            pstmt.setString(5, contact.getReply()); // Insert the reply
+            pstmt.setString(5, contact.getReply()); 
             pstmt.executeUpdate();
         }
     }
